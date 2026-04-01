@@ -16,6 +16,8 @@ $portfolioPaths = [
     '/get-online/hosting',
     '/get-online/vps-server',
     '/advertise',
+    '/pricing',
+    '/about',
     '/sell',
     '/proof',
     '/results',

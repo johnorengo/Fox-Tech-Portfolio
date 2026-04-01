@@ -16,10 +16,406 @@ const onlineLinks = [
 ];
 
 const directNavLinks = [
-    { href: "/advertise", label: "Advertise" },
-    { href: "/results", label: "Results" },
-    { href: "/learn", label: "Learn" },
+    { href: "/", label: "Home" },
+    { href: "/portfolio", label: "Portfolio" },
+    { href: "/pricing", label: "Pricing" },
+    { href: "/about", label: "About us" },
     { href: "/contact", label: "Contact" },
+    { href: "/blog", label: "Blog" },
+];
+
+const homeStats = [
+    { value: "230+", label: "deliverables launched for growing brands" },
+    { value: "4.9/5", label: "average client feedback across recent projects" },
+    { value: "7 days", label: "typical window to first strong direction" },
+];
+
+const homeOfferCards = [
+    {
+        eyebrow: "Brand identity",
+        title: "Build a visual system that feels premium from first glance.",
+        text: "Logo direction, campaign graphics, social kits, and polished brand collateral for teams that want to look ready.",
+        href: "/design",
+    },
+    {
+        eyebrow: "Web presence",
+        title: "Launch pages that explain your offer clearly and convert better.",
+        text: "Brochure sites, service pages, landing pages, and ecommerce builds designed to feel calm, modern, and credible.",
+        href: "/get-online",
+    },
+    {
+        eyebrow: "Digital growth",
+        title: "Turn your online presence into a practical lead engine.",
+        text: "Marketing support, campaign structure, and content systems that help your business show up consistently online.",
+        href: "/advertise",
+    },
+    {
+        eyebrow: "Knowledge support",
+        title: "Stay sharp with simple guidance your team can actually use.",
+        text: "Guides, articles, and rollout advice for founders who need clarity before making the next digital move.",
+        href: "/learn",
+    },
+];
+
+const homeProcessSteps = [
+    {
+        title: "Choose the lane that fits your next move",
+        text: "Start with design, web, or digital growth and we shape the scope around what your business needs now.",
+    },
+    {
+        title: "Review a cleaner creative direction early",
+        text: "We translate your brief into sections, layouts, and visuals quickly so the project feels tangible from the start.",
+    },
+    {
+        title: "Launch polished assets with a clear handoff",
+        text: "You get final files, structured pages, and a system you can keep using after the first launch.",
+    },
+];
+
+const homePackages = [
+    {
+        name: "Starter Sprint",
+        price: "KSh 8,500+",
+        summary: "For founders who need a sharper first impression fast.",
+        items: ["Logo or campaign refresh", "One focused landing page section", "Delivery-ready social assets"],
+        href: "/contact",
+        featured: false,
+    },
+    {
+        name: "Growth Build",
+        price: "KSh 24,000+",
+        summary: "For teams that want a cohesive site and brand system together.",
+        items: ["Multi-section website design", "Messaging and layout direction", "Launch support and revisions"],
+        href: "/pricing",
+        featured: true,
+    },
+    {
+        name: "Ongoing Creative Partner",
+        price: "Custom",
+        summary: "For brands that need continuous design and marketing support.",
+        items: ["Monthly campaign design", "Website improvement backlog", "Priority communication and planning"],
+        href: "/contact",
+        featured: false,
+    },
+];
+
+const homeTeamRoles = [
+    {
+        title: "Creative direction",
+        text: "Identity systems, social visuals, and campaign concepts that keep the brand looking consistent.",
+    },
+    {
+        title: "Web execution",
+        text: "Clean layouts, strong hierarchy, and practical page flows built around how real clients browse.",
+    },
+    {
+        title: "Growth support",
+        text: "Lead-focused messaging, launch support, and marketing structure that carries the design further.",
+    },
+];
+
+const homeCaseStudies = [
+    {
+        tag: "Website refresh",
+        title: "Qananu Africa",
+        text: "A cleaner service presentation with stronger trust cues and clearer navigation paths.",
+    },
+    {
+        tag: "Brand presence",
+        title: "Fashion Guru",
+        text: "Sharper visuals and more intentional page rhythm to make the brand feel premium and current.",
+    },
+    {
+        tag: "Business growth",
+        title: "Just Karz Kenya",
+        text: "A tidier digital storefront direction designed to help enquiries feel easier and faster.",
+    },
+];
+
+const footerGroups = [
+    {
+        title: "Services",
+        links: [
+            { href: "/design", label: "Design" },
+            { href: "/get-online", label: "Get Online" },
+            { href: "/advertise", label: "Advertise" },
+        ],
+    },
+    {
+        title: "Explore",
+        links: [
+            { href: "/portfolio", label: "Portfolio" },
+            { href: "/pricing", label: "Pricing" },
+            { href: "/about", label: "About" },
+        ],
+    },
+    {
+        title: "Resources",
+        links: [
+            { href: "/blog", label: "Blog" },
+            { href: "/learn", label: "Learn" },
+            { href: "/contact", label: "Contact" },
+            { href: "/free-guide", label: "Free Guide" },
+        ],
+    },
+];
+
+const landingFooterGroups = [
+    {
+        title: "Pages",
+        links: [
+            { href: "/", label: "Home" },
+            { href: "/portfolio", label: "Portfolio" },
+            { href: "/pricing", label: "Pricing" },
+            { href: "/about", label: "About us" },
+        ],
+    },
+    {
+        title: "Connect",
+        links: [
+            { href: "/contact", label: "Contact" },
+            { href: "/blog", label: "Blog" },
+            { href: "/pricing", label: "Sign up" },
+        ],
+    },
+    {
+        title: "Sections",
+        links: [
+            { href: "/portfolio", label: "Case Studies" },
+            { href: "/pricing", label: "FAQ" },
+            { href: "/about", label: "Team" },
+        ],
+    },
+    {
+        title: "Resources",
+        links: [
+            { href: "/learn", label: "Trending" },
+            { href: "/portfolio", label: "Integrations" },
+            { href: "#top", label: "Back to top" },
+        ],
+    },
+];
+
+const figmaBrandLogos = ["Logo", "Logo", "Logo", "Logo"];
+
+const figmaHomeFeatures = [
+    {
+        eyebrow: "Feature",
+        title: "Simple and super-easy to use!",
+        text: "Clear structure, friendly onboarding, and a layout that makes your offer feel easier to trust.",
+        artClass: "kg-fig-device-card--left",
+    },
+    {
+        eyebrow: "Feature",
+        title: "Simplicity is the key",
+        text: "Quiet spacing, strong hierarchy, and focused CTAs create a calmer product-style experience.",
+        artClass: "kg-fig-device-card--right",
+    },
+    {
+        eyebrow: "Feature",
+        title: "We have solutions for everyone",
+        text: "From first impressions to full digital rollout, each section helps move the visitor toward action.",
+        artClass: "kg-fig-device-card--left-soft",
+    },
+];
+
+const figmaWorkspaceHighlights = [
+    {
+        eyebrow: "Feature",
+        title: "Adjust your workspace",
+        text: "Shape the page around your offer, your proof, and the action you want people to take next.",
+        artClass: "kg-fig-board-card--wide",
+    },
+    {
+        eyebrow: "Feature",
+        title: "Simplicity is the key",
+        text: "A structured page feels more premium when the sections know exactly what job they are doing.",
+        artClass: "kg-fig-board-card--stack",
+    },
+    {
+        eyebrow: "Feature",
+        title: "We have solutions for everyone",
+        text: "Design, web, and launch support all fit into one consistent visual system.",
+        artClass: "kg-fig-board-card--phone",
+    },
+];
+
+const figmaReviews = [
+    {
+        name: "Alicia White",
+        role: "Founder",
+        quote: "The new layout finally made our business feel organized and premium.",
+    },
+    {
+        name: "Mark Otieno",
+        role: "Operations lead",
+        quote: "Clear process, better pages, and a smoother launch than we expected.",
+    },
+    {
+        name: "Susan Kariuki",
+        role: "Brand manager",
+        quote: "Our team now has a visual system we can actually keep using.",
+    },
+];
+
+const figmaTools = ["Slack", "Zapier", "Notion", "Figma", "Drive", "Dropbox", "GitHub", "Linear"];
+
+const figmaPricingPlans = [
+    {
+        name: "Starter",
+        price: "$199",
+        detail: "Best for simple launches and early brand cleanup.",
+        badge: null,
+    },
+    {
+        name: "Growth",
+        price: "$299",
+        detail: "Best for teams that need a stronger website and clearer structure.",
+        badge: "Popular",
+    },
+    {
+        name: "Business",
+        price: "$999",
+        detail: "Best for ongoing design, rollout support, and larger page systems.",
+        badge: null,
+    },
+];
+
+const figmaPricingFeatureGroups = [
+    {
+        title: "Main Features",
+        rows: [
+            { label: "Landing page sections", values: ["1-2", "5+", "Unlimited"] },
+            { label: "Revision rounds", values: ["1", "2", "Priority"] },
+            { label: "Content hierarchy support", values: ["Basic", "Advanced", "Advanced"] },
+            { label: "Launch support", values: ["-", "Included", "Included"] },
+        ],
+    },
+    {
+        title: "Integration",
+        rows: [
+            { label: "Contact forms", values: ["Basic", "Included", "Included"] },
+            { label: "Analytics setup", values: ["-", "Included", "Included"] },
+            { label: "Design system handoff", values: ["-", "Included", "Included"] },
+            { label: "Priority support", values: ["-", "-", "Included"] },
+        ],
+    },
+    {
+        title: "Main Features",
+        rows: [
+            { label: "Case study modules", values: ["-", "Included", "Included"] },
+            { label: "Team or blog templates", values: ["-", "Basic", "Included"] },
+            { label: "Priority revisions", values: ["-", "-", "Included"] },
+        ],
+    },
+];
+
+const figmaFaqs = [
+    {
+        question: "How quickly can a first concept be ready?",
+        answer: "Most projects move into a first strong direction within a week, depending on scope and content readiness.",
+    },
+    {
+        question: "Can you redesign an existing portfolio or business website?",
+        answer: "Yes. We can refresh the layout, tighten the messaging, and rebuild the visual system without starting from zero.",
+    },
+    {
+        question: "Do you also help with launch support?",
+        answer: "Yes. The project can include implementation guidance, refinements, and practical support during rollout.",
+    },
+    {
+        question: "Can I start with one page and expand later?",
+        answer: "Absolutely. We can build a clean first page, then extend the same system to pricing, blog, contact, and portfolio pages.",
+    },
+];
+
+const figmaTeamStats = [
+    { value: "2020", label: "We started" },
+    { value: "1M+", label: "Visitors reached" },
+    { value: "$100M", label: "Value influenced" },
+];
+
+const figmaTeamMembers = [
+    { name: "Pearl Scott", role: "Head of strategy" },
+    { name: "John Smith", role: "Operations" },
+    { name: "Victor Lee", role: "Product" },
+    { name: "Liu Chen", role: "UI lead" },
+    { name: "Olivia James", role: "Design" },
+    { name: "Pablo Perez", role: "Growth" },
+    { name: "Samantha Brown", role: "Research" },
+    { name: "Catherine Lim", role: "Marketing" },
+    { name: "Kelly Nguyen", role: "Support" },
+    { name: "Chris Doe", role: "Partnerships" },
+    { name: "Jason Yu", role: "Finance" },
+    { name: "Trevor Ali", role: "Delivery" },
+];
+
+const figmaJobCards = [
+    { title: "Product designer", mode: "Remote" },
+    { title: "Marketing designer", mode: "Hybrid" },
+    { title: "Project manager", mode: "Remote" },
+    { title: "Content strategist", mode: "Nairobi" },
+    { title: "Visual designer", mode: "Remote" },
+    { title: "Web specialist", mode: "Hybrid" },
+];
+
+const figmaOffices = [
+    { city: "Nairobi", address: "Westlands, Nairobi" },
+    { city: "Mombasa", address: "Nyali, Mombasa" },
+];
+
+const figmaContactDetails = [
+    { label: "Call us", value: "+254 700 123 456" },
+    { label: "Email us", value: "hello@foxtechsolutions.com" },
+    { label: "Address", value: "Westlands, Nairobi, Kenya" },
+];
+
+const figmaBlogPosts = [
+    {
+        title: "5 Ways to Boost Your Productivity",
+        excerpt: "Create stronger focus by simplifying your tools, routines, and design environment.",
+        imageClass: "kg-fig-blog-media--1",
+    },
+    {
+        title: "How to build a cleaner service page",
+        excerpt: "Use hierarchy, proof, and stronger calls to action to make your offer easier to understand.",
+        imageClass: "kg-fig-blog-media--2",
+    },
+    {
+        title: "Why a softer interface can feel more premium",
+        excerpt: "Airier spacing and calmer contrast often create a more trustworthy first impression.",
+        imageClass: "kg-fig-blog-media--3",
+    },
+    {
+        title: "How to organize your case studies better",
+        excerpt: "Turn project screenshots into stories that communicate outcomes more clearly.",
+        imageClass: "kg-fig-blog-media--4",
+    },
+    {
+        title: "Simple systems that help creative teams launch faster",
+        excerpt: "Templates and clear section patterns reduce friction when the work gets busy.",
+        imageClass: "kg-fig-blog-media--5",
+    },
+    {
+        title: "Building a blog that feels connected to the product",
+        excerpt: "Your articles should inherit the same visual language as the rest of the site.",
+        imageClass: "kg-fig-blog-media--6",
+    },
+    {
+        title: "What makes a services page easier to trust?",
+        excerpt: "Small design choices like rhythm, white space, and proof blocks can do a lot of work.",
+        imageClass: "kg-fig-blog-media--1",
+    },
+    {
+        title: "How to make case studies feel more editorial",
+        excerpt: "Pair stronger story structure with cleaner cards and calmer media framing.",
+        imageClass: "kg-fig-blog-media--2",
+    },
+    {
+        title: "A simple checklist for cleaner page launches",
+        excerpt: "Use repeatable sections and a tighter footer system to make the launch feel more complete.",
+        imageClass: "kg-fig-blog-media--3",
+    },
 ];
 
 const homeGoalCards = [
@@ -1104,6 +1500,18 @@ const pageMap = {
             "Follow-up and retention touchpoints",
         ],
     },
+    "/pricing": {
+        kind: "pricing",
+        title: "Pricing | Fox Tech Solutions",
+        heading: "Pricing",
+        summary: "Our pricing is very flexible, so you only pay for what you need and scale when you are ready.",
+    },
+    "/about": {
+        kind: "about",
+        title: "About | Fox Tech Solutions",
+        heading: "Meet the team behind the magic",
+        summary: "A softer company page for story, numbers, people, opportunities, and offices.",
+    },
     "/proof": {
         kind: "proof",
         title: "Proof | Fox Tech Solutions",
@@ -1119,27 +1527,27 @@ const pageMap = {
     "/portfolio": {
         kind: "portfolio",
         title: "Portfolio | Fox Tech Solutions",
-        heading: "Our Sample Work",
-        summary: "A quick look at the variety of design and business assets we deliver.",
+        heading: "Simple and intuitive right from the get-go",
+        summary: "A modular portfolio page that mixes product-style storytelling with case studies and integrations.",
     },
     "/blog": {
-        kind: "learn",
+        kind: "blog",
         title: "Blog | Fox Tech Solutions",
-        heading: "Your Guide to a Better Business",
-        summary: "Much-informed practical guides for growth of startups.",
+        heading: "Blog",
+        summary: "Useful articles and product-minded thinking collected in one cleaner editorial layout.",
     },
     "/learn": {
-        kind: "learn",
+        kind: "blog",
         title: "Learn | Fox Tech Solutions",
-        heading: "Your Guide to a Better Business",
-        summary: "Make informed decisions with our selection of articles.",
+        heading: "Insights for building a better business experience",
+        summary: "Articles, notes, and practical guidance that use the same calmer design language as the main site.",
     },
     "/contact": {
         kind: "contact",
         title: "Contact | Fox Tech Solutions",
-        heading: "Talk to Fox Tech Solutions",
+        heading: "Contact",
         summary:
-            "Share your business needs and we will recommend the right starting point for your goals.",
+            "We would love to hear from you. Fill out the form below and our team will get back to you shortly.",
     },
     "/free-guide": {
         kind: "info",
@@ -1188,271 +1596,316 @@ function isOnlinePath(pathname) {
 }
 
 function isPathMatch(pathname, href) {
+    if (href === "/") {
+        return pathname === "/";
+    }
+
+    if (href === "/portfolio") {
+        return pathname === "/portfolio";
+    }
+
     if (href === "/results") {
         return pathname === "/results" || pathname === "/proof";
     }
 
-    if (href === "/learn") {
+    if (href === "/blog") {
         return pathname === "/learn" || pathname === "/blog";
     }
 
     return pathname === href;
 }
 
-function HomePage() {
-    const goalTrackRef = useRef(null);
-    const goalLoopWidthRef = useRef(0);
-    const isNormalizingGoalsRef = useRef(false);
-    const hasInitializedGoalsRef = useRef(false);
-    const [activeGoalIndex, setActiveGoalIndex] = useState(0);
-    const loopedHomeGoals = useMemo(() => [...homeGoalCards, ...homeGoalCards, ...homeGoalCards], []);
-
-    const getGoalStep = (element) => {
-        const firstCard = element.querySelector(".kg-goal-card");
-        const computedStyles = window.getComputedStyle(element);
-        const gap = Number.parseFloat(computedStyles.columnGap || computedStyles.gap || "0") || 0;
-
-        if (!firstCard) {
-            return Math.max(element.clientWidth * 0.8, 260);
-        }
-
-        return firstCard.getBoundingClientRect().width + gap;
-    };
-
-    const normalizeGoalLoop = (element) => {
-        const singleSetWidth = goalLoopWidthRef.current;
-        if (singleSetWidth <= 0 || isNormalizingGoalsRef.current) {
-            return;
-        }
-
-        if (element.scrollLeft >= singleSetWidth * 2) {
-            isNormalizingGoalsRef.current = true;
-            element.scrollLeft -= singleSetWidth;
-            window.requestAnimationFrame(() => {
-                isNormalizingGoalsRef.current = false;
-            });
-            return;
-        }
-
-        if (element.scrollLeft <= 0) {
-            isNormalizingGoalsRef.current = true;
-            element.scrollLeft += singleSetWidth;
-            window.requestAnimationFrame(() => {
-                isNormalizingGoalsRef.current = false;
-            });
-        }
-    };
-
-    const syncActiveGoal = (element) => {
-        const singleSetWidth = goalLoopWidthRef.current;
-        const step = getGoalStep(element);
-        if (singleSetWidth <= 0 || step <= 0) {
-            return;
-        }
-
-        const normalizedOffset = element.scrollLeft - singleSetWidth;
-        const normalizedIndex = Math.round(normalizedOffset / step);
-        const modulo = homeGoalCards.length;
-        const safeIndex = ((normalizedIndex % modulo) + modulo) % modulo;
-        setActiveGoalIndex(safeIndex);
-    };
-
-    const scrollGoals = (direction = "next") => {
-        const element = goalTrackRef.current;
-        if (!element) {
-            return;
-        }
-
-        const step = getGoalStep(element);
-
-        if (direction === "next") {
-            element.scrollBy({ left: step, behavior: "smooth" });
-            return;
-        }
-
-        if (element.scrollLeft <= 4 && goalLoopWidthRef.current > 0) {
-            element.scrollLeft += goalLoopWidthRef.current;
-        }
-
-        element.scrollBy({ left: -step, behavior: "smooth" });
-    };
-
-    useEffect(() => {
-        const element = goalTrackRef.current;
-        if (!element) {
-            return undefined;
-        }
-
-        const syncGoalLoopMeta = () => {
-            goalLoopWidthRef.current = Math.max(0, element.scrollWidth / 3);
-
-            if (!hasInitializedGoalsRef.current && goalLoopWidthRef.current > 0) {
-                element.scrollLeft = goalLoopWidthRef.current;
-                hasInitializedGoalsRef.current = true;
-            }
-
-            syncActiveGoal(element);
-        };
-
-        const onGoalTrackScroll = () => {
-            normalizeGoalLoop(element);
-            syncActiveGoal(element);
-        };
-
-        syncGoalLoopMeta();
-        element.addEventListener("scroll", onGoalTrackScroll, { passive: true });
-        window.addEventListener("resize", syncGoalLoopMeta);
-        const autoSlideId = window.setInterval(() => scrollGoals("next"), 5000);
-
-        return () => {
-            element.removeEventListener("scroll", onGoalTrackScroll);
-            window.removeEventListener("resize", syncGoalLoopMeta);
-            window.clearInterval(autoSlideId);
-        };
-    }, []);
+function FigmaLogoRow({ variant = "strip" }) {
+    if (variant === "inline") {
+        return (
+            <section className="kg-fig-logo-strip kg-fig-logo-strip--inline">
+                <div className="kg-container kg-fig-logo-inline">
+                    <p>Trusted and used by those companies</p>
+                    <div className="kg-fig-logo-inline-grid">
+                        {figmaBrandLogos.map((item, index) => (
+                            <span key={`${item}-${index}`}>{item}</span>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
+    }
 
     return (
+        <section className="kg-fig-logo-strip">
+            <div className="kg-container">
+                <p>Trusted and used by teams that care about clarity</p>
+                <div className="kg-fig-logo-row">
+                    {figmaBrandLogos.map((item) => (
+                        <span key={item}>{item}</span>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function FigmaCaseStudies({ intro = "Recent work and directions shaped around clarity, trust, and easier action." }) {
+    return (
+        <section className="kg-fig-case-studies">
+            <div className="kg-container">
+                <div className="kg-fig-section-head">
+                    <p className="kg-fig-kicker">Case Studies</p>
+                    <h2>Case studies</h2>
+                    <p>{intro}</p>
+                </div>
+
+                <div className="kg-fig-case-grid">
+                    {resultsProjects.slice(0, 3).map((project, index) => (
+                        <article className="kg-fig-case-card" key={project.title}>
+                            <div className={`kg-fig-case-media kg-fig-case-media--${index + 1}`} />
+                            <h3>{project.title}</h3>
+                            <p>Product-minded storytelling, stronger hierarchy, and better visual pacing.</p>
+                        </article>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function FigmaAppsSection() {
+    return (
+        <section className="kg-fig-apps">
+            <div className="kg-container kg-fig-apps-wrap">
+                <div className="kg-fig-apps-copy">
+                    <p className="kg-fig-kicker">Integrations</p>
+                    <h2>Connect the apps that you use everyday</h2>
+                    <p>
+                        Keep the experience feeling connected with the tools, files, and systems your team already uses.
+                    </p>
+                    <a href="/pricing">Try now</a>
+                </div>
+
+                <div className="kg-fig-app-orbit" aria-hidden="true">
+                    {figmaTools.map((tool) => (
+                        <span key={tool}>{tool}</span>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function FigmaBottomCta({ title = "Try it for free", summary = "Build a calmer first impression with a page system that feels simple, polished, and easier to trust." }) {
+    return (
+        <section className="kg-fig-bottom-cta">
+            <div className="kg-container">
+                <h2>{title}</h2>
+                <p>{summary}</p>
+                <div className="kg-fig-bottom-actions">
+                    <a href="/pricing">Try now</a>
+                    <a href="/about">Learn more</a>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function HomePage() {
+    return (
         <>
-            <section className="kg-hero">
-                <div className="kg-container kg-hero-inner">
-                    <h1>
-                        Let&apos;s Build the Business
-                        <br />
-                        of Your Dreams
-                    </h1>
-                    <a className="kg-cta" href="/contact">
-                        Start Here
-                    </a>
+            <section className="kg-fig-hero">
+                <div className="kg-container kg-fig-hero-wrap">
+                    <div className="kg-fig-hero-copy">
+                        <h1>A place for your business</h1>
+                        <p>
+                            Build a calmer landing page with softer visuals, clear sections, and a structure
+                            that makes your business easier to understand.
+                        </p>
+                        <a href="/pricing">Try now</a>
+                    </div>
+
+                    <div className="kg-fig-hero-device" aria-hidden="true">
+                        <div className="kg-fig-monitor">
+                            <span />
+                            <span />
+                            <span />
+                            <span />
+                        </div>
+                        <div className="kg-fig-phone">
+                            <span />
+                            <span />
+                            <span />
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <section className="kg-section kg-section-soft kg-home-goal">
+            <FigmaLogoRow />
+
+            {figmaHomeFeatures.map((feature, index) => (
+                <section className={`kg-fig-feature-row ${index % 2 === 1 ? "is-reverse" : ""}`} key={feature.title}>
+                    <div className="kg-container kg-fig-feature-wrap">
+                        <div className={`kg-fig-device-card ${feature.artClass}`} aria-hidden="true">
+                            <span />
+                            <span />
+                            <span />
+                        </div>
+
+                        <div className="kg-fig-feature-copy">
+                            <p className="kg-fig-kicker">{feature.eyebrow}</p>
+                            <h2>{feature.title}</h2>
+                            <p>{feature.text}</p>
+                            <a href="/portfolio">Learn more</a>
+                        </div>
+                    </div>
+                </section>
+            ))}
+
+            <section className="kg-fig-blog-promo">
                 <div className="kg-container">
-                    <h2 className="kg-title">What&apos;s your business goal today?</h2>
-                    <p className="kg-goal-lead">
-                        Polish what matters with the best graphic designer in Kenya
-                    </p>
+                    <div className="kg-fig-blog-banner">
+                        <div>
+                            <p className="kg-fig-kicker kg-fig-kicker--inverse">Editorial</p>
+                            <h2>Check out our blog</h2>
+                            <p>Bring articles and thought pieces into the same visual system as the product pages.</p>
+                        </div>
 
-                    <div className="kg-goal-carousel">
-                        <button
-                            aria-label="Scroll business goals left"
-                            className="kg-goal-nav kg-goal-nav--prev"
-                            onClick={() => scrollGoals("prev")}
-                            type="button"
-                        >
-                            &lsaquo;
-                        </button>
-
-                        <div className="kg-goal-carousel-track" ref={goalTrackRef}>
-                            {loopedHomeGoals.map((card, index) => (
-                                <article className="kg-goal-card" key={`${card.title}-${index}`}>
-                                    <div className={`kg-goal-image ${card.imageClass}`} />
-                                    <div className="kg-goal-content">
-                                        <h3>
-                                            <a href={card.href}>
-                                                {card.title} &#8594;
-                                            </a>
-                                        </h3>
-                                        <p>{card.description}</p>
-                                    </div>
+                        <div className="kg-fig-blog-banner-grid">
+                            {figmaBlogPosts.slice(0, 3).map((post) => (
+                                <article className="kg-fig-blog-banner-card" key={post.title}>
+                                    <div className={`kg-fig-blog-card-media ${post.imageClass}`} />
+                                    <h3>{post.title}</h3>
                                 </article>
                             ))}
                         </div>
-
-                        <button
-                            aria-label="Scroll business goals right"
-                            className="kg-goal-nav kg-goal-nav--next"
-                            onClick={() => scrollGoals("next")}
-                            type="button"
-                        >
-                            &rsaquo;
-                        </button>
-                    </div>
-
-                    <div className="kg-goal-dots" aria-hidden="true">
-                        {homeGoalCards.map((item, index) => (
-                            <span
-                                className={index === activeGoalIndex ? "active" : ""}
-                                key={item.title}
-                            />
-                        ))}
                     </div>
                 </div>
             </section>
 
-            <section className="kg-section kg-section-soft">
+            <section className="kg-fig-inline-cta">
                 <div className="kg-container">
-                    <h2 className="kg-title">Here&rsquo;s an idea of what we do.</h2>
-                    <p className="kg-section-subtitle">
-                        Inspiring examples from the best graphic designer in Kenya
-                    </p>
-                    <div className="kg-sample-grid">
-                        {sampleWorks.map((sample) => (
-                            <article className="kg-sample-card" key={sample.title}>
-                                <div className={`kg-sample-image ${sample.imageClass}`} />
-                                <h3>{sample.title}</h3>
-                            </article>
-                        ))}
-                    </div>
-                    <div className="kg-center">
-                        <a className="kg-outline-btn" href="/portfolio">
-                            Explore More Samples
-                        </a>
-                    </div>
+                    <h2>Take your first leap towards success</h2>
+                    <p>Build a sharper first impression with calmer structure and cleaner visual rhythm.</p>
+                    <a href="/pricing">Try now</a>
                 </div>
             </section>
 
-            <section className="kg-section">
+            <section className="kg-fig-reviews">
                 <div className="kg-container">
-                    <div className="kg-google" aria-label="Google">
-                        <span className="kg-google-g">G</span>
-                        <span className="kg-google-o1">o</span>
-                        <span className="kg-google-o2">o</span>
-                        <span className="kg-google-g2">g</span>
-                        <span className="kg-google-l">l</span>
-                        <span className="kg-google-e">e</span>
+                    <div className="kg-fig-section-head kg-fig-section-head--center">
+                        <p className="kg-fig-kicker">Reviews from our users</p>
+                        <h2>Reviews from our users</h2>
                     </div>
-                    <h2 className="kg-title">Valuable Feedback From Customers</h2>
-                    <div className="kg-testimonial-row">
-                        {proofItems.map((item) => (
-                            <article className="kg-testimonial-card" key={item.name}>
-                                <div className="kg-avatar">{item.initials}</div>
-                                <div>
-                                    <h3>{item.name}</h3>
-                                    <strong>{item.rating}</strong>
-                                    <p>{item.text}</p>
-                                </div>
+
+                    <div className="kg-fig-review-grid">
+                        {figmaReviews.map((review) => (
+                            <article className="kg-fig-review-card" key={review.name}>
+                                <div className="kg-fig-stars">*****</div>
+                                <p>{review.quote}</p>
+                                <strong>{review.name}</strong>
+                                <span>{review.role}</span>
                             </article>
                         ))}
                     </div>
                 </div>
             </section>
 
-            <section className="kg-section kg-section-soft">
-                <div className="kg-container">
-                    <h2 className="kg-title">Learn something new today</h2>
-                    <div className="kg-blog-grid">
-                        {blogItems.map((post) => (
-                            <article className="kg-blog-card" key={post.title}>
-                                <div className={`kg-blog-image ${post.imageClass}`} />
-                                <h3>{post.title}</h3>
-                                <p>{post.excerpt}</p>
-                                <a href="/learn">Read More</a>
-                            </article>
-                        ))}
+            <section className="kg-fig-showcase">
+                <div className="kg-container kg-fig-showcase-wrap">
+                    <div className="kg-fig-showcase-copy">
+                        <p className="kg-fig-kicker kg-fig-kicker--inverse">Feature</p>
+                        <h2>Experience the best</h2>
+                        <p>Use one stronger visual block to break the page rhythm and make the experience feel more premium.</p>
+                        <a href="/about">Learn more</a>
+                    </div>
+                    <div className="kg-fig-showcase-art" aria-hidden="true">
+                        <span />
+                        <span />
+                        <span />
                     </div>
                 </div>
             </section>
 
-            <section className="kg-section">
-                <div className="kg-container kg-center kg-contact-call">
-                    <h2 className="kg-title">Turn Your Dreams Into Reality</h2>
-                    <a className="kg-cta" href="/contact">
-                        Get In Touch
+            <FigmaAppsSection />
+            <FigmaBottomCta />
+        </>
+    );
+}
+
+function LandingFooter() {
+    return (
+        <footer className="kg-footer kg-footer--landing">
+            <div className="kg-container kg-footer-inner kg-footer-inner--landing">
+                <div className="kg-footer-top kg-footer-top--landing">
+                    <div className="kg-footer-brandline">
+                        <strong>Fox Tech Solutions</strong>
+                        <p>Simple and intuitive pages built with calmer hierarchy.</p>
+                    </div>
+                </div>
+
+                <div className="kg-footer-grid kg-footer-grid--landing">
+                    {landingFooterGroups.map((group) => (
+                        <div className="kg-footer-column" key={group.title}>
+                            <h3>{group.title}</h3>
+                            <div className="kg-footer-links">
+                                {group.links.map((link) => (
+                                    <a href={link.href} key={`${group.title}-${link.href}`}>
+                                        {link.label}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="kg-footer-bottom kg-footer-bottom--landing">
+                    <p>&copy; {new Date().getFullYear()} Fox Tech Solutions</p>
+                    <p>All rights reserved</p>
+                </div>
+            </div>
+        </footer>
+    );
+}
+
+function DefaultFooter() {
+    return (
+        <footer className="kg-footer">
+            <div className="kg-container kg-footer-inner">
+                <div className="kg-footer-top">
+                    <div className="kg-footer-brand">
+                        <span className="kg-brand-mark kg-brand-mark--footer">FT</span>
+                        <div>
+                            <strong>Fox Tech Solutions</strong>
+                            <p>
+                                A calmer, more premium digital presence for businesses that need better
+                                design structure online.
+                            </p>
+                        </div>
+                    </div>
+
+                    <a className="kg-footer-cta" href="/contact">
+                        Book a project call
                     </a>
                 </div>
-            </section>
-        </>
+
+                <div className="kg-footer-grid">
+                    {footerGroups.map((group) => (
+                        <div className="kg-footer-column" key={group.title}>
+                            <h3>{group.title}</h3>
+                            <div className="kg-footer-links">
+                                {group.links.map((link) => (
+                                    <a href={link.href} key={link.href}>
+                                        {link.label}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="kg-footer-bottom">
+                    <p>&copy; {new Date().getFullYear()} Fox Tech Solutions</p>
+                    <p>Nairobi, Kenya</p>
+                </div>
+            </div>
+        </footer>
     );
 }
 
@@ -2947,25 +3400,83 @@ function AdvertisePage({ page }) {
 function PortfolioPage({ page }) {
     return (
         <>
-            <section className="kg-inner-hero">
-                <div className="kg-container">
-                    <h1>{page.heading}</h1>
-                    <p>{page.summary}</p>
-                </div>
-            </section>
-
-            <section className="kg-section">
-                <div className="kg-container">
-                    <div className="kg-sample-grid">
-                        {sampleWorks.map((sample) => (
-                            <article className="kg-sample-card" key={sample.title}>
-                                <div className={`kg-sample-image ${sample.imageClass}`} />
-                                <h3>{sample.title}</h3>
-                            </article>
-                        ))}
+            <section className="kg-fig-portfolio-hero">
+                <div className="kg-container kg-fig-portfolio-hero-wrap">
+                    <div className="kg-fig-portfolio-copy">
+                        <h1>{page.heading}</h1>
+                        <p>{page.summary}</p>
+                        <a href="/pricing">Try now</a>
+                    </div>
+                    <div className="kg-fig-workspace-art kg-fig-workspace-art--hero" aria-hidden="true">
+                        <span />
+                        <span />
+                        <span />
                     </div>
                 </div>
             </section>
+
+            <section className="kg-fig-workspace-stage">
+                <div className="kg-container">
+                    <div className="kg-fig-section-head kg-fig-section-head--center">
+                        <p className="kg-fig-kicker">Feature</p>
+                        <h2>Adjust your workspace</h2>
+                        <p>Shape the page around the offer, proof, and actions you want to foreground.</p>
+                    </div>
+                    <div className="kg-fig-workspace-art kg-fig-workspace-art--board" aria-hidden="true">
+                        <span />
+                        <span />
+                        <span />
+                    </div>
+                </div>
+            </section>
+
+            <section className="kg-fig-inline-cta">
+                <div className="kg-container">
+                    <h2>Take your first leap towards success</h2>
+                    <p>A clear structure helps your best work feel easier to understand.</p>
+                    <a href="/pricing">Try now</a>
+                </div>
+            </section>
+
+            {figmaWorkspaceHighlights.slice(1).map((feature, index) => (
+                <section className={`kg-fig-feature-row ${index % 2 === 0 ? "is-reverse" : ""}`} key={feature.title}>
+                    <div className="kg-container kg-fig-feature-wrap">
+                        <div className={`kg-fig-board-card ${feature.artClass}`} aria-hidden="true">
+                            <span />
+                            <span />
+                            <span />
+                        </div>
+
+                        <div className="kg-fig-feature-copy">
+                            <p className="kg-fig-kicker">{feature.eyebrow}</p>
+                            <h2>{feature.title}</h2>
+                            <p>{feature.text}</p>
+                            <a href="/pricing">Try now</a>
+                        </div>
+                    </div>
+                </section>
+            ))}
+
+            <section className="kg-fig-showcase kg-fig-showcase--portfolio">
+                <div className="kg-container kg-fig-showcase-wrap">
+                    <div className="kg-fig-showcase-copy">
+                        <p className="kg-fig-kicker kg-fig-kicker--inverse">Feature</p>
+                        <h2>Experience the best</h2>
+                        <p>A bold midpoint section mirrors the second homepage direction in your Figma board.</p>
+                        <a href="/pricing">Try now</a>
+                    </div>
+                    <div className="kg-fig-showcase-art" aria-hidden="true">
+                        <span />
+                        <span />
+                        <span />
+                    </div>
+                </div>
+            </section>
+
+            <FigmaCaseStudies intro="Recent website and design directions presented in a calmer, more product-like case study layout." />
+            <FigmaLogoRow variant="inline" />
+            <FigmaAppsSection />
+            <FigmaBottomCta summary="Build the portfolio page, then extend the same system to pricing, about, blog, and contact." />
         </>
     );
 }
@@ -2973,29 +3484,31 @@ function PortfolioPage({ page }) {
 function ProofPage({ page }) {
     return (
         <>
-            <section className="kg-inner-hero">
+            <section className="kg-fig-proof-hero">
                 <div className="kg-container">
+                    <p className="kg-fig-kicker">Proof</p>
                     <h1>{page.heading}</h1>
                     <p>{page.summary}</p>
                 </div>
             </section>
 
-            <section className="kg-section">
+            <section className="kg-fig-reviews">
                 <div className="kg-container">
-                    <div className="kg-testimonial-row">
+                    <div className="kg-fig-review-grid">
                         {proofItems.map((item) => (
-                            <article className="kg-testimonial-card" key={item.name}>
-                                <div className="kg-avatar">{item.initials}</div>
-                                <div>
-                                    <h3>{item.name}</h3>
-                                    <strong>{item.rating}</strong>
-                                    <p>{item.text}</p>
-                                </div>
+                            <article className="kg-fig-review-card" key={item.name}>
+                                <div className="kg-fig-stars">5 stars</div>
+                                <p>{item.text}</p>
+                                <strong>{item.name}</strong>
+                                <span>Client review</span>
                             </article>
                         ))}
                     </div>
                 </div>
             </section>
+
+            <FigmaCaseStudies intro="Proof works better when the testimonials and project stories support each other visually." />
+            <FigmaBottomCta summary="Use reviews, case studies, and better page structure to make trust feel immediate." />
         </>
     );
 }
@@ -3003,42 +3516,221 @@ function ProofPage({ page }) {
 function ResultsPage({ page }) {
     return (
         <>
-            <section className="kg-results-hero">
+            <section className="kg-fig-results-hero">
                 <div className="kg-container">
+                    <p className="kg-fig-kicker">Results</p>
                     <h1>{page.heading}</h1>
                     <p>{page.summary}</p>
                 </div>
             </section>
 
-            <section className="kg-results-stage">
+            <section className="kg-fig-results-stage">
                 <div className="kg-container">
-                    <div className="kg-results-grid">
+                    <div className="kg-fig-case-grid kg-fig-case-grid--wide">
                         {resultsProjects.map((project) => (
-                            <article className="kg-results-card" key={project.title}>
+                            <article className="kg-fig-case-card" key={project.title}>
                                 <a href="#" onClick={(event) => event.preventDefault()}>
-                                    <div className={`kg-results-thumb ${project.imageClass}`}>
-                                        <span className="kg-results-device kg-results-monitor" />
-                                        <span className="kg-results-device kg-results-laptop" />
-                                        <span className="kg-results-device kg-results-phone" />
-                                    </div>
+                                    <div className="kg-fig-case-media kg-fig-case-media--1" />
                                     <h3>{project.title}</h3>
+                                    <p>Cleaner structure, calmer hierarchy, and a more considered presentation of the work.</p>
                                 </a>
                             </article>
                         ))}
                     </div>
+                </div>
+            </section>
 
-                    <div className="kg-results-load">
-                        <button type="button">Load More</button>
+            <FigmaLogoRow />
+            <FigmaAppsSection />
+            <FigmaBottomCta summary="Once the work is clearer, the results page can do a much better job of closing the loop." />
+        </>
+    );
+}
+
+function PricingPage({ page }) {
+    return (
+        <>
+            <section className="kg-fig-pricing-hero">
+                <div className="kg-container">
+                    <div className="kg-fig-section-head kg-fig-section-head--center">
+                        <h1>{page.heading}</h1>
+                        <p>{page.summary}</p>
+                    </div>
+
+                    <div className="kg-fig-pricing-grid">
+                        {figmaPricingPlans.map((plan) => (
+                            <article className={`kg-fig-price-card ${plan.badge ? "is-popular" : ""}`} key={plan.name}>
+                                {plan.badge ? <span className="kg-fig-price-badge">{plan.badge}</span> : null}
+                                <h2>{plan.name}</h2>
+                                <strong>{plan.price}</strong>
+                                <p>{plan.detail}</p>
+                                <a href="/pricing">Try now</a>
+                            </article>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            <section className="kg-results-cta">
+            <section className="kg-fig-pricing-tables">
                 <div className="kg-container">
-                    <h2>Feeling Inspired? Design Yours</h2>
-                    <a href="/contact">GET IN TOUCH</a>
+                    {figmaPricingFeatureGroups.map((group) => (
+                        <div className="kg-fig-pricing-table-card" key={group.title}>
+                            <h2>{group.title}</h2>
+                            <div className="kg-fig-pricing-table">
+                                <div className="kg-fig-pricing-row kg-fig-pricing-row--head">
+                                    <span>Compare</span>
+                                    <span>Starter</span>
+                                    <span>Growth</span>
+                                    <span>Business</span>
+                                </div>
+                                {group.rows.map((row) => (
+                                    <div className="kg-fig-pricing-row" key={row.label}>
+                                        <span>{row.label}</span>
+                                        {row.values.map((value) => (
+                                            <span key={`${row.label}-${value}`}>{value}</span>
+                                        ))}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </section>
+
+            <section className="kg-fig-inline-cta">
+                <div className="kg-container">
+                    <h2>Try it for free</h2>
+                    <p>Start with the strongest first page, then expand the system from there.</p>
+                    <a href="/pricing">Try now</a>
+                </div>
+            </section>
+
+            <section className="kg-fig-faq">
+                <div className="kg-container">
+                    <div className="kg-fig-section-head kg-fig-section-head--center">
+                        <p className="kg-fig-kicker">FAQ</p>
+                        <h2>Frequently Asked Questions</h2>
+                    </div>
+
+                    <div className="kg-fig-faq-list">
+                        {figmaFaqs.map((faq) => (
+                            <details key={faq.question}>
+                                <summary>{faq.question}</summary>
+                                <p>{faq.answer}</p>
+                            </details>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <FigmaCaseStudies intro="Pair the pricing page with proof so the offer feels more tangible and credible." />
+            <FigmaAppsSection />
+            <FigmaBottomCta summary="A good pricing page should feel clear, roomy, and easy to compare at a glance." />
+        </>
+    );
+}
+
+function AboutPage({ page }) {
+    return (
+        <>
+            <section className="kg-fig-about-hero">
+                <div className="kg-container kg-fig-about-hero-wrap">
+                    <div className="kg-fig-about-copy">
+                        <h1>{page.heading}</h1>
+                        <p>{page.summary}</p>
+                    </div>
+                    <div className="kg-fig-about-photo kg-fig-about-photo--hero" aria-hidden="true" />
+                </div>
+            </section>
+
+            <section className="kg-fig-about-story">
+                <div className="kg-container kg-fig-about-story-wrap">
+                    <div className="kg-fig-about-photo kg-fig-about-photo--story" aria-hidden="true" />
+                    <div className="kg-fig-about-copy">
+                        <p className="kg-fig-kicker">Our Story</p>
+                        <h2>Designing calmer experiences for growing businesses.</h2>
+                        <p>
+                            This page follows the team/story layout from your Figma board so the company
+                            feels more established, more human, and more product-minded.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section className="kg-fig-about-stats">
+                <div className="kg-container">
+                    <div className="kg-fig-section-head kg-fig-section-head--center">
+                        <h2>Our numbers</h2>
+                    </div>
+                    <div className="kg-fig-stat-grid">
+                        {figmaTeamStats.map((item) => (
+                            <article className="kg-fig-stat-card" key={item.label}>
+                                <strong>{item.value}</strong>
+                                <span>{item.label}</span>
+                            </article>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="kg-fig-team">
+                <div className="kg-container">
+                    <div className="kg-fig-section-head kg-fig-section-head--center">
+                        <p className="kg-fig-kicker">Team</p>
+                        <h2>Team</h2>
+                    </div>
+
+                    <div className="kg-fig-team-grid">
+                        {figmaTeamMembers.map((member, index) => (
+                            <article className="kg-fig-team-card" key={member.name}>
+                                <div className={`kg-fig-team-photo kg-fig-team-photo--${(index % 6) + 1}`} />
+                                <h3>{member.name}</h3>
+                                <p>{member.role}</p>
+                            </article>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="kg-fig-investor-band">
+                <div className="kg-container">
+                    <h2>Our investors and board</h2>
+                </div>
+            </section>
+
+            <section className="kg-fig-jobs">
+                <div className="kg-container">
+                    <div className="kg-fig-section-head kg-fig-section-head--center">
+                        <p className="kg-fig-kicker">Hiring</p>
+                        <h2>New positions</h2>
+                    </div>
+
+                    <div className="kg-fig-job-grid">
+                        {figmaJobCards.map((job) => (
+                            <article className="kg-fig-job-card" key={job.title}>
+                                <h3>{job.title}</h3>
+                                <p>{job.mode}</p>
+                                <a href="/contact">Apply now</a>
+                            </article>
+                        ))}
+                    </div>
+
+                    <div className="kg-fig-section-head kg-fig-section-head--center kg-fig-section-head--offices">
+                        <h2>Our offices</h2>
+                    </div>
+
+                    <div className="kg-fig-office-grid">
+                        {figmaOffices.map((office) => (
+                            <article className="kg-fig-office-card" key={office.city}>
+                                <h3>{office.city}</h3>
+                                <p>{office.address}</p>
+                            </article>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <FigmaBottomCta summary="Use story, numbers, people, and hiring blocks to make the business feel established and trustworthy." />
         </>
     );
 }
@@ -3046,19 +3738,39 @@ function ResultsPage({ page }) {
 function BlogPage({ page }) {
     return (
         <>
-            <section className="kg-inner-hero">
+            <section className="kg-fig-blog-hero">
                 <div className="kg-container">
-                    <h1>{page.heading}</h1>
-                    <p>{page.summary}</p>
+                    <div className="kg-fig-blog-hero-card">
+                        <p className="kg-fig-kicker kg-fig-kicker--inverse">Blog</p>
+                        <h1>{page.heading}</h1>
+                        <p>{page.summary}</p>
+                    </div>
                 </div>
             </section>
 
-            <section className="kg-section">
+            <section className="kg-fig-blog-featured">
+                <div className="kg-container kg-fig-blog-featured-wrap">
+                    <div className="kg-fig-blog-featured-media kg-fig-blog-media--hero" aria-hidden="true" />
+                    <article className="kg-fig-blog-featured-copy">
+                        <p className="kg-fig-kicker">Featured</p>
+                        <h2>{figmaBlogPosts[0].title}</h2>
+                        <p>{figmaBlogPosts[0].excerpt}</p>
+                        <a href="/contact">Read article</a>
+                    </article>
+                </div>
+            </section>
+
+            <section className="kg-fig-blog-feed">
                 <div className="kg-container">
-                    <div className="kg-blog-grid">
-                        {blogItems.map((post) => (
-                            <article className="kg-blog-card" key={post.title}>
-                                <div className={`kg-blog-image ${post.imageClass}`} />
+                    <div className="kg-fig-section-head">
+                        <p className="kg-fig-kicker">Trending</p>
+                        <h2>Trending</h2>
+                    </div>
+
+                    <div className="kg-fig-blog-feed-grid">
+                        {figmaBlogPosts.map((post) => (
+                            <article className="kg-fig-blog-feed-card" key={post.title}>
+                                <div className={`kg-fig-blog-card-media ${post.imageClass}`} />
                                 <h3>{post.title}</h3>
                                 <p>{post.excerpt}</p>
                             </article>
@@ -3071,116 +3783,57 @@ function BlogPage({ page }) {
 }
 
 function LearnPage({ page }) {
+    return <BlogPage page={page} />;
+}
+
+function ContactPage({ page }) {
     return (
         <>
-            <section className="kg-learn-hero" aria-label={page.heading}>
-                <div className="kg-container">
+            <section className="kg-fig-contact-hero">
+                <div className="kg-container kg-fig-contact-head">
                     <h1>{page.heading}</h1>
                     <p>{page.summary}</p>
-                    <span className="kg-learn-hero-mark" aria-hidden="true">
-                        ?
-                    </span>
                 </div>
             </section>
 
-            <section className="kg-learn-feed">
+            <section className="kg-fig-contact-stage">
+                <div className="kg-container kg-fig-contact-stage-wrap">
+                    <form className="kg-fig-contact-form" onSubmit={(event) => event.preventDefault()}>
+                        <label>
+                            Name
+                            <input name="name" placeholder="Your name" required type="text" />
+                        </label>
+                        <label>
+                            Email
+                            <input name="email" placeholder="your@email.com" required type="email" />
+                        </label>
+                        <label>
+                            Phone
+                            <input name="phone" placeholder="+254..." required type="tel" />
+                        </label>
+                        <label>
+                            Message
+                            <textarea name="message" placeholder="Tell us about your project" rows={5} />
+                        </label>
+                        <button type="submit">Send message</button>
+                    </form>
+
+                    <div className="kg-fig-contact-map" aria-hidden="true">
+                        <div className="kg-fig-contact-map-pin" />
+                    </div>
+                </div>
+            </section>
+
+            <section className="kg-fig-contact-meta">
                 <div className="kg-container">
-                    <div className="kg-learn-post-grid">
-                        {learnPosts.map((post) => (
-                            <article className="kg-learn-post" key={post.title}>
-                                <a href="#" onClick={(event) => event.preventDefault()}>
-                                    <div className={`kg-learn-post-media ${post.imageClass}`} />
-                                    <div className="kg-learn-post-copy">
-                                        <h3>{post.title}</h3>
-                                        <p>Fox Tech Team</p>
-                                    </div>
-                                </a>
+                    <div className="kg-fig-contact-meta-grid">
+                        {figmaContactDetails.map((item) => (
+                            <article className="kg-fig-contact-meta-card" key={item.label}>
+                                <h2>{item.label}</h2>
+                                <p>{item.value}</p>
                             </article>
                         ))}
                     </div>
-
-                    <div className="kg-learn-dots" aria-hidden="true">
-                        <span className="active" />
-                        <span />
-                        <span />
-                        <span />
-                        <span />
-                    </div>
-                </div>
-            </section>
-        </>
-    );
-}
-
-function ContactPage() {
-    return (
-        <>
-            <section className="kg-contact-hero">
-                <div className="kg-container">
-                    <h1>How Can I Help You?</h1>
-                </div>
-            </section>
-
-            <section className="kg-contact-stage">
-                <div className="kg-container kg-contact-grid">
-                    <div className="kg-contact-left">
-                        <h2>Tell me here:</h2>
-                        <p className="kg-contact-lead">
-                            I am friendly, approachable, and committed to ensuring our collaborative
-                            experience is one that you will want to repeat.
-                        </p>
-
-                        <form className="kg-contact-form" onSubmit={(event) => event.preventDefault()}>
-                            <input name="name" placeholder="Your Name" required type="text" />
-                            <input name="phone" placeholder="Phone Number" required type="tel" />
-                            <input name="email" placeholder="Your Email" required type="email" />
-                            <textarea name="message" placeholder="Message" rows={5} />
-                            <button type="submit">Send Enquiry</button>
-                        </form>
-                    </div>
-
-                    <aside className="kg-contact-right">
-                        <article className="kg-contact-item">
-                            <div className="kg-contact-icon" aria-hidden="true">
-                                24
-                            </div>
-                            <div>
-                                <h3>Working Hours</h3>
-                                <p>Monday through Friday Available 24 hours (via chat)</p>
-                            </div>
-                        </article>
-
-                        <article className="kg-contact-item">
-                            <div className="kg-contact-icon" aria-hidden="true">
-                                @
-                            </div>
-                            <div>
-                                <h3>If you prefer, send me a regular email:</h3>
-                                <p>hello@foxtechsolutions.com</p>
-                            </div>
-                        </article>
-
-                        <div className="kg-contact-social">
-                            <h3>Or Simply CONNECT WITH ME on Social Media</h3>
-                            <p>
-                                <a href="#" onClick={(event) => event.preventDefault()}>
-                                    Facebook
-                                </a>
-                                |
-                                <a href="#" onClick={(event) => event.preventDefault()}>
-                                    Instagram
-                                </a>
-                                |
-                                <a href="#" onClick={(event) => event.preventDefault()}>
-                                    LinkedIn
-                                </a>
-                                |
-                                <a href="#" onClick={(event) => event.preventDefault()}>
-                                    Pinterest
-                                </a>
-                            </p>
-                        </div>
-                    </aside>
                 </div>
             </section>
         </>
@@ -3216,6 +3869,14 @@ function renderPage(page) {
 
     if (page.kind === "advertise") {
         return <AdvertisePage page={page} />;
+    }
+
+    if (page.kind === "pricing") {
+        return <PricingPage page={page} />;
+    }
+
+    if (page.kind === "about") {
+        return <AboutPage page={page} />;
     }
 
     if (page.kind === "email_setup") {
@@ -3294,6 +3955,7 @@ export default function FoxTechPortfolioPage({ path }) {
     }, [path]);
 
     const currentPage = pageMap[currentPath];
+    const isLandingPage = ["home", "portfolio", "pricing", "about", "blog", "contact"].includes(currentPage?.kind);
 
     useEffect(() => {
         document.title = currentPage?.title || "Fox Tech Solutions";
@@ -3316,11 +3978,8 @@ export default function FoxTechPortfolioPage({ path }) {
                         href="/"
                         onClick={closeMenu}
                     >
-                        <span aria-hidden="true" className="kg-brand-lockup">
-                            <span className="kg-brand-wordmark">
-                                <span className="kg-brand-main">FOX TECH</span>
-                                <span className="kg-brand-sub">SOLUTIONS</span>
-                            </span>
+                        <span className="kg-brand-wordmark">
+                            <span className="kg-brand-main">Fox Tech Solutions</span>
                         </span>
                     </a>
 
@@ -3335,40 +3994,6 @@ export default function FoxTechPortfolioPage({ path }) {
                     </button>
 
                     <nav className={`kg-nav ${menuOpen ? "open" : ""}`} id="kg-nav">
-                        <div className="kg-nav-group">
-                            <a
-                                className={`kg-group-link ${isDesignPath(currentPath) ? "active" : ""}`}
-                                href="/design"
-                                onClick={closeMenu}
-                            >
-                                Design
-                            </a>
-                            <div className="kg-dropdown">
-                                {designLinks.map((item) => (
-                                    <a href={item.href} key={item.href} onClick={closeMenu}>
-                                        {item.label}
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="kg-nav-group">
-                            <a
-                                className={`kg-group-link ${isOnlinePath(currentPath) ? "active" : ""}`}
-                                href="/get-online"
-                                onClick={closeMenu}
-                            >
-                                Get Online
-                            </a>
-                            <div className="kg-dropdown">
-                                {onlineLinks.map((item) => (
-                                    <a href={item.href} key={item.href} onClick={closeMenu}>
-                                        {item.label}
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-
                         {directNavLinks.map((item) => (
                             <a
                                 href={item.href}
@@ -3379,30 +4004,13 @@ export default function FoxTechPortfolioPage({ path }) {
                                 {item.label}
                             </a>
                         ))}
-
-                        <a className="kg-quote-btn" href="/free-guide" onClick={closeMenu}>
-                            Free Guide
-                        </a>
                     </nav>
                 </div>
             </header>
 
             <main id="main-content">{renderPage(currentPage)}</main>
 
-            <footer className="kg-footer">
-                <div className="kg-container kg-footer-inner">
-                    <div className="kg-footer-links">
-                        <a href="/">Home</a>
-                        <a href="/design">Design</a>
-                        <a href="/get-online">Get Online</a>
-                        <a href="/portfolio">Portfolio</a>
-                        <a href="/results">Results</a>
-                        <a href="/learn">Learn</a>
-                        <a href="/contact">Contact</a>
-                    </div>
-                    <p>&copy; {new Date().getFullYear()} Fox Tech Solutions</p>
-                </div>
-            </footer>
+            {isLandingPage ? <LandingFooter /> : <DefaultFooter />}
         </div>
     );
 }
