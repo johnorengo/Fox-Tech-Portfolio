@@ -1,5 +1,6 @@
 ﻿<?php
 
+use App\Http\Controllers\WebsiteLeadController;
 use Illuminate\Support\Facades\Route;
 
 $portfolioPaths = [
@@ -17,6 +18,7 @@ $portfolioPaths = [
     '/get-online/vps-server',
     '/advertise',
     '/pricing',
+    '/payment',
     '/about',
     '/sell',
     '/proof',
@@ -29,6 +31,9 @@ $portfolioPaths = [
     '/client-space',
 ];
 
+Route::post('/contact', [WebsiteLeadController::class, 'contact'])->name('contact.submit');
+Route::post('/payment-request', [WebsiteLeadController::class, 'payment'])->name('payment.submit');
+
 foreach ($portfolioPaths as $path) {
     Route::view($path, 'welcome');
 }
@@ -36,4 +41,3 @@ foreach ($portfolioPaths as $path) {
 Route::fallback(function () {
     return view('welcome');
 });
-
