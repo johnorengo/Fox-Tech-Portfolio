@@ -106,7 +106,6 @@ export function FigmaCaseStudies({ intro = "Recent work and directions shaped ar
         <section className="kg-fig-case-studies">
             <div className="kg-container">
                 <div className="kg-fig-section-head">
-                    <p className="kg-fig-kicker">Case Studies</p>
                     <h2>Case studies</h2>
                     <p>{intro}</p>
                 </div>
@@ -130,7 +129,6 @@ export function FigmaAppsSection() {
         <section className="kg-fig-apps">
             <div className="kg-container kg-fig-apps-wrap">
                 <div className="kg-fig-apps-copy">
-                    <p className="kg-fig-kicker">Integrations</p>
                     <h2>Connect the apps that you use everyday</h2>
                     <p>
                         Keep the experience feeling connected with the tools, files, and systems your team already uses.

@@ -1,6 +1,6 @@
 import React from "react";
 import * as data from "../../data/siteData";
-import { FigmaAppsSection, FigmaBottomCta, FigmaCaseStudies, FigmaLogoRow } from "../../shared/Sections";
+import { FigmaAppsSection, FigmaBottomCta, FigmaCaseStudies } from "../../shared/Sections";
 const {
     designLinks,
     onlineLinks,
@@ -93,7 +93,6 @@ export function PortfolioPage({ page }) {
             <section className="kg-fig-workspace-stage">
                 <div className="kg-container">
                     <div className="kg-fig-section-head kg-fig-section-head--center">
-                        <p className="kg-fig-kicker">Feature</p>
                         <h2>Adjust your workspace</h2>
                         <p>Shape the page around the offer, proof, and actions you want to foreground.</p>
                     </div>
@@ -123,7 +122,7 @@ export function PortfolioPage({ page }) {
                         </div>
 
                         <div className="kg-fig-feature-copy">
-                            <p className="kg-fig-kicker">{feature.eyebrow}</p>
+                            {feature.eyebrow ? <p className="kg-fig-kicker">{feature.eyebrow}</p> : null}
                             <h2>{feature.title}</h2>
                             <p>{feature.text}</p>
                             <a href="/pricing">Try now</a>
@@ -135,7 +134,6 @@ export function PortfolioPage({ page }) {
             <section className="kg-fig-showcase kg-fig-showcase--portfolio">
                 <div className="kg-container kg-fig-showcase-wrap">
                     <div className="kg-fig-showcase-copy">
-                        <p className="kg-fig-kicker kg-fig-kicker--inverse">Feature</p>
                         <h2>Experience the best</h2>
                         <p>A bold midpoint section mirrors the second homepage direction in your Figma board.</p>
                         <a href="/pricing">Try now</a>
@@ -149,7 +147,6 @@ export function PortfolioPage({ page }) {
             </section>
 
             <FigmaCaseStudies intro="Recent website and design directions presented in a calmer, more product-like case study layout." />
-            <FigmaLogoRow variant="inline" />
             <FigmaAppsSection />
             <FigmaBottomCta summary="Build the portfolio page, then extend the same system to pricing, about, blog, and contact." />
         </>

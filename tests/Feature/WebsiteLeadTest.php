@@ -87,4 +87,34 @@ class WebsiteLeadTest extends TestCase
             ->assertStatus(422)
             ->assertJsonValidationErrors(['payment_method']);
     }
+
+    public function test_contact_form_returns_service_unavailable_when_mail_fails(): void
+    {
+        config([
+            'mail.from.address' => 'enquiries@foxtechsolution.com',
+            'mail.from.name' => 'Fox Tech Solutions',
+        ]);
+
+        Mail::shouldReceive('to')
+            ->once()
+            ->with('enquiries@foxtechsolution.com', 'Fox Tech Solutions')
+            ->andReturnSelf();
+
+        Mail::shouldReceive('send')
+            ->once()
+            ->andThrow(new \RuntimeException('SMTP connection failed.'));
+
+        $response = $this->postJson('/contact', [
+            'name' => 'Jane Doe',
+            'email' => 'jane@example.com',
+            'phone' => '+254700000111',
+            'message' => 'I would like help with a new website.',
+        ]);
+
+        $response
+            ->assertStatus(503)
+            ->assertJson([
+                'message' => 'We could not send your request right now. Please email enquiries@foxtechsolution.com or call +254706830730.',
+            ]);
+    }
 }

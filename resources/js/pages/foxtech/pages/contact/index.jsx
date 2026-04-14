@@ -44,7 +44,7 @@ export function ContactPage({ page }) {
             } else {
                 setFeedback({
                     tone: "error",
-                    message: "We could not send your message right now. Please try again in a moment.",
+                    message: error.response?.data?.message ?? "We could not send your message right now. Please try again in a moment.",
                 });
             }
         } finally {

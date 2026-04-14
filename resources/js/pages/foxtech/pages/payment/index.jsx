@@ -70,7 +70,7 @@ export function PaymentPage({ page }) {
             } else {
                 setFeedback({
                     tone: "error",
-                    message: "We could not send your payment request right now. Please try again in a moment.",
+                    message: error.response?.data?.message ?? "We could not send your payment request right now. Please try again in a moment.",
                 });
             }
         } finally {
@@ -132,7 +132,6 @@ export function PaymentPage({ page }) {
                     <div className="kg-fig-payment-method-grid">
                         {figmaPaymentMethods.map((method) => (
                             <article className="kg-fig-payment-method-card" key={method.name}>
-                                <span className="kg-fig-payment-method-label">{method.name}</span>
                                 <h3>{method.name}</h3>
                                 <p>{method.summary}</p>
                                 <ul>

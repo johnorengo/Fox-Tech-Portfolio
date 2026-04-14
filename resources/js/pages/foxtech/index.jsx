@@ -24,7 +24,7 @@ export default function FoxTechPortfolioPage({ path }) {
     const closeMenu = () => setMenuOpen(false);
 
     return (
-        <div className="kg-page" id="top">
+        <div className={`kg-page ${currentPage ? `kg-page--${currentPage.kind}` : "kg-page--not-found"}`} id="top">
             <a className="kg-skip" href="#main-content">
                 Skip to content
             </a>

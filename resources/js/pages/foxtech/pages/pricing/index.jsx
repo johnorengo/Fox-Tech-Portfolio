@@ -126,7 +126,6 @@ export function PricingPage({ page }) {
             <section className="kg-fig-payment-methods">
                 <div className="kg-container">
                     <div className="kg-fig-section-head kg-fig-section-head--center">
-                        <p className="kg-fig-kicker">Payments</p>
                         <h2>Payment methods</h2>
                         <p>We currently accept M-Pesa and bank transfer for project payments.</p>
                     </div>
@@ -134,7 +133,6 @@ export function PricingPage({ page }) {
                     <div className="kg-fig-payment-grid">
                         {figmaPaymentMethods.map((method) => (
                             <article className="kg-fig-payment-card" key={method.name}>
-                                <span className="kg-fig-payment-pill">{method.name}</span>
                                 <h3>{method.name}</h3>
                                 <p>{method.summary}</p>
                                 <small>{method.detail}</small>
@@ -155,7 +153,6 @@ export function PricingPage({ page }) {
             <section className="kg-fig-faq">
                 <div className="kg-container">
                     <div className="kg-fig-section-head kg-fig-section-head--center">
-                        <p className="kg-fig-kicker">FAQ</p>
                         <h2>Frequently Asked Questions</h2>
                     </div>
 

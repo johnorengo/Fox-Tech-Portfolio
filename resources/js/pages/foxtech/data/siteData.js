@@ -198,19 +198,19 @@ export const figmaBrandLogos = ["Logo", "Logo", "Logo", "Logo"];
 
 export const figmaHomeFeatures = [
     {
-        eyebrow: "Feature",
+        eyebrow: null,
         title: "Simple and super-easy to use!",
         text: "Clear structure, friendly onboarding, and a layout that makes your offer feel easier to trust.",
         artClass: "kg-fig-device-card--left",
     },
     {
-        eyebrow: "Feature",
+        eyebrow: null,
         title: "Simplicity is the key",
         text: "Quiet spacing, strong hierarchy, and focused CTAs create a calmer product-style experience.",
         artClass: "kg-fig-device-card--right",
     },
     {
-        eyebrow: "Feature",
+        eyebrow: null,
         title: "We have solutions for everyone",
         text: "From first impressions to full digital rollout, each section helps move the visitor toward action.",
         artClass: "kg-fig-device-card--left-soft",
@@ -219,19 +219,19 @@ export const figmaHomeFeatures = [
 
 export const figmaWorkspaceHighlights = [
     {
-        eyebrow: "Feature",
+        eyebrow: null,
         title: "Adjust your workspace",
         text: "Shape the page around your offer, your proof, and the action you want people to take next.",
         artClass: "kg-fig-board-card--wide",
     },
     {
-        eyebrow: "Feature",
+        eyebrow: null,
         title: "Simplicity is the key",
         text: "A structured page feels more premium when the sections know exactly what job they are doing.",
         artClass: "kg-fig-board-card--stack",
     },
     {
-        eyebrow: "Feature",
+        eyebrow: null,
         title: "We have solutions for everyone",
         text: "Design, web, and launch support all fit into one consistent visual system.",
         artClass: "kg-fig-board-card--phone",
@@ -344,24 +344,84 @@ export const figmaFaqs = [
 ];
 
 export const figmaTeamStats = [
-    { value: "2020", label: "We started" },
-    { value: "1M+", label: "Visitors reached" },
-    { value: "$100M", label: "Value influenced" },
+    { value: "Clarity", label: "We make businesses easier to understand online." },
+    { value: "Trust", label: "We build design and websites that feel professional and credible." },
+    { value: "Ownership", label: "Every project gets direct founder involvement from start to finish." },
 ];
 
 export const figmaTeamMembers = [
-    { name: "Pearl Scott", role: "Head of strategy" },
-    { name: "John Smith", role: "Operations" },
-    { name: "Victor Lee", role: "Product" },
-    { name: "Liu Chen", role: "UI lead" },
-    { name: "Olivia James", role: "Design" },
-    { name: "Pablo Perez", role: "Growth" },
-    { name: "Samantha Brown", role: "Research" },
-    { name: "Catherine Lim", role: "Marketing" },
-    { name: "Kelly Nguyen", role: "Support" },
-    { name: "Chris Doe", role: "Partnerships" },
-    { name: "Jason Yu", role: "Finance" },
-    { name: "Trevor Ali", role: "Delivery" },
+    {
+        name: "John Orengo",
+        role: "Technical Lead & Co-founder",
+        location: "Nairobi, Kenya",
+        statement: "Full-stack engineer with 3+ years of experience building web applications and SaaS platforms. Leads all technical delivery at Fox Tech Solutions.",
+        focus: "Founder-led strategy, design, and delivery",
+    },
+];
+
+export const aboutMissionCards = [
+    {
+        title: "Our Mission",
+        text: "To help businesses build exceptional digital experiences that look professional, feel clear, and drive measurable growth. We combine cost-efficiency with accountability and quality—delivering what larger agencies charge for at the speed and personal touch of a specialized team.",
+    },
+    {
+        title: "Our Vision",
+        text: "To become the go-to development partner for startups at the product-building stage—known for shipping fast, communicating clearly, and delivering results that move businesses forward.",
+    },
+];
+
+export const aboutSupportPoints = [
+    "Senior-only team; no account managers or middlemen learning on your project.",
+    "Freelancer pricing, agency-level execution and accountability.",
+    "Direct communication; no account managers or middlemen.",
+    "We care about your product, not just the deliverables.",
+    "Timezone awareness and flexible engagement for startup schedules.",
+];
+
+export const aboutAdvantageCards = [
+    {
+        title: "Speed without compromise",
+        text: "We ship without unnecessary processes, so you move faster than you thought possible.",
+    },
+    {
+        title: "Outcomes-focused",
+        text: "We care about your success metrics, not our project hours.",
+    },
+    {
+        title: "True partnership",
+        text: "We act like we're part of your team; invested in the real outcome, not just the delivery.",
+    },
+    {
+        title: "Craft & craftsmanship",
+        text: "Every detail matters. Our senior engineers obsess over quality code and thoughtful architecture.",
+    },
+];
+
+export const aboutJourneySteps = [
+    {
+        year: "2019",
+        text: "Built the technical foundation through hands-on software development, IT systems support, and solving real-world technology challenges.",
+    },
+    {
+        year: "2020",
+        text: "Began delivering independent client projects, creating digital solutions that improved operations, visibility, and growth.",
+    },
+    {
+        year: "2022",
+        text: "Launched the vision for Fox Tech Solutions — a modern technology company focused on practical innovation and measurable results.",
+    },
+    {
+        year: "2024",
+        text: "Expanded service delivery across websites, business platforms, branding systems, and custom software for startups and growing organizations.",
+    },
+     {
+        year: "2025",
+        text: "Strengthened capabilities through enterprise ICT experience, combining software expertise with infrastructure, support, and operational excellence.",
+    },
+    {
+        year: "2026",
+        text: "Fox Tech Solutions is evolving into a trusted digital partner for ambitious businesses seeking transformation, automation, and scalable growth.",
+    },
 ];
 
 export const figmaJobCards = [
@@ -374,8 +434,7 @@ export const figmaJobCards = [
 ];
 
 export const figmaOffices = [
-    { city: "Nairobi", address: "Westlands, Nairobi" },
-    { city: "Mombasa", address: "Nyali, Mombasa" },
+    { city: "Nairobi, Kenya" },
 ];
 
 export const figmaContactDetails = [
@@ -1529,8 +1588,8 @@ export const pageMap = {
     "/about": {
         kind: "about",
         title: "About | Fox Tech Solutions",
-        heading: "Meet the team behind the magic",
-        summary: "A softer company page for story, numbers, people, opportunities, and offices.",
+        heading: "Small Team. Big Delivery.",
+        summary: "Fox Tech Solutions is a high-expertise software development team building web applications, SaaS platforms, and startup MVPs for US businesses. We combine the cost-efficiency of freelancers with the accountability and quality of a top-tier agency.",
     },
     "/proof": {
         kind: "proof",
