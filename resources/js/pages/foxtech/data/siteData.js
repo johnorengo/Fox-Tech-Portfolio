@@ -362,11 +362,11 @@ export const figmaTeamMembers = [
 export const aboutMissionCards = [
     {
         title: "Our Mission",
-        text: "To help businesses build exceptional digital experiences that look professional, feel clear, and drive measurable growth. We combine cost-efficiency with accountability and quality—delivering what larger agencies charge for at the speed and personal touch of a specialized team.",
+        text: "To help businesses build exceptional digital experiences that look professional, feel clear, and drive measurable growth. We combine cost-efficiency with accountability and quality delivering what larger agencies charge for at the speed and personal touch of a specialized team.",
     },
     {
         title: "Our Vision",
-        text: "To become the go-to development partner for startups at the product-building stage—known for shipping fast, communicating clearly, and delivering results that move businesses forward.",
+        text: "To become the go-to development partner for startups at the product-building stage known for shipping fast, communicating clearly, and delivering results that move businesses forward.",
     },
 ];
 
@@ -1589,7 +1589,7 @@ export const pageMap = {
         kind: "about",
         title: "About | Fox Tech Solutions",
         heading: "Small Team. Big Delivery.",
-        summary: "Fox Tech Solutions is a high-expertise software development team building web applications, SaaS platforms, and startup MVPs for US businesses. We combine the cost-efficiency of freelancers with the accountability and quality of a top-tier agency.",
+        summary: "Fox Tech Solutions is a high-expertise software development team building web applications, SaaS platforms, and startup MVPs for businesses around the world. We combine the cost-efficiency of freelancers with the accountability and quality of a top-tier agency.",
     },
     "/proof": {
         kind: "proof",
@@ -1627,6 +1627,8 @@ export const pageMap = {
         heading: "Contact",
         summary:
             "We would love to hear from you. Fill out the form below and our team will get back to you shortly.",
+        googleFormEmbedUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfoDeoEwDR-f9389UXJ9O-XzaDAdFt0WY50Phsk9P1q2OsWSA/viewform?embedded=true",
+        googleFormPublicUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfoDeoEwDR-f9389UXJ9O-XzaDAdFt0WY50Phsk9P1q2OsWSA/viewform",
     },
     "/free-guide": {
         kind: "info",

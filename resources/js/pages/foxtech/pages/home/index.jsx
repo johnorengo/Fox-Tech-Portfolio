@@ -81,24 +81,64 @@ export function HomePage() {
                 </div>
             </section>
 
-            {figmaHomeFeatures.map((feature, index) => (
-                <section className={`kg-fig-feature-row ${index % 2 === 1 ? "is-reverse" : ""}`} key={feature.title}>
-                    <div className="kg-container kg-fig-feature-wrap">
-                        <div className={`kg-fig-device-card ${feature.artClass}`} aria-hidden="true">
-                            <span />
-                            <span />
-                            <span />
-                        </div>
+            {figmaHomeFeatures.map((feature, index) => {
+                const isLeft = feature.artClass === "kg-fig-device-card--left";
+                const isRight = feature.artClass === "kg-fig-device-card--right";
+                let imageSrc = null;
+                let srcSet = null;
+                let sizes = "(max-width: 768px) 90vw, 45vw";
+                let altText = feature.title + " image";
 
-                        <div className="kg-fig-feature-copy">
-                            {feature.eyebrow ? <p className="kg-fig-kicker">{feature.eyebrow}</p> : null}
-                            <h2>{feature.title}</h2>
-                            <p>{feature.text}</p>
-                            <a href="/portfolio">Learn more</a>
+                if (isLeft) {
+                    imageSrc = "/simple_easy_to_use.jpg";
+                    srcSet = "/simple_easy_to_use-480w.jpg 480w, /simple_easy_to_use-800w.jpg 800w, /simple_easy_to_use.jpg 1200w";
+                    altText = "Product interface and workflow preview";
+                }
+                // For the 'Simplicity is the key' feature use the provided simplicity image
+                else if (isRight && feature.title === "Simplicity is the key") {
+                    imageSrc = "/simplicity.jpg";
+                    srcSet = "/simplicity-480w.jpg 480w, /simplicity-800w.jpg 800w, /simplicity.jpg 1200w";
+                    altText = "Simple product-style interface emphasizing clarity";
+                }
+                // For the 'We have solutions for everyone' feature use provided image (left-soft card)
+                else if (feature.title === "We have solutions for everyone") {
+                    imageSrc = "/solutions-for-everyone.jpg";
+                    srcSet = "/solutions-for-everyone-480w.jpg 480w, /solutions-for-everyone-800w.jpg 800w, /solutions-for-everyone.jpg 1200w";
+                    altText = "Team collaboration and solutions overview";
+                }
+
+                return (
+                    <section className={`kg-fig-feature-row ${index % 2 === 1 ? "is-reverse" : ""}`} key={feature.title}>
+                        <div className="kg-container kg-fig-feature-wrap">
+                            <div className={`kg-fig-device-card ${feature.artClass}`} aria-hidden="true">
+                                {imageSrc ? (
+                                    <img
+                                        src={imageSrc}
+                                        srcSet={srcSet}
+                                        sizes={sizes}
+                                        alt={`${feature.title} image`}
+                                        loading="lazy"
+                                        className="kg-fig-device-image"
+                                    />
+                                ) : (
+                                    <>
+                                        <span />
+                                        <span />
+                                        <span />
+                                    </>
+                                )}
+                            </div>
+
+                            <div className="kg-fig-feature-copy">
+                                {feature.eyebrow ? <p className="kg-fig-kicker">{feature.eyebrow}</p> : null}
+                                <h2>{feature.title}</h2>
+                                <p>{feature.text}</p>
+                                <a href="/portfolio">Learn more</a>
+                            </div>
                         </div>
-                    </div>
-                </section>
-            ))}
+                    </section>
+                );
+            })}
 
             <section className="kg-fig-blog-promo">
                 <div className="kg-container">
@@ -156,9 +196,14 @@ export function HomePage() {
                         <a href="/about">Learn more</a>
                     </div>
                     <div className="kg-fig-showcase-art" aria-hidden="true">
-                        <span />
-                        <span />
-                        <span />
+                        <img
+                            src="/experience-the-best.jpg"
+                            srcSet="/experience-the-best-480w.jpg 480w, /experience-the-best-1024w.jpg 1024w, /experience-the-best.jpg 1600w"
+                            sizes="(max-width: 768px) 90vw, 45vw"
+                            alt="Experience the best image"
+                            loading="lazy"
+                            className="kg-fig-showcase-image"
+                        />
                     </div>
                 </div>
             </section>

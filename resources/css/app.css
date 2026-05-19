@@ -9588,6 +9588,124 @@ body {
     background: linear-gradient(135deg, #ffffff, #edf4ef);
 }
 
+/* Left device card: match right card — image fills the whole card */
+.kg-fig-device-card--left {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 1.8rem;
+}
+
+/* Hide decorative spans for left card when using an <img> */
+.kg-fig-device-card--left span {
+    display: none;
+}
+
+/* Make the left-card image fill the entire card area (cover) */
+.kg-fig-device-card--left .kg-fig-device-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+/* Mirror left-card image behavior for right-card when using a real image */
+.kg-fig-device-card--right {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 1.8rem;
+}
+
+/* Ensure both left and right device cards share the same fixed visual height
+   so images don't grow taller than other cards. Adjust for smaller screens. */
+.kg-fig-device-card--left,
+.kg-fig-device-card--right {
+    height: 16rem;
+    min-height: 16rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1024px) {
+    .kg-fig-device-card--left,
+    .kg-fig-device-card--right {
+        height: 14rem;
+        min-height: 14rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .kg-fig-device-card--left,
+    .kg-fig-device-card--right {
+        height: 11rem;
+        min-height: 11rem;
+    }
+}
+
+/* Hide decorative spans for right card when using an <img> */
+.kg-fig-device-card--right span {
+    display: none;
+}
+
+/* Make the right-card image fill the entire card area (cover) */
+.kg-fig-device-card--right .kg-fig-device-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+/* Subtle shared overlay/vignette so both images read consistently */
+.kg-fig-device-card--left::before,
+.kg-fig-device-card--right::before,
+.kg-fig-showcase-art::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    background-image: linear-gradient(180deg, rgba(3,7,18,0.18), rgba(3,7,18,0.04)), radial-gradient(ellipse at center, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0) 50%);
+    mix-blend-mode: multiply;
+}
+
+/* Ensure the image sits below the overlay */
+.kg-fig-device-card .kg-fig-device-image {
+    position: relative;
+    z-index: 1;
+}
+
+/* Showcase art: make image fill the card and respect overlay */
+.kg-fig-showcase-art {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 1.8rem;
+}
+
+.kg-fig-showcase-art .kg-fig-showcase-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    position: relative;
+    z-index: 1;
+}
+
+.kg-fig-device-image {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: inherit;
+}
+
 .kg-fig-board-card--wide,
 .kg-fig-workspace-art--board {
     background: linear-gradient(135deg, #f2ebf7, #ffffff);
@@ -9612,6 +9730,19 @@ body {
 
 .kg-fig-feature-copy h2 {
     max-width: 12ch;
+}
+
+/* Make feature headings larger for better balance with image */
+.kg-fig-feature-copy h2 {
+    font-size: 2.25rem;
+    line-height: 1.02;
+    margin-bottom: 0.6rem;
+}
+
+@media (max-width: 768px) {
+    .kg-fig-feature-copy h2 {
+        font-size: 1.6rem;
+    }
 }
 
 .kg-fig-blog-banner {
@@ -10518,6 +10649,11 @@ body {
     gap: 0.95rem;
 }
 
+.kg-fig-contact-stage-wrap {
+    grid-template-columns: 1fr;
+    align-items: start;
+}
+
 .kg-fig-contact-form label {
     display: grid;
     gap: 0.4rem;
@@ -10586,6 +10722,29 @@ body {
 .kg-fig-contact-form button:disabled {
     opacity: 0.72;
     cursor: wait;
+}
+
+.kg-fig-google-form-wrap {
+    padding: 0.6rem;
+}
+
+.kg-fig-google-form-frame {
+    width: 100%;
+    min-height: 48rem;
+    border: 0;
+    border-radius: 1.1rem;
+    background: #fff;
+}
+
+.kg-fig-google-form-open {
+    margin: 0.85rem 0 0;
+    color: #5f5979;
+    font-size: 0.9rem;
+}
+
+.kg-fig-google-form-open a {
+    color: #25164f;
+    font-weight: 700;
 }
 
 .kg-fig-contact-map {
@@ -10833,22 +10992,27 @@ body {
     }
 
     .kg-fig-feature-copy,
-    .kg-fig-showcase-copy,
-    .kg-fig-apps-copy,
-    .kg-fig-about-copy,
-    .kg-fig-portfolio-copy,
-    .kg-fig-contact-head,
-    .kg-fig-blog-featured-copy {
-        text-align: center;
+    .kg-fig-showcase-art {
+        position: relative;
+        padding: 0;
+        overflow: hidden;
+        border-radius: 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    .kg-fig-showcase-art,
-    .kg-fig-monitor,
-    .kg-fig-device-card,
-    .kg-fig-board-card,
-    .kg-fig-workspace-art,
-    .kg-fig-about-photo,
-    .kg-fig-blog-featured-media,
+    .kg-fig-showcase-art .kg-fig-showcase-image {
+        display: block;
+        width: auto;
+        max-width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        border-radius: inherit;
+        position: relative;
+        z-index: 1;
+    }
     .kg-fig-contact-map {
         min-height: 13rem;
         border-radius: 1.4rem;
