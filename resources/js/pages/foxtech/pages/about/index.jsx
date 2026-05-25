@@ -17,23 +17,7 @@ export function AboutPage({ page }) {
         role: figmaTeamMembers[0]?.role ?? "Technical Lead & Co-founder",
     };
     const officeLocation = figmaOffices[0]?.city ?? founderProfile.location;
-    const founderInitials = founderProfile.name
-        .split(" ")
-        .filter(Boolean)
-        .slice(0, 2)
-        .map((part) => part[0]?.toUpperCase())
-        .join("");
-    const profileCandidates = [
-        '/Profile%20photo.jpg',
-        '/Profile photo.jpg',
-        '/images/Profile%20photo.jpg',
-        '/images/Profile photo.jpg',
-        '/johnorengo.jpg',
-        '/john-orengo.jpg',
-        '/images/johnorengo.jpg',
-        '/images/john-orengo.jpg',
-        '/johnorengo.jpg',
-    ];
+    const profileImage = "/johnorengo.jpg";
 
     return (
         <>
@@ -73,19 +57,8 @@ export function AboutPage({ page }) {
                                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                                     <img
                                         alt={founderProfile.name}
-                                        src={profileCandidates[0]}
-                                        data-try-index={0}
+                                        src={profileImage}
                                         style={{ width: 160, height: 160, borderRadius: '50%', objectFit: 'cover', boxShadow: '0 8px 24px rgba(17,24,39,0.12)' }}
-                                        onError={(e) => {
-                                            const current = Number(e.target.getAttribute('data-try-index') || 0);
-                                            const next = current + 1;
-                                            if (next < profileCandidates.length) {
-                                                e.target.setAttribute('data-try-index', next);
-                                                e.target.src = profileCandidates[next];
-                                            } else {
-                                                e.target.style.display = 'none';
-                                            }
-                                        }}
                                     />
                                 </div>
                                 <div className="kg-fig-about-lead-head" style={{ justifyContent: 'center', textAlign: 'center', marginTop: '0.75rem' }}>

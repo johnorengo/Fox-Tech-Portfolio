@@ -85,25 +85,21 @@ export function HomePage() {
                 const isLeft = feature.artClass === "kg-fig-device-card--left";
                 const isRight = feature.artClass === "kg-fig-device-card--right";
                 let imageSrc = null;
-                let srcSet = null;
                 let sizes = "(max-width: 768px) 90vw, 45vw";
                 let altText = feature.title + " image";
 
                 if (isLeft) {
                     imageSrc = "/simple_easy_to_use.jpg";
-                    srcSet = "/simple_easy_to_use-480w.jpg 480w, /simple_easy_to_use-800w.jpg 800w, /simple_easy_to_use.jpg 1200w";
                     altText = "Product interface and workflow preview";
                 }
                 // For the 'Simplicity is the key' feature use the provided simplicity image
                 else if (isRight && feature.title === "Simplicity is the key") {
                     imageSrc = "/simplicity.jpg";
-                    srcSet = "/simplicity-480w.jpg 480w, /simplicity-800w.jpg 800w, /simplicity.jpg 1200w";
                     altText = "Simple product-style interface emphasizing clarity";
                 }
                 // For the 'We have solutions for everyone' feature use provided image (left-soft card)
                 else if (feature.title === "We have solutions for everyone") {
                     imageSrc = "/solutions-for-everyone.jpg";
-                    srcSet = "/solutions-for-everyone-480w.jpg 480w, /solutions-for-everyone-800w.jpg 800w, /solutions-for-everyone.jpg 1200w";
                     altText = "Team collaboration and solutions overview";
                 }
 
@@ -114,7 +110,6 @@ export function HomePage() {
                                 {imageSrc ? (
                                     <img
                                         src={imageSrc}
-                                        srcSet={srcSet}
                                         sizes={sizes}
                                         alt={`${feature.title} image`}
                                         loading="lazy"
@@ -198,7 +193,6 @@ export function HomePage() {
                     <div className="kg-fig-showcase-art" aria-hidden="true">
                         <img
                             src="/experience-the-best.jpg"
-                            srcSet="/experience-the-best-480w.jpg 480w, /experience-the-best-1024w.jpg 1024w, /experience-the-best.jpg 1600w"
                             sizes="(max-width: 768px) 90vw, 45vw"
                             alt="Experience the best image"
                             loading="lazy"

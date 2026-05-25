@@ -115,7 +115,9 @@ export function FigmaCaseStudies({ intro = "Recent work and directions shaped ar
                         <article className="kg-fig-case-card" key={project.title}>
                             <div className={`kg-fig-case-media kg-fig-case-media--${index + 1}`} />
                             <h3>{project.title}</h3>
-                            <p>Product-minded storytelling, stronger hierarchy, and better visual pacing.</p>
+                            <p><strong>Challenge:</strong> {project.challenge}</p>
+                            <p><strong>What we changed:</strong> {project.work}</p>
+                            <p><strong>Outcome:</strong> {project.outcome}</p>
                         </article>
                     ))}
                 </div>
