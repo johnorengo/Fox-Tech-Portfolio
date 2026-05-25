@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import * as data from "../../data/siteData";
 
 const { figmaBlogPosts } = data;
+const toSlug = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 export function BlogPage({ page }) {
-    const [expandedPosts, setExpandedPosts] = useState({});
+    const selectedSlug = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("post") : null;
+    const selectedPost = selectedSlug ? figmaBlogPosts.find((post) => toSlug(post.title) === selectedSlug) : null;
+
+    const [expandedPosts, setExpandedPosts] = useState(() => (selectedPost ? { [selectedPost.title]: true } : {}));
 
     const togglePost = (title) => {
         setExpandedPosts((prev) => ({
@@ -13,13 +17,15 @@ export function BlogPage({ page }) {
         }));
     };
 
+    const postsToRender = selectedPost ? [selectedPost] : figmaBlogPosts;
+
     return (
         <main className="kg-container" style={{ padding: "40px 20px" }}>
             <h1>{page.heading}</h1>
             <p>{page.summary}</p>
 
             <ul style={{ marginTop: "24px" }}>
-                {figmaBlogPosts.map((post) => (
+                {postsToRender.map((post) => (
                     <li key={post.title} style={{ marginBottom: "16px" }}>
                         <h2 style={{ marginBottom: "6px" }}>{post.title}</h2>
                         <p style={{ whiteSpace: "pre-line" }}>

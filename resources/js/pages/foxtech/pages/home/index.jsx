@@ -16,7 +16,6 @@ export function HomePage() {
                             Build a calmer landing page with softer visuals, clear sections, and a structure
                             that makes your business easier to understand.
                         </p>
-                        <a href="/pricing">Try now</a>
                     </div>
 
                     <div className="kg-fig-home-scene" aria-hidden="true">
@@ -139,16 +138,19 @@ export function HomePage() {
                 <div className="kg-container">
                     <div className="kg-fig-blog-banner">
                         <div>
-                            <p className="kg-fig-kicker kg-fig-kicker--inverse">Editorial</p>
                             <h2>Check out our blog</h2>
                             <p>Bring articles and thought pieces into the same visual system as the product pages.</p>
                         </div>
 
                         <div className="kg-fig-blog-banner-grid">
-                            {figmaBlogPosts.slice(0, 3).map((post) => (
+                            {figmaBlogPosts.slice(0, 6).map((post) => (
                                 <article className="kg-fig-blog-banner-card" key={post.title}>
                                     <div className={`kg-fig-blog-card-media ${post.imageClass}`} />
                                     <h3>{post.title}</h3>
+                                    <p>{post.excerpt}</p>
+                                    <a href={`/blog?post=${encodeURIComponent(post.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""))}`}>
+                                        Read more
+                                    </a>
                                 </article>
                             ))}
                         </div>
