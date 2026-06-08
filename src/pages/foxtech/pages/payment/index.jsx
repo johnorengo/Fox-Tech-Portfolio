@@ -4,9 +4,7 @@ import { figmaContactDetails, figmaPaymentMethods, figmaPricingPlans } from "../
 
 export function PaymentPage({ page }) {
     const [paymentMethod, setPaymentMethod] = useState("mpesa");
-    const [fieldErrors, setFieldErrors] = useState({});
     const [feedback, setFeedback] = useState(null);
-    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const selectedPlan = useMemo(() => {
         const query = new URLSearchParams(window.location.search);
@@ -23,7 +21,6 @@ export function PaymentPage({ page }) {
     const emailAddress = figmaContactDetails.find((item) => item.label === "Email us")?.value ?? "enquiries@foxtechsolution.com";
     const phoneHref = `tel:${phoneNumber.replace(/\s+/g, "")}`;
     const emailHref = `mailto:${emailAddress}?subject=${encodeURIComponent(`Payment for ${selectedPlan.name} plan`)}`;
-    const getFieldError = (fieldName) => fieldErrors[fieldName]?.[0];
 
     const handleMethodSelect = (methodName) => {
         setPaymentMethod(methodName === "M-Pesa" ? "mpesa" : "bank_transfer");
@@ -33,49 +30,31 @@ export function PaymentPage({ page }) {
         });
     };
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
 
         const form = event.currentTarget;
         const formData = new FormData(form);
+        const message = [
+            `Plan: ${selectedPlan.name} - ${selectedPlan.price}`,
+            `Name: ${formData.get("name")}`,
+            `Email: ${formData.get("email")}`,
+            `Phone: ${formData.get("phone")}`,
+            `Payment method: ${paymentMethod === "mpesa" ? "M-Pesa" : "Bank transfer"}`,
+            `Payment reference: ${formData.get("payment_reference") || "Not provided"}`,
+            "",
+            "Notes:",
+            formData.get("message") || "No notes provided.",
+        ].join("\n");
 
-        formData.set("plan_slug", selectedPlan.slug);
-        formData.set("plan_name", selectedPlan.name);
-        formData.set("payment_method", paymentMethod);
+        window.location.href = `mailto:${emailAddress}?subject=${encodeURIComponent(
+            `Payment details for ${selectedPlan.name} plan`
+        )}&body=${encodeURIComponent(message)}`;
 
-        setFieldErrors({});
-        setFeedback(null);
-        setIsSubmitting(true);
-
-        try {
-            const response = await window.axios.post("/payment-request", Object.fromEntries(formData.entries()), {
-                headers: {
-                    Accept: "application/json",
-                },
-            });
-
-            form.reset();
-            setPaymentMethod("mpesa");
-            setFeedback({
-                tone: "success",
-                message: response.data.message,
-            });
-        } catch (error) {
-            if (error.response?.status === 422) {
-                setFieldErrors(error.response.data?.errors ?? {});
-                setFeedback({
-                    tone: "error",
-                    message: "Please check the payment form details and try again.",
-                });
-            } else {
-                setFeedback({
-                    tone: "error",
-                    message: error.response?.data?.message ?? "We could not send your payment request right now. Please try again in a moment.",
-                });
-            }
-        } finally {
-            setIsSubmitting(false);
-        }
+        setFeedback({
+            tone: "success",
+            message: "Your email app should open with the payment details ready to send.",
+        });
     };
 
     return (
@@ -173,39 +152,33 @@ export function PaymentPage({ page }) {
                             </label>
                             <label>
                                 Your name
-                                <input aria-invalid={Boolean(getFieldError("name"))} disabled={isSubmitting} name="name" placeholder="Your full name" required type="text" />
-                                {getFieldError("name") ? <span className="kg-fig-form-error">{getFieldError("name")}</span> : null}
+                                <input name="name" placeholder="Your full name" required type="text" />
                             </label>
                             <label>
                                 Email
-                                <input aria-invalid={Boolean(getFieldError("email"))} disabled={isSubmitting} name="email" placeholder="your@email.com" required type="email" />
-                                {getFieldError("email") ? <span className="kg-fig-form-error">{getFieldError("email")}</span> : null}
+                                <input name="email" placeholder="your@email.com" required type="email" />
                             </label>
                             <label>
                                 Phone
-                                <input aria-invalid={Boolean(getFieldError("phone"))} disabled={isSubmitting} name="phone" placeholder="+254..." required type="tel" />
-                                {getFieldError("phone") ? <span className="kg-fig-form-error">{getFieldError("phone")}</span> : null}
+                                <input name="phone" placeholder="+254..." required type="tel" />
                             </label>
                             <label>
                                 Payment method
-                                <select aria-invalid={Boolean(getFieldError("payment_method"))} disabled={isSubmitting} name="payment_method" onChange={(event) => setPaymentMethod(event.target.value)} value={paymentMethod}>
+                                <select name="payment_method" onChange={(event) => setPaymentMethod(event.target.value)} value={paymentMethod}>
                                     <option value="mpesa">M-Pesa</option>
                                     <option value="bank_transfer">Bank transfer</option>
                                 </select>
-                                {getFieldError("payment_method") ? <span className="kg-fig-form-error">{getFieldError("payment_method")}</span> : null}
                             </label>
                             <label>
                                 Payment reference
-                                <input aria-invalid={Boolean(getFieldError("payment_reference"))} disabled={isSubmitting} name="payment_reference" placeholder="M-Pesa code or bank transfer reference" type="text" />
-                                {getFieldError("payment_reference") ? <span className="kg-fig-form-error">{getFieldError("payment_reference")}</span> : null}
+                                <input name="payment_reference" placeholder="M-Pesa code or bank transfer reference" type="text" />
                             </label>
                             <label>
                                 Notes
-                                <textarea aria-invalid={Boolean(getFieldError("message"))} disabled={isSubmitting} name="message" placeholder="Add any payment notes or request bank details here" rows={5} />
-                                {getFieldError("message") ? <span className="kg-fig-form-error">{getFieldError("message")}</span> : null}
+                                <textarea name="message" placeholder="Add any payment notes or request bank details here" rows={5} />
                             </label>
                             {feedback ? <p className={`kg-fig-form-feedback kg-fig-form-feedback--${feedback.tone}`}>{feedback.message}</p> : null}
-                            <button disabled={isSubmitting} type="submit">{isSubmitting ? "Sending..." : "Send payment details"}</button>
+                            <button type="submit">Send payment details</button>
                         </form>
                     </div>
 
