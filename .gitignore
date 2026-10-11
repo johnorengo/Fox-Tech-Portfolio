@@ -9,3 +9,10 @@
 /dist
 /.codex-temp/
 Thumbs.db
+
+# Local environment variables
+.env
+.env.*
+!.env.example
+
+.npm-cache/

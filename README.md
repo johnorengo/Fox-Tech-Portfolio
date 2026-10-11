@@ -1,18 +1,26 @@
-# Fox Tech Solutions Portfolio
+﻿# Fox Tech Solutions Portfolio
 
-Static React portfolio site built with Vite.
+A responsive React and TypeScript portfolio built with Vite.
 
-## Project Structure
+## Requirements
 
-- `index.html` - Vite HTML entrypoint.
-- `src/` - React application source and styles.
-- `public/` - Static assets served from the site root.
-- `package.json` - Frontend scripts and dependencies.
-- `vite.config.js` - Vite configuration.
+- Node.js 20.19+ or 22.12+
+- npm
 
-## Scripts
+## Run locally
 
 ```bash
+npm install
 npm run dev
-npm run build
 ```
+
+Open the local URL printed by Vite (usually `http://localhost:5173`).
+
+## Production build
+
+```bash
+npm run build
+npm run preview
+```
+
+The production files are written to `dist/`.
