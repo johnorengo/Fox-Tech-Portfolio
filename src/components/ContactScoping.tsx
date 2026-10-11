@@ -72,6 +72,7 @@ export const ContactScoping: React.FC = () => {
           template_id: templateId,
           user_id: publicKey,
           template_params: {
+            to_email: directEmail,
             from_name: fullName.trim(),
             from_email: workEmail.trim(),
             reply_to: workEmail.trim(),
@@ -93,9 +94,11 @@ export const ContactScoping: React.FC = () => {
     } catch (error) {
       const details = error instanceof Error ? error.message : '';
       const isNetworkError = error instanceof TypeError;
-      setErrorMsg(
-        isNetworkError
-          ? `The form couldn't reach EmailJS. Check your connection and make sure this site's domain is allowed in EmailJS. You can also email ${directEmail}.`
+      const missingRecipient = details.toLowerCase().includes('recipient') && details.toLowerCase().includes('empty');
+      setErrorMsg(isNetworkError
+        ? `The form couldn't reach EmailJS. Check your connection and make sure this site's domain is allowed in EmailJS. You can also email ${directEmail}.`
+        : missingRecipient
+          ? `The EmailJS template has no recipient. In EmailJS, set its “To Email” to ${directEmail} (or {{to_email}}), save it, then try again.`
           : `EmailJS rejected the request${details ? `: ${details}` : '.'} Please check the EmailJS service, template, and recipient settings, or email ${directEmail}.`
       );
     } finally {
