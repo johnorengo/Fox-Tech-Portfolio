@@ -1,8 +1,0 @@
-{
-  "name": "Fox Tech Solutions",
-  "description": "Smart Technology. Limitless Possibilities. Fox Tech Solutions turns ideas and everyday challenges into reliable digital solutions in Kenya, Africa, and worldwide.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}

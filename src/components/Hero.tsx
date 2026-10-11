@@ -86,7 +86,6 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping, onExploreSolutions })
             {/* Clean unboxed kicker */}
             <div className="flex items-center gap-2 text-xs text-[#00d2b4] font-medium tracking-wide uppercase mb-4">
               <span className="w-5 h-0.5 bg-[#ff6a00]" />
-              <span>Digital Product Studio · Nairobi, Kenya</span>
             </div>
 
             {/* Captivating Tagline Pill */}

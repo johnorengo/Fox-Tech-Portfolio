@@ -12,7 +12,7 @@ export const CaseStudies: React.FC = () => {
       client: 'Sebby Logistics',
       industry: 'Freight Forwarding & Supply Chain Logistics',
       timeframe: 'Proposed Production Architecture',
-      externalUrl: 'https://sebbylogistics.ai.studio/',
+      externalUrl: null,
       urlLabel: 'Explore Proposed Design',
       isLiveSite: false,
       headline: 'Modern Digital Freight Platform & Real-Time Consignment Tracking Interface',
@@ -112,15 +112,17 @@ export const CaseStudies: React.FC = () => {
             </div>
 
             {/* Direct Project External Link */}
-            <a
-              href={current.externalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#ff6a00] hover:text-[#00d2b4] transition-colors"
-            >
-              <span>{current.urlLabel}</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
+            {current.externalUrl && (
+              <a
+                href={current.externalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#ff6a00] hover:text-[#00d2b4] transition-colors"
+              >
+                <span>{current.urlLabel}</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+            )}
           </div>
 
           <div className="p-6 sm:p-8 lg:p-10">
@@ -177,15 +179,17 @@ export const CaseStudies: React.FC = () => {
                     </div>
                   </div>
 
-                  <a
-                    href={current.externalUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="shrink-0 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-xs font-semibold text-white bg-gradient-to-r from-[#ff6a00] to-[#f25c05] hover:from-[#ff7a1a] hover:to-[#ff6a00] transition-all shadow-md shadow-[#ff6a00]/20"
-                  >
-                    <span>{current.urlLabel}</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
+                  {current.externalUrl && (
+                    <a
+                      href={current.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="shrink-0 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-xs font-semibold text-white bg-gradient-to-r from-[#ff6a00] to-[#f25c05] hover:from-[#ff7a1a] hover:to-[#ff6a00] transition-all shadow-md shadow-[#ff6a00]/20"
+                    >
+                      <span>{current.urlLabel}</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
                 </div>
 
               </div>
@@ -203,14 +207,7 @@ export const CaseStudies: React.FC = () => {
                     />
                     <div className="p-3 bg-[#140905] border-t border-[#3d2216] text-[11px] text-[#d6c7be] flex items-center justify-between font-mono">
                       <span>Sebby Logistics Freight UI</span>
-                      <a 
-                        href="https://sebbylogistics.ai.studio/" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="text-[#00d2b4] hover:underline"
-                      >
-                        sebbylogistics.ai.studio ↗
-                      </a>
+                      <span className="text-[#00d2b4]">Concept preview</span>
                     </div>
                   </div>
                 ) : (
