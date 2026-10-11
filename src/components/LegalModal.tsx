@@ -37,7 +37,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
         'Design-to-Code Integrity: Fox Tech Solutions enforces strict automated linting, type-checking, and dependency vulnerability scans across all client repositories.',
         'Access Governance: We enforce multi-factor authentication (MFA) and least-privilege role-based access for all staging servers, databases, and third-party APIs.',
         'Zero Data Persistence: Staging database seedings use anonymized synthetic data. No real production customer records are stored on local designer or engineer workstations.',
-        'Direct Security Reporting: Security concerns can be reported directly to enquiries@foxtechsolution.com with expedited response from our technical team in Nairobi.'
+        'Direct Security Reporting: Security concerns can be reported directly to info@foxtechsolution.com with expedited response from our technical team in Nairobi.'
       ]
     }
   };

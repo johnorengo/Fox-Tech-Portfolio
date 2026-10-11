@@ -11,7 +11,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
 
   const directPhone = '+254797697319';
   const displayPhone = '+254 797 697 319';
-  const directEmail = 'enquiries@foxtechsolution.com';
+  const directEmail = 'info@foxtechsolution.com';
 
   const navLinks = [
     { label: 'Services', href: '#services' },

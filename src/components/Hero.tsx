@@ -3,7 +3,6 @@ import {
   ArrowRight, 
   ChevronLeft, 
   ChevronRight, 
-  Sparkles, 
   Code2, 
   Layers, 
   ShieldCheck,
@@ -83,17 +82,6 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping, onExploreSolutions })
           {/* Left Column: Stable, Humanized Headline & Copy (Does NOT change) */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             
-            {/* Clean unboxed kicker */}
-            <div className="flex items-center gap-2 text-xs text-[#00d2b4] font-medium tracking-wide uppercase mb-4">
-              <span className="w-5 h-0.5 bg-[#ff6a00]" />
-            </div>
-
-            {/* Captivating Tagline Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ff6a00]/10 border border-[#ff6a00]/30 text-xs font-semibold text-[#ff6a00] mb-5 self-start">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Smart Technology. Limitless Possibilities.</span>
-            </div>
-
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-white tracking-tight leading-[1.14] mb-6 [text-wrap:balance]">
               Simple Systems That Help Creative & Tech Teams Launch Faster

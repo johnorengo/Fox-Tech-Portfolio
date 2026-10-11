@@ -31,8 +31,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#ff6a00] shrink-0" />
-                <a href="mailto:enquiries@foxtechsolution.com" className="hover:text-white transition-colors">
-                  enquiries@foxtechsolution.com
+                <a href="mailto:info@foxtechsolution.com" className="hover:text-white transition-colors">
+                  info@foxtechsolution.com
                 </a>
               </div>
               <div className="flex items-center gap-2 text-[11px] text-[#a89587]">

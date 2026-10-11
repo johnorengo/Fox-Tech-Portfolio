@@ -29,7 +29,7 @@ export const ContactScoping: React.FC = () => {
   const [bookingRef, setBookingRef] = useState('');
 
   const directPhone = '0797697319';
-  const directEmail = 'enquiries@foxtechsolution.com';
+  const directEmail = 'info@foxtechsolution.com';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

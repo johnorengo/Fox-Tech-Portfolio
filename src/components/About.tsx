@@ -145,8 +145,8 @@ export const About: React.FC = () => {
               <Mail className="w-3.5 h-3.5 text-[#ff6a00]" />
               <span>Email Inquiries</span>
             </div>
-            <a href="mailto:enquiries@foxtechsolution.com" className="font-mono text-[#fdf8f5] hover:text-[#ff6a00] transition-colors font-medium">
-              enquiries@foxtechsolution.com
+            <a href="mailto:info@foxtechsolution.com" className="font-mono text-[#fdf8f5] hover:text-[#ff6a00] transition-colors font-medium">
+              info@foxtechsolution.com
             </a>
             <p className="text-[11px] text-[#a89587] mt-0.5">Response within 4 business hours</p>
           </div>
