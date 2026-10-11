@@ -31,7 +31,7 @@ export const ContactScoping: React.FC = () => {
   const directPhone = '0797697319';
   const directEmail = 'info@foxtechsolution.com';
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrorMsg('');
 
@@ -53,14 +53,47 @@ export const ContactScoping: React.FC = () => {
       return;
     }
 
-    setIsSubmitting(true);
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    setTimeout(() => {
+    if (!serviceId || !templateId || !publicKey) {
+      setErrorMsg(`Email delivery is not configured yet. Please email us directly at ${directEmail}.`);
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service_id: serviceId,
+          template_id: templateId,
+          user_id: publicKey,
+          template_params: {
+            from_name: fullName.trim(),
+            from_email: workEmail.trim(),
+            reply_to: workEmail.trim(),
+            company: company.trim(),
+            phone: phoneNumber.trim() || 'Not provided',
+            project_brief: projectBrief.trim(),
+          },
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Email delivery failed');
+      }
+
       const generatedRef = `FOX-${Math.floor(100000 + Math.random() * 900000)}`;
       setBookingRef(generatedRef);
-      setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 600);
+    } catch {
+      setErrorMsg(`We couldn't send your request. Please try again or email ${directEmail}.`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
@@ -154,7 +187,7 @@ export const ContactScoping: React.FC = () => {
 
               {/* Direct Communication Channels */}
               <div className="pt-4 border-t border-[#3d2216] space-y-2 text-xs">
-                <div className="flex items-center justify-between text-[#d6c7be]">
+                <div className="flex flex-col items-start gap-1 text-[#d6c7be] sm:flex-row sm:items-center sm:justify-between">
                   <span className="flex items-center gap-1.5">
                     <Phone className="w-3.5 h-3.5 text-[#00d2b4]" />
                     <span>Direct Call / WhatsApp:</span>
@@ -164,7 +197,7 @@ export const ContactScoping: React.FC = () => {
                   </a>
                 </div>
 
-                <div className="flex items-center justify-between text-[#d6c7be]">
+                <div className="flex flex-col items-start gap-1 text-[#d6c7be] sm:flex-row sm:items-center sm:justify-between">
                   <span className="flex items-center gap-1.5">
                     <Mail className="w-3.5 h-3.5 text-[#ff6a00]" />
                     <span>Direct Project Desk:</span>
@@ -174,7 +207,7 @@ export const ContactScoping: React.FC = () => {
                   </a>
                 </div>
 
-                <div className="flex items-center justify-between text-[#d6c7be]">
+                <div className="flex flex-col items-start gap-1 text-[#d6c7be] sm:flex-row sm:items-center sm:justify-between">
                   <span className="flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-[#00d2b4]" />
                     <span>Office:</span>
@@ -184,7 +217,7 @@ export const ContactScoping: React.FC = () => {
               </div>
 
               {/* Trust Tag */}
-              <div className="p-3 rounded-lg bg-[#140905] border border-[#3d2216] text-[11px] text-[#a89587] flex items-center justify-between">
+              <div className="p-3 rounded-lg bg-[#140905] border border-[#3d2216] text-[11px] text-[#a89587] flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                 <span>Mutual Non-Disclosure Signed Upfront</span>
                 <span className="text-[#00d2b4] font-semibold">100% IP Ownership</span>
               </div>
@@ -194,11 +227,11 @@ export const ContactScoping: React.FC = () => {
 
           {/* Right Column: Lead Capture Form */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-xl border border-[#3d2216] bg-[#1e100a] shadow-2xl">
+            <div className="p-4 sm:p-6 lg:p-8 rounded-xl border border-[#3d2216] bg-[#1e100a] shadow-2xl">
               
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="flex items-center justify-between pb-3 border-b border-[#3d2216]">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#3d2216]">
                     <h3 className="text-base sm:text-lg font-bold text-white">
                       Project & Contact Details
                     </h3>
@@ -206,7 +239,7 @@ export const ContactScoping: React.FC = () => {
                   </div>
 
                   {errorMsg && (
-                    <div className="p-3 rounded-lg bg-red-950/40 border border-red-800 text-xs text-red-300 flex items-center gap-2">
+                    <div role="alert" className="p-3 rounded-lg bg-red-950/40 border border-red-800 text-xs text-red-300 flex items-start gap-2 break-words">
                       <ShieldAlert className="w-4 h-4 shrink-0 text-red-400" />
                       <span>{errorMsg}</span>
                     </div>
@@ -215,13 +248,17 @@ export const ContactScoping: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Name */}
                     <div>
-                      <label className="block text-xs font-medium text-[#d6c7be] mb-1.5">
+                      <label htmlFor="scoping-name" className="block text-xs font-medium text-[#d6c7be] mb-1.5">
                         Your Full Name <span className="text-[#ff6a00]">*</span>
                       </label>
                       <div className="relative">
                         <User className="w-4 h-4 text-[#a89587] absolute left-3 top-3" />
                         <input
                           type="text"
+                          id="scoping-name"
+                          name="from_name"
+                          autoComplete="name"
+                          required
                           value={fullName}
                           onChange={(e) => setFullName(e.target.value)}
                           placeholder="e.g. David Kimani"
@@ -232,13 +269,17 @@ export const ContactScoping: React.FC = () => {
 
                     {/* Email */}
                     <div>
-                      <label className="block text-xs font-medium text-[#d6c7be] mb-1.5">
+                      <label htmlFor="scoping-email" className="block text-xs font-medium text-[#d6c7be] mb-1.5">
                         Work Email <span className="text-[#ff6a00]">*</span>
                       </label>
                       <div className="relative">
                         <Mail className="w-4 h-4 text-[#a89587] absolute left-3 top-3" />
                         <input
                           type="email"
+                          id="scoping-email"
+                          name="from_email"
+                          autoComplete="email"
+                          required
                           value={workEmail}
                           onChange={(e) => setWorkEmail(e.target.value)}
                           placeholder="david@company.com"
@@ -251,13 +292,17 @@ export const ContactScoping: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Company */}
                     <div>
-                      <label className="block text-xs font-medium text-[#d6c7be] mb-1.5">
+                      <label htmlFor="scoping-company" className="block text-xs font-medium text-[#d6c7be] mb-1.5">
                         Company or Startup Name <span className="text-[#ff6a00]">*</span>
                       </label>
                       <div className="relative">
                         <Building className="w-4 h-4 text-[#a89587] absolute left-3 top-3" />
                         <input
                           type="text"
+                          id="scoping-company"
+                          name="company"
+                          autoComplete="organization"
+                          required
                           value={company}
                           onChange={(e) => setCompany(e.target.value)}
                           placeholder="e.g. Rift Digital Labs"
@@ -268,13 +313,16 @@ export const ContactScoping: React.FC = () => {
 
                     {/* Phone */}
                     <div>
-                      <label className="block text-xs font-medium text-[#d6c7be] mb-1.5">
+                      <label htmlFor="scoping-phone" className="block text-xs font-medium text-[#d6c7be] mb-1.5">
                         Phone / WhatsApp
                       </label>
                       <div className="relative">
                         <Phone className="w-4 h-4 text-[#a89587] absolute left-3 top-3" />
                         <input
                           type="tel"
+                          id="scoping-phone"
+                          name="phone"
+                          autoComplete="tel"
                           value={phoneNumber}
                           onChange={(e) => setPhoneNumber(e.target.value)}
                           placeholder="e.g. 0797697319"
@@ -286,11 +334,16 @@ export const ContactScoping: React.FC = () => {
 
                   {/* Project brief */}
                   <div>
-                    <label className="block text-xs font-medium text-[#d6c7be] mb-1.5">
+                    <label htmlFor="scoping-brief" className="block text-xs font-medium text-[#d6c7be] mb-1.5">
                       Tell Us About Your Project & Goals <span className="text-[#ff6a00]">*</span>
                     </label>
                     <textarea
                       rows={4}
+                      id="scoping-brief"
+                      name="project_brief"
+                      required
+                      minLength={15}
+                      maxLength={5000}
                       value={projectBrief}
                       onChange={(e) => setProjectBrief(e.target.value)}
                       placeholder="Describe what you want to build, current challenges, target audience, or desired launch timeline..."
@@ -314,7 +367,7 @@ export const ContactScoping: React.FC = () => {
                     )}
                   </button>
 
-                  <div className="text-center text-[11px] text-[#a89587] flex flex-wrap justify-center items-center gap-x-4 gap-y-1">
+                  <div className="text-center text-[11px] text-[#a89587] flex flex-wrap justify-center items-center gap-x-4 gap-y-1 break-all">
                     <span>Direct: {directEmail}</span>
                     <span>·</span>
                     <span>Call: {directPhone}</span>
@@ -354,8 +407,7 @@ export const ContactScoping: React.FC = () => {
                   </div>
 
                   <p className="text-xs text-[#a89587]">
-                    A confirmation email has been dispatched to <span className="text-[#fdf8f5]">{workEmail}</span>. 
-                    Our team will reach out directly to review your brief.
+                    Your project request was sent to our team. We will follow up at <span className="text-[#fdf8f5]">{workEmail}</span>.
                   </p>
 
                   <div className="pt-4">
