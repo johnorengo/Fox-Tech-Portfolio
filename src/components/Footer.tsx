@@ -11,17 +11,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           
-          {/* Brand Column: Clean Typography (NO LOGO), Tagline under company name */}
           <div className="lg:col-span-2 space-y-4">
-            <div>
-              <div className="text-xl sm:text-2xl font-extrabold text-[#FF6A00] tracking-tight uppercase leading-none">
-                Fox Tech Solutions
-              </div>
-              <p className="text-xs font-semibold text-[#00d2b4] tracking-normal mt-1.5 leading-tight">
-                Smart Technology. Limitless Possibilities.
-              </p>
-            </div>
-
             <div className="flex flex-col gap-2.5 text-xs text-[#e5d8cf] pt-1 font-mono">
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-[#00d2b4] shrink-0" />
@@ -118,7 +108,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
         {/* Bottom Bar: Copyright Text Strictly Centered */}
         <div className="mt-12 pt-8 border-t border-[#3d2216] flex items-center justify-center text-center text-[#a89587] text-xs">
           <p className="font-medium">
-            © 2026 Fox Tech Solutions. All rights reserved.
+            © 2026. All rights reserved.
           </p>
         </div>
 
