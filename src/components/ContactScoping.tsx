@@ -54,7 +54,7 @@ export const ContactScoping: React.FC = () => {
     }
 
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_i03dzta';
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_rs0gjla';
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_50d5kyj';
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'IhQ8zArOrsxO9Kpqw';
 
     if (!serviceId || !templateId || !publicKey) {
@@ -83,14 +83,21 @@ export const ContactScoping: React.FC = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Email delivery failed');
+        const details = (await response.text()).trim();
+        throw new Error(details || `EmailJS returned HTTP ${response.status}.`);
       }
 
       const generatedRef = `FOX-${Math.floor(100000 + Math.random() * 900000)}`;
       setBookingRef(generatedRef);
       setIsSubmitted(true);
-    } catch {
-      setErrorMsg(`We couldn't send your request. Please try again or email ${directEmail}.`);
+    } catch (error) {
+      const details = error instanceof Error ? error.message : '';
+      const isNetworkError = error instanceof TypeError;
+      setErrorMsg(
+        isNetworkError
+          ? `The form couldn't reach EmailJS. Check your connection and make sure this site's domain is allowed in EmailJS. You can also email ${directEmail}.`
+          : `EmailJS rejected the request${details ? `: ${details}` : '.'} Please check the EmailJS service, template, and recipient settings, or email ${directEmail}.`
+      );
     } finally {
       setIsSubmitting(false);
     }
