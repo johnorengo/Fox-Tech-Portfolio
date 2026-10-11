@@ -26,7 +26,7 @@ The contact form sends submissions through EmailJS. Set up a service and email t
 - `phone`
 - `project_brief`
 
-Copy `.env.example` to `.env.local`, fill in your EmailJS service ID, template ID, and public key, then restart Vite. Add the same `VITE_EMAILJS_*` values to the production host's environment settings before building/deploying. These are public client-side values; do not put private EmailJS keys in the app.
+The service ID, template ID, and public key are configured in the app. `.env.example` contains the same public values if you want to override them locally or in a deployment environment. The public key is intended for client-side use; never add an EmailJS private key or SMTP password to the app.
 
 ## Production build
 

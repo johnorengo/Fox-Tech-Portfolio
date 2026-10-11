@@ -53,9 +53,9 @@ export const ContactScoping: React.FC = () => {
       return;
     }
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_i03dzta';
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_rs0gjla';
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'IhQ8zArOrsxO9Kpqw';
 
     if (!serviceId || !templateId || !publicKey) {
       setErrorMsg(`Email delivery is not configured yet. Please email us directly at ${directEmail}.`);
