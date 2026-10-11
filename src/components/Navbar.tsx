@@ -68,7 +68,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
             className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff6a00] rounded-lg shrink-0"
             aria-label="Fox Tech Solutions Home"
           >
-            <FoxTechLogo size="md" showTagline={true} />
+            <FoxTechLogo />
           </a>
 
           {/* Clean Nav Links */}
