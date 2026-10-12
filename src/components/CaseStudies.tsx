@@ -7,7 +7,7 @@ export const CaseStudies: React.FC = () => {
   const cases = [
     {
       id: 'sebbylogistics',
-      shortLabel: 'Sebby Flowers',
+      shortLabel: 'Sebby Logistics',
       client: 'Sebby Logistics',
       projectType: 'Commercial Project',
       industry: 'Kenyan Flowers & Global Airfreight',
@@ -51,8 +51,8 @@ export const CaseStudies: React.FC = () => {
     },
     {
       id: 'learner-verification',
-      shortLabel: 'Learner Verification',
-      client: 'Education Document Verification',
+      shortLabel: 'School Data Verification System',
+      client: 'School Data Verification System',
       projectType: 'Government Project',
       industry: 'School Administration & Learner Verification',
       timeframe: 'Government Education Platform',
@@ -60,7 +60,7 @@ export const CaseStudies: React.FC = () => {
       urlLabel: 'Visit Verification Portal',
       isLiveSite: true,
       headline: 'Verify Learners. Protect Education Funding.',
-      summary: 'A school-administration platform for verifying learners who already exist in school records. It helps identify ghost learners?nonexistent or unverified records that can inflate enrollment figures and lead to funding being allocated for learners who are not actually present.',
+      summary: 'A school-administration platform for verifying learners who already exist in school records. It helps identify ghost learners, including nonexistent or unverified records that can inflate enrollment figures and lead to funding being allocated for learners who are not actually present.',
       highlights: [
         { label: 'Existing learner checks', detail: 'School administrators verify learners already on record.' },
         { label: 'Ghost learner detection', detail: 'Helps flag records that do not reflect actual learners.' },
@@ -73,11 +73,11 @@ export const CaseStudies: React.FC = () => {
     },
     {
       id: 'eems',
-      shortLabel: 'School Protection (EEMS)',
-      client: 'Education Emergency Management System (EEMS)',
+      shortLabel: 'Education Emergency Management System',
+      client: 'Education Emergency Management System',
       projectType: 'Government Project',
       industry: 'School Safety & Emergency Management',
-      timeframe: 'Government Project ? Kenya',
+      timeframe: 'Government Project in Kenya',
       externalUrl: 'https://kplp.education.go.ke/',
       urlLabel: 'Visit EEMS Platform',
       isLiveSite: true,
