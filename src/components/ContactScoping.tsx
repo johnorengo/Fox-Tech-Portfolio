@@ -54,45 +54,71 @@ export const ContactScoping: React.FC = () => {
     }
 
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_i03dzta';
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_50d5kyj';
+    const autoReplyTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_50d5kyj';
+    const notificationTemplateId = import.meta.env.VITE_EMAILJS_NOTIFICATION_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'IhQ8zArOrsxO9Kpqw';
 
-    if (!serviceId || !templateId || !publicKey) {
-      setErrorMsg(`Email delivery is not configured yet. Please email us directly at ${directEmail}.`);
+    if (!serviceId || !autoReplyTemplateId || !notificationTemplateId || !publicKey) {
+      setErrorMsg(`Email delivery needs a separate EmailJS project-notification template ID. Set VITE_EMAILJS_NOTIFICATION_TEMPLATE_ID, then rebuild. You can email us directly at ${directEmail}.`);
       return;
     }
 
     setIsSubmitting(true);
     try {
-      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          service_id: serviceId,
-          template_id: templateId,
-          user_id: publicKey,
-          template_params: {
-            // Auto-reply goes to the visitor; BCC keeps the company inbox informed.
-            to_email: workEmail.trim(),
-            bcc_email: directEmail,
-            name: fullName.trim(),
-            title: `Project scoping request — ${company.trim()}`,
-            message: projectBrief.trim(),
-            email: workEmail.trim(),
-            from_name: fullName.trim(),
-            from_email: workEmail.trim(),
-            reply_to: directEmail,
-            company: company.trim(),
-            phone: phoneNumber.trim() || 'Not provided',
-            project_brief: projectBrief.trim(),
-          },
-        }),
-      });
+      const sendTemplate = async (templateId: string, templateParams: Record<string, string>) => {
+        const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            service_id: serviceId,
+            template_id: templateId,
+            user_id: publicKey,
+            template_params: templateParams,
+          }),
+        });
+        if (!response.ok) {
+          const details = (await response.text()).trim();
+          throw new Error(details || `EmailJS returned HTTP ${response.status}.`);
+        }
+      };
 
-      if (!response.ok) {
-        const details = (await response.text()).trim();
-        throw new Error(details || `EmailJS returned HTTP ${response.status}.`);
-      }
+      const companyRequest = {
+        to_email: directEmail,
+        name: fullName.trim(),
+        from_name: fullName.trim(),
+        from_email: workEmail.trim(),
+        email: workEmail.trim(),
+        reply_to: workEmail.trim(),
+        title: `Project scoping request - ${company.trim()}`,
+        company: company.trim(),
+        phone: phoneNumber.trim() || 'Not provided',
+        message: projectBrief.trim(),
+        project_brief: projectBrief.trim(),
+      };
+      const clientAcknowledgement = {
+        to_email: workEmail.trim(),
+        name: fullName.trim(),
+        from_name: 'Fox Tech Solutions',
+        from_email: directEmail,
+        email: workEmail.trim(),
+        reply_to: directEmail,
+        title: 'We received your project inquiry - Fox Tech Solutions',
+        company: company.trim(),
+        phone: phoneNumber.trim() || 'Not provided',
+        message: projectBrief.trim(),
+        project_brief: projectBrief.trim(),
+      };
+
+      const results = await Promise.allSettled([
+        sendTemplate(notificationTemplateId, companyRequest),
+        sendTemplate(autoReplyTemplateId, clientAcknowledgement),
+      ]);
+      const failedDeliveries = results.flatMap((result, index) =>
+        result.status === 'rejected'
+          ? [`${index === 0 ? 'Company project notification' : 'Client auto-reply'}: ${result.reason instanceof Error ? result.reason.message : 'Email delivery failed'}`]
+          : []
+      );
+      if (failedDeliveries.length) throw new Error(failedDeliveries.join(' | '));
 
       const generatedRef = `FOX-${Math.floor(100000 + Math.random() * 900000)}`;
       setBookingRef(generatedRef);
@@ -104,7 +130,7 @@ export const ContactScoping: React.FC = () => {
       setErrorMsg(isNetworkError
         ? `The form couldn't reach EmailJS. Check your connection and make sure this site's domain is allowed in EmailJS. You can also email ${directEmail}.`
         : missingRecipient
-          ? `The EmailJS template has no recipient. In EmailJS, set “To Email” to {{to_email}} and “Bcc” to {{bcc_email}}, save it, then try again.`
+          ? `An EmailJS template has no recipient. Set the company notification template's To Email to ${directEmail}, and the auto-reply template's To Email to {{to_email}}.`
           : `EmailJS rejected the request${details ? `: ${details}` : '.'} Please check the EmailJS service, template, and recipient settings, or email ${directEmail}.`
       );
     } finally {
