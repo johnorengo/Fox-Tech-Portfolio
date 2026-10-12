@@ -1,86 +1,97 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, CheckCircle2, ExternalLink, GraduationCap, ShieldCheck } from 'lucide-react';
-import logisticsImage from '../assets/images/case_study_logistics_1791693854957.jpg';
+import { ArrowUpRight, CheckCircle2, ExternalLink, Globe } from 'lucide-react';
 
 export const CaseStudies: React.FC = () => {
-  const [imageError, setImageError] = useState(false);
   const [activeCase, setActiveCase] = useState<number>(0);
 
   const cases = [
     {
       id: 'sebbylogistics',
+      shortLabel: 'Sebby Flowers',
       client: 'Sebby Logistics',
-      industry: 'Freight Forwarding & Supply Chain Logistics',
-      timeframe: 'Proposed Production Architecture',
-      externalUrl: null,
-      urlLabel: 'Explore Proposed Design',
-      isLiveSite: false,
-      headline: 'Modern Digital Freight Platform & Real-Time Consignment Tracking Interface',
-      summary: 'A bespoke digital freight operations platform engineered for Sebby Logistics. Connects shippers, dispatchers, and carriers with instantaneous consignment status tracking, automated freight rate calculations, and responsive mobile-first workflows designed for East Africa and regional transit corridors.',
-      metrics: [
-        { label: 'Tracking Latency', value: '< 1.2s', detail: 'Instant milestone lookups' },
-        { label: 'Consignment Visibility', value: '100%', detail: 'End-to-end shipment audit trail' },
-        { label: 'Dispatch Speed', value: '3.4x', detail: 'Automated booking pipelines' },
-        { label: 'Interface Design', value: 'Figma ➔ Code', detail: 'Zero style drift implementation' }
+      projectType: 'Commercial Project',
+      industry: 'Kenyan Flowers & Global Airfreight',
+      timeframe: 'Farm-to-Destination Platform',
+      externalUrl: 'https://sebbylogistics.com/',
+      urlLabel: 'Visit Sebby Logistics',
+      isLiveSite: true,
+      headline: 'Premium Kenyan Flowers, Direct from Farms to the World',
+      summary: 'Buy premium Kenyan flowers directly from good farms at competitive prices. Sebby coordinates the entire purchase process and logistics, including airfreight to destinations worldwide. By combining local efforts, the service aims to make sourcing smoother and more affordable than traditional suppliers.',
+      highlights: [
+        { label: 'Farm-direct sourcing', detail: 'Premium flowers purchased directly from Kenyan farms.' },
+        { label: 'Purchase coordination', detail: 'Support throughout the end-to-end buying process.' },
+        { label: 'Complete logistics', detail: 'One coordinated flow from farm purchase to dispatch.' },
+        { label: 'Worldwide airfreight', detail: 'Shipments arranged for destinations around the world.' },
       ],
-      stack: ['Interactive Tracking UI', 'React & Next.js', 'Design Token Architecture', 'Tailwind CSS', 'Fleet Routing APIs'],
-      quote: {
-        text: 'The proposed design provides Sebby Logistics with an international-grade digital presence—combining rapid load times with effortless tracking for our cargo clients.',
-        author: 'Sebby Logistics Operations',
-        role: 'Proposed Client Architecture'
-      },
-      image: logisticsImage
+      stack: ['Farm-direct flowers', 'Purchase coordination', 'Airfreight logistics', 'Worldwide delivery'],
+      previewTitle: 'Flowers from Kenyan farms, delivered worldwide',
+      previewPoints: ['Direct farm sourcing', 'Purchase & logistics coordination', 'International airfreight'],
     },
     {
       id: 'citymart',
+      shortLabel: 'Citymart',
       client: 'Citymart Electricals',
-      industry: 'Commercial Electrical Supplies & E-Commerce',
-      timeframe: 'Live Production Platform',
-      externalUrl: 'https://citymartelectricals.com',
-      urlLabel: 'Visit citymartelectricals.com',
+      projectType: 'Commercial Project',
+      industry: 'Electrical Supplies & E-Commerce',
+      timeframe: 'Live Commercial Storefront',
+      externalUrl: 'https://citymartelectricals.com/',
+      urlLabel: 'Visit Citymart Electricals',
       isLiveSite: true,
-      headline: 'High-Performance E-Commerce Catalog & Automated Trade Quotation Portal',
-      summary: 'Engineered a high-speed digital storefront and wholesale product catalog for Citymart Electricals (citymartelectricals.com). Eliminates customer friction with sub-second categorized SKU browsing, clear technical specifications, and a direct WhatsApp quotation and checkout pipeline.',
-      metrics: [
-        { label: 'Mobile Page Speed', value: '1.1s', detail: 'Accelerated time-to-interactive' },
-        { label: 'Product Discovery', value: '+85%', detail: 'Instant categorized SKU search' },
-        { label: 'Catalog Capacity', value: '2,500+ SKUs', detail: 'Structured product schema' },
-        { label: 'Storefront Uptime', value: '99.98%', detail: 'Managed platform availability' }
+      headline: 'Electrical Supplies Catalog & Trade Quotation Portal',
+      summary: 'An online storefront for electrical supplies that helps commercial buyers browse products, review technical details, and request quotations through a direct WhatsApp contact flow.',
+      highlights: [
+        { label: 'Product catalog', detail: 'Organized browsing for electrical supplies.' },
+        { label: 'Technical details', detail: 'Product information presented for trade buyers.' },
+        { label: 'Quote requests', detail: 'Direct WhatsApp path for pricing and availability.' },
+        { label: 'Mobile storefront', detail: 'Responsive shopping experience across devices.' },
       ],
-      stack: ['Live Commercial Storefront', 'Categorized SKU Engine', 'WhatsApp Checkout Bridge', 'Technical SEO', 'Cloud Edge Caching'],
-      quote: {
-        text: 'Fox Tech Solutions built citymartelectricals.com into a clean, intuitive storefront that allows our electrical contractors and commercial clients to find equipment and request quotes effortlessly.',
-        author: 'Citymart Management',
-        role: 'Commercial Electrical Retail & Wholesale'
-      },
-      image: null
-    }
-  ];
-
-  const educationPlatforms = [
-    {
-      number: '01',
-      name: 'Education Document Verification',
-      category: 'EDUCATION  /  VERIFICATION',
-      description: 'An online platform for education document verification.',
-      domain: 'dataverifications.education.go.ke',
-      url: 'https://dataverifications.education.go.ke/',
-      Icon: ShieldCheck,
-      theme: 'from-[#ff6a00]/25 via-[#7c2d12]/10 to-[#1a0d07]',
-      glow: 'bg-[#ff6a00]/20',
-      iconColor: 'text-[#ff9a57]',
+      stack: ['E-commerce catalog', 'Product discovery', 'WhatsApp quotations', 'Technical SEO'],
+      previewTitle: 'A clearer way to find electrical supplies',
+      previewPoints: ['Browse product categories', 'Review product details', 'Request a trade quotation'],
     },
     {
-      number: '02',
-      name: 'Kenya Primary Learning Portal',
-      category: 'EDUCATION  /  DIGITAL LEARNING',
-      description: 'A digital learning portal for primary education.',
-      domain: 'kplp.education.go.ke',
-      url: 'https://kplp.education.go.ke/',
-      Icon: GraduationCap,
-      theme: 'from-[#00d2b4]/25 via-[#155e75]/10 to-[#071a1a]',
-      glow: 'bg-[#00d2b4]/20',
-      iconColor: 'text-[#5eead4]',
+      id: 'learner-verification',
+      shortLabel: 'Learner Verification',
+      client: 'Education Document Verification',
+      projectType: 'Government Project',
+      industry: 'School Administration & Learner Verification',
+      timeframe: 'Government Education Platform',
+      externalUrl: 'https://dataverifications.education.go.ke/',
+      urlLabel: 'Visit Verification Portal',
+      isLiveSite: true,
+      headline: 'Verify Learners. Protect Education Funding.',
+      summary: 'A school-administration platform for verifying learners who already exist in school records. It helps identify ghost learners?nonexistent or unverified records that can inflate enrollment figures and lead to funding being allocated for learners who are not actually present.',
+      highlights: [
+        { label: 'Existing learner checks', detail: 'School administrators verify learners already on record.' },
+        { label: 'Ghost learner detection', detail: 'Helps flag records that do not reflect actual learners.' },
+        { label: 'Enrollment validation', detail: 'Supports more reliable school enrollment information.' },
+        { label: 'Funding integrity', detail: 'Helps reduce inflated counts linked to ghost learners.' },
+      ],
+      stack: ['School administration', 'Learner verification', 'Enrollment records', 'Funding integrity'],
+      previewTitle: 'Learner records schools can verify',
+      previewPoints: ['Review existing school records', 'Flag ghost learner entries', 'Support accurate enrollment'],
+    },
+    {
+      id: 'eems',
+      shortLabel: 'School Protection (EEMS)',
+      client: 'Education Emergency Management System (EEMS)',
+      projectType: 'Government Project',
+      industry: 'School Safety & Emergency Management',
+      timeframe: 'Government Project ? Kenya',
+      externalUrl: 'https://kplp.education.go.ke/',
+      urlLabel: 'Visit EEMS Platform',
+      isLiveSite: true,
+      headline: 'Comprehensive School Protection System',
+      summary: 'A comprehensive disaster-management platform designed for schools in Kenya. EEMS supports school protection across all 47 counties with real-time hazard monitoring, school risk profiles, instant emergency alerts, and dedicated child-protection workflows.',
+      highlights: [
+        { label: 'Real-time hazard monitoring', detail: 'Tracks floods, droughts, storms, and conflicts with live updates.' },
+        { label: 'School risk profiling', detail: 'Color-coded risk levels support proactive preparedness.' },
+        { label: 'Instant alerts', detail: 'Notifications support rapid response to emergencies.' },
+        { label: 'Child protection', detail: 'Dedicated workflows help coordinate student safeguarding.' },
+      ],
+      stack: ['Hazard monitoring', 'School risk profiles', 'Emergency notifications', 'Child protection workflows'],
+      previewTitle: 'Helping schools prepare and respond',
+      previewPoints: ['Monitor hazards across Kenya', 'Profile school-level risks', 'Coordinate alerts and protection'],
     },
   ];
 
@@ -94,13 +105,13 @@ export const CaseStudies: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <div className="text-xs font-semibold text-[#ff6a00] tracking-wide uppercase mb-2">
-              Featured Client Work & Case Studies
+              Commercial & Government Case Studies
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight [text-wrap:balance]">
               Proven Systems in Action
             </h2>
             <p className="text-[#d6c7be] text-sm sm:text-base mt-2 max-w-xl">
-              Real-world digital platforms designed and engineered by Fox Tech Solutions for logistics, trade, and commercial enterprises.
+              Explore four live platforms across flower logistics, commerce, learner verification, and school protection.
             </p>
           </div>
 
@@ -116,7 +127,7 @@ export const CaseStudies: React.FC = () => {
                     : 'text-[#d6c7be] hover:text-white hover:bg-[#28150d]'
                 }`}
               >
-                <span>{c.client}</span>
+                <span>{c.shortLabel}</span>
                 {c.isLiveSite && (
                   <span className="w-1.5 h-1.5 rounded-full bg-[#00d2b4]" />
                 )}
@@ -132,6 +143,11 @@ export const CaseStudies: React.FC = () => {
           <div className="px-6 sm:px-8 py-5 border-b border-[#3d2216] flex flex-wrap items-center justify-between gap-4 text-xs text-[#d6c7be]">
             <div className="flex items-center gap-2">
               <span className="text-white font-semibold">{current.client}</span>
+              {current.projectType === 'Government Project' && (
+                <span className="rounded-full border border-[#00d2b4]/30 bg-[#00d2b4]/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#5eead4]">
+                  Government Project
+                </span>
+              )}
               <span aria-hidden="true">·</span>
               <span>{current.industry}</span>
               <span aria-hidden="true">·</span>
@@ -165,20 +181,14 @@ export const CaseStudies: React.FC = () => {
                   {current.summary}
                 </p>
 
-                {/* Quantitative Metric Grid with Tabular Numerals */}
-                <div className="grid grid-cols-2 gap-4 sm:gap-6 mb-8 p-5 rounded-xl bg-[#140905] border border-[#3d2216]">
-                  {current.metrics.map((m, mIdx) => (
-                    <div key={mIdx}>
-                      <div className="text-xs text-[#d6c7be] font-medium">
-                        {m.label}
-                      </div>
-                      <div className={`text-2xl sm:text-3xl font-bold font-mono tabular-nums tracking-tight mt-1 ${
-                        mIdx % 2 === 0 ? 'text-[#ff6a00]' : 'text-[#00d2b4]'
-                      }`}>
-                        {m.value}
-                      </div>
-                      <div className="text-[11px] text-[#a89587] mt-1">
-                        {m.detail}
+                <div className="mb-8 grid grid-cols-1 gap-3 rounded-xl border border-[#3d2216] bg-[#140905] p-4 sm:grid-cols-2 sm:p-5">
+                  <div className="col-span-full mb-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#a89587]">Project Highlights</div>
+                  {current.highlights.map((item, index) => (
+                    <div key={item.label} className="flex items-start gap-2.5 rounded-lg border border-white/[0.04] bg-white/[0.02] p-3">
+                      <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${index % 2 === 0 ? 'bg-[#ff6a00]' : 'bg-[#00d2b4]'}`} />
+                      <div>
+                        <div className="text-xs font-semibold text-white">{item.label}</div>
+                        <div className="mt-1 text-[11px] leading-relaxed text-[#a89587]">{item.detail}</div>
                       </div>
                     </div>
                   ))}
@@ -195,154 +205,72 @@ export const CaseStudies: React.FC = () => {
                   ))}
                 </div>
 
-                {/* Link Action & Attributable Quote */}
-                <div className="pt-6 border-t border-[#3d2216] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex flex-col gap-4 border-t border-[#3d2216] pt-6 sm:flex-row sm:items-center sm:justify-between">
                   <div>
-                    <blockquote className="text-xs sm:text-sm text-[#e5d8cf] italic leading-relaxed">
-                      "{current.quote.text}"
-                    </blockquote>
-                    <div className="mt-2 text-xs font-medium text-white">
-                      {current.quote.author} <span className="text-[#d6c7be] font-normal">· {current.quote.role}</span>
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#a89587]">Project Type</div>
+                    <div className={`mt-1 text-sm font-semibold ${current.projectType === 'Government Project' ? 'text-[#5eead4]' : 'text-white'}`}>
+                      {current.projectType}
                     </div>
                   </div>
-
                   {current.externalUrl && (
                     <a
                       href={current.externalUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="shrink-0 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-xs font-semibold text-white bg-gradient-to-r from-[#ff6a00] to-[#f25c05] hover:from-[#ff7a1a] hover:to-[#ff6a00] transition-all shadow-md shadow-[#ff6a00]/20"
+                      className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#ff6a00] to-[#f25c05] px-5 py-2.5 text-xs font-semibold text-white shadow-md shadow-[#ff6a00]/20 transition hover:from-[#ff7a1a] hover:to-[#ff6a00]"
                     >
                       <span>{current.urlLabel}</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
+                      <ExternalLink className="h-3.5 w-3.5" />
                     </a>
                   )}
                 </div>
 
               </div>
 
-              {/* Right Column: Visual Preview Card */}
               <div className="lg:col-span-5">
-                {current.image && !imageError ? (
-                  <div className="rounded-xl overflow-hidden border border-[#3d2216] bg-[#140905] shadow-xl group">
-                    <img 
-                      src={current.image} 
-                      alt={current.headline} 
-                      className="w-full h-72 sm:h-96 object-cover transition-transform duration-500 group-hover:scale-102"
-                      referrerPolicy="no-referrer"
-                      onError={() => setImageError(true)}
-                    />
-                    <div className="p-3 bg-[#140905] border-t border-[#3d2216] text-[11px] text-[#d6c7be] flex items-center justify-between font-mono">
-                      <span>Sebby Logistics Freight UI</span>
-                      <span className="text-[#00d2b4]">Concept preview</span>
+                <div className="group relative isolate flex min-h-[390px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#251329] via-[#101722] to-[#0a1717] p-6 shadow-xl sm:p-7">
+                  <div className="pointer-events-none absolute -right-14 -top-16 h-56 w-56 rounded-full bg-[#ff6a00]/20 blur-3xl transition duration-500 group-hover:scale-125" />
+                  <div className="pointer-events-none absolute -bottom-24 -left-12 h-64 w-64 rounded-full bg-[#00d2b4]/15 blur-3xl" />
+                  <div className="relative flex h-full flex-1 flex-col">
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#a89587]">Platform Overview</span>
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300/20 bg-emerald-300/10 px-2.5 py-1 text-[10px] font-semibold text-emerald-200">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" /> Live
+                      </span>
                     </div>
-                  </div>
-                ) : (
-                  <div className="rounded-xl border border-[#3d2216] bg-[#140905] p-6 flex flex-col justify-between h-full min-h-[340px]">
-                    <div>
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-xs font-semibold text-[#00d2b4] uppercase tracking-wider">
-                          Live Client Storefront
-                        </span>
-                        <span className="text-[11px] font-mono text-[#ff6a00]">citymartelectricals.com</span>
-                      </div>
-                      
-                      <div className="text-lg font-bold text-white mb-4">
-                        Comprehensive Electrical Hardware Engine
-                      </div>
-                      
-                      <div className="space-y-3 text-xs sm:text-sm text-[#fdf8f5]">
-                        <div className="flex items-start gap-2.5">
-                          <CheckCircle2 className="w-4 h-4 text-[#ff6a00] shrink-0 mt-0.5" />
-                          <span>Structured technical product catalog with over 2,500 active commercial SKUs.</span>
+
+                    <div className="my-auto py-8">
+                      {current.projectType === 'Government Project' && (
+                        <div className="mb-3 inline-flex rounded-md border border-[#00d2b4]/25 bg-[#00d2b4]/10 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.16em] text-[#5eead4]">
+                          Government Project
                         </div>
-                        <div className="flex items-start gap-2.5">
-                          <CheckCircle2 className="w-4 h-4 text-[#00d2b4] shrink-0 mt-0.5" />
-                          <span>Direct instant WhatsApp order inquiry and automated contractor quotation pipeline.</span>
-                        </div>
-                        <div className="flex items-start gap-2.5">
-                          <CheckCircle2 className="w-4 h-4 text-[#ff6a00] shrink-0 mt-0.5" />
-                          <span>Fast mobile loading speeds and robust search indexing for contractor equipment.</span>
-                        </div>
+                      )}
+                      <h4 className="max-w-sm text-2xl font-bold leading-tight text-white sm:text-3xl">{current.previewTitle}</h4>
+                      <div className="mt-6 space-y-3">
+                        {current.previewPoints.map((point, index) => (
+                          <div key={point} className="flex items-center gap-3 rounded-lg border border-white/[0.07] bg-black/20 px-3.5 py-3">
+                            <span className={`grid h-7 w-7 shrink-0 place-items-center rounded-md ${index % 2 === 0 ? 'bg-[#ff6a00]/15 text-[#ff9a57]' : 'bg-[#00d2b4]/15 text-[#5eead4]'}`}>
+                              <CheckCircle2 className="h-4 w-4" />
+                            </span>
+                            <span className="text-xs font-medium leading-snug text-white/85">{point}</span>
+                          </div>
+                        ))}
                       </div>
                     </div>
 
-                    <div className="pt-6 border-t border-[#3d2216] mt-6 flex items-center justify-between text-xs">
-                      <span className="text-[#d6c7be]">Status: Fully Deployed & Live</span>
-                      <a 
-                        href="https://citymartelectricals.com" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="text-[#ff6a00] font-semibold hover:text-[#00d2b4] transition-colors inline-flex items-center gap-1"
-                      >
-                        <span>Visit Site</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
-                      </a>
+                    <div className="flex items-center gap-2 border-t border-white/10 pt-4 text-[10px] text-white/55">
+                      <Globe className="h-3.5 w-3.5 shrink-0 text-[#00d2b4]" />
+                      <span className="truncate font-mono">{current.externalUrl?.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
                     </div>
-                  </div>
-                )}
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-
-        <div className="mt-14">
-          <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#00d2b4]">
-                Live Education Platforms
-              </div>
-              <h3 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-                Built for access. Designed to move learning forward.
-              </h3>
-            </div>
-            <p className="max-w-md text-sm leading-relaxed text-[#bba99e]">
-              Explore these digital platforms for education verification and primary learning.
-            </p>
-          </div>
-
-          <div className="grid gap-5 lg:grid-cols-2">
-            {educationPlatforms.map(({ number, name, category, description, domain, url, Icon, theme, glow, iconColor }) => (
-              <article
-                key={domain}
-                className={`group relative isolate min-h-[290px] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br ${theme} p-6 shadow-xl transition duration-300 hover:-translate-y-1 hover:border-white/25 sm:p-8`}
-              >
-                <div className={`pointer-events-none absolute -right-12 -top-16 h-48 w-48 rounded-full ${glow} blur-3xl transition duration-500 group-hover:scale-125`} />
-                <div className="pointer-events-none absolute -right-10 bottom-[-95px] h-64 w-64 rounded-full border border-white/10 transition duration-500 group-hover:scale-110" />
-                <div className="relative flex h-full flex-col">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className={`grid h-12 w-12 place-items-center rounded-xl border border-white/15 bg-black/20 ${iconColor}`}>
-                      <Icon className="h-6 w-6" strokeWidth={1.7} />
-                    </div>
-                    <span className="font-mono text-4xl font-bold tracking-tight text-white/20">{number}</span>
-                  </div>
-
-                  <div className="mt-7 text-[10px] font-semibold tracking-[0.18em] text-white/60">{category}</div>
-                  <h4 className="mt-2 max-w-lg text-2xl font-bold leading-tight text-white sm:text-[1.7rem]">{name}</h4>
-                  <p className="mt-3 max-w-lg text-sm leading-relaxed text-white/75">{description}</p>
-
-                  <div className="mt-auto flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-5">
-                    <div className="flex min-w-0 items-center gap-2 text-xs text-white/65">
-                      <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]" />
-                      <span className="truncate font-mono">{domain}</span>
-                    </div>
-                    <a
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex shrink-0 items-center gap-2 rounded-lg border border-white/15 bg-white/10 px-4 py-2.5 text-xs font-semibold text-white transition hover:border-white/30 hover:bg-white/20"
-                    >
-                      Visit platform
-                      <ArrowUpRight className="h-4 w-4" />
-                    </a>
                   </div>
                 </div>
-              </article>
-            ))}
+              </div>
+
+            </div>
           </div>
+
         </div>
+
 
       </div>
     </section>
