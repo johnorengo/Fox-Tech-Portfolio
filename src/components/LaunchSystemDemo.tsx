@@ -97,6 +97,7 @@ export const LaunchSystemDemo: React.FC = () => {
           <div className="flex flex-wrap items-center gap-1.5 p-1 bg-[#1e100a] rounded-lg border border-[#3d2216]">
             <button
               onClick={() => setActiveStage('tokens')}
+              aria-pressed={activeStage === 'tokens'}
               className={`flex items-center gap-2 px-3.5 py-1.5 text-xs font-medium rounded-md transition-colors ${
                 activeStage === 'tokens'
                   ? 'bg-gradient-to-r from-[#ff6a00] to-[#f25c05] text-white shadow-sm font-semibold'
@@ -108,6 +109,7 @@ export const LaunchSystemDemo: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveStage('code')}
+              aria-pressed={activeStage === 'code'}
               className={`flex items-center gap-2 px-3.5 py-1.5 text-xs font-medium rounded-md transition-colors ${
                 activeStage === 'code'
                   ? 'bg-gradient-to-r from-[#ff6a00] to-[#f25c05] text-white shadow-sm font-semibold'
@@ -119,6 +121,7 @@ export const LaunchSystemDemo: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveStage('growth')}
+              aria-pressed={activeStage === 'growth'}
               className={`flex items-center gap-2 px-3.5 py-1.5 text-xs font-medium rounded-md transition-colors ${
                 activeStage === 'growth'
                   ? 'bg-gradient-to-r from-[#00d2b4] to-[#10b981] text-[#140905] shadow-sm font-bold'
@@ -149,6 +152,7 @@ export const LaunchSystemDemo: React.FC = () => {
             <div className="flex items-center gap-1 p-1 bg-[#140905] rounded-lg border border-[#3d2216] text-xs self-start sm:self-auto">
               <button
                 onClick={() => setSystemMode('foxtech')}
+                aria-pressed={systemMode === 'foxtech'}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md font-medium transition-colors ${
                   systemMode === 'foxtech' 
                     ? 'bg-gradient-to-r from-[#ff6a00] to-[#f25c05] text-white shadow-sm font-semibold' 
@@ -160,6 +164,7 @@ export const LaunchSystemDemo: React.FC = () => {
               </button>
               <button
                 onClick={() => setSystemMode('traditional')}
+                aria-pressed={systemMode === 'traditional'}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md font-medium transition-colors ${
                   systemMode === 'traditional' 
                     ? 'bg-[#28150d] text-white shadow-sm font-semibold' 

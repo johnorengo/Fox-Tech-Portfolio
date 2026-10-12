@@ -121,6 +121,7 @@ export const CaseStudies: React.FC = () => {
               <button
                 key={c.id}
                 onClick={() => setActiveCase(idx)}
+                aria-pressed={activeCase === idx}
                 className={`min-w-0 max-w-full px-3 py-2 text-left text-xs font-medium leading-tight rounded-md transition-colors flex flex-wrap items-center gap-1.5 sm:px-4 ${
                   activeCase === idx
                     ? 'bg-gradient-to-r from-[#ff6a00] to-[#f25c05] text-white shadow-sm font-semibold'

@@ -9,9 +9,9 @@ import {
   CheckCircle2
 } from 'lucide-react';
 
-import slideImgPlatform from '../assets/images/hero_digital_platform_1791704954352.jpg';
-import slideImgDesign from '../assets/images/hero_design_systems_1791704967141.jpg';
-import slideImgInfra from '../assets/images/hero_tech_infrastructure_1791693843299.jpg';
+import slideImgPlatform from '../assets/images/hero_digital_platform_1791704954352.webp';
+import slideImgDesign from '../assets/images/hero_design_systems_1791704967141.webp';
+import slideImgInfra from '../assets/images/hero_tech_infrastructure_1791693843299.webp';
 
 interface HeroProps {
   onBookScoping: () => void;
@@ -20,6 +20,15 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
+    updatePreference();
+    mediaQuery.addEventListener('change', updatePreference);
+    return () => mediaQuery.removeEventListener('change', updatePreference);
+  }, []);
 
   // Carousel images that rotate, while the headline and text remain stable
   const carouselImages = [
@@ -42,12 +51,12 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
 
   // Auto-advance images every 5 seconds
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || prefersReducedMotion) return;
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % carouselImages.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [isPaused, carouselImages.length]);
+  }, [isPaused, prefersReducedMotion, carouselImages.length]);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % carouselImages.length);
@@ -64,6 +73,12 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
       className="relative pt-4 pb-20 md:pt-6 md:pb-24 overflow-hidden bg-[#140905]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
+      onFocusCapture={() => setIsPaused(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          setIsPaused(false);
+        }
+      }}
     >
       {/* Subtle warm ambient lighting */}
       <div 
@@ -126,17 +141,15 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
               
               {/* Carousel Image Container */}
               <div className="relative h-80 sm:h-96 lg:h-[450px] w-full overflow-hidden">
-                {carouselImages.map((img, idx) => (
-                  <img
-                    key={idx}
-                    src={img.src}
-                    alt={img.caption}
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
-                      currentImageIndex === idx ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
-                    }`}
-                    referrerPolicy="no-referrer"
-                  />
-                ))}
+                <img
+                  key={currentImageIndex}
+                  src={currentImg.src}
+                  alt={currentImg.caption}
+                  fetchPriority={currentImageIndex === 0 ? 'high' : 'auto'}
+                  loading="eager"
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full animate-[hero-image-in_700ms_ease-in-out] object-cover"
+                />
 
                 {/* Subtle Contrast Scrim */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#140905] via-[#140905]/30 to-transparent opacity-85" />
@@ -176,6 +189,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
                     <button
                       key={idx}
                       onClick={() => setCurrentImageIndex(idx)}
+                      aria-pressed={currentImageIndex === idx}
                       className={`h-1.5 rounded-full transition-all duration-300 ${
                         currentImageIndex === idx ? 'w-6 bg-[#ff6a00]' : 'w-2 bg-[#ffffff]/40 hover:bg-white'
                       }`}

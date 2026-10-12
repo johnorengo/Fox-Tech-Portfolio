@@ -64,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
           
           {/* Brand Wordmark with Tagline Underneath */}
           <a 
-            href="#" 
+            href="/"
             className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff6a00] rounded-lg shrink-0"
             aria-label="Fox Tech Solutions Home"
           >
@@ -72,7 +72,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
           </a>
 
           {/* Clean Nav Links */}
-          <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-[#d6c7be]">
+          <nav aria-label="Primary" className="hidden lg:flex items-center gap-7 text-sm font-medium text-[#d6c7be]">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -100,7 +100,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-[#d6c7be] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#ff6a00] rounded-md"
-              aria-label="Toggle menu"
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -110,8 +112,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
       </div>
 
       {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-[#3d2216] bg-[#1a0d07] px-4 pt-3 pb-6 space-y-3">
+      <nav
+        id="mobile-navigation"
+        aria-label="Mobile"
+        hidden={!mobileMenuOpen}
+        className="lg:hidden border-b border-[#3d2216] bg-[#1a0d07] px-4 pt-3 pb-6 space-y-3"
+      >
           <div className="flex flex-col space-y-2">
             {navLinks.map((link) => (
               <a
@@ -136,8 +142,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               </button>
             </div>
           </div>
-        </div>
-      )}
+      </nav>
     </header>
   );
 };

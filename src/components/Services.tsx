@@ -102,6 +102,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
           <div className="flex flex-wrap items-center gap-1.5 p-1 bg-[#1e100a] rounded-lg border border-[#3d2216] self-start md:self-auto">
             <button
               onClick={() => setActiveCategory('all')}
+              aria-pressed={activeCategory === 'all'}
               className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap ${
                 activeCategory === 'all'
                   ? 'bg-gradient-to-r from-[#ff6a00] to-[#f25c05] text-white shadow-sm font-semibold'
@@ -112,6 +113,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
             </button>
             <button
               onClick={() => setActiveCategory('design')}
+              aria-pressed={activeCategory === 'design'}
               className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap ${
                 activeCategory === 'design'
                   ? 'bg-gradient-to-r from-[#ff6a00] to-[#f25c05] text-white shadow-sm font-semibold'
@@ -122,6 +124,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
             </button>
             <button
               onClick={() => setActiveCategory('development')}
+              aria-pressed={activeCategory === 'development'}
               className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap ${
                 activeCategory === 'development'
                   ? 'bg-gradient-to-r from-[#00d2b4] to-[#10b981] text-[#140905] shadow-sm font-bold'
@@ -132,6 +135,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
             </button>
             <button
               onClick={() => setActiveCategory('marketing')}
+              aria-pressed={activeCategory === 'marketing'}
               className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap ${
                 activeCategory === 'marketing'
                   ? 'bg-gradient-to-r from-[#ff6a00] to-[#f25c05] text-white shadow-sm font-semibold'
@@ -142,6 +146,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
             </button>
             <button
               onClick={() => setActiveCategory('support')}
+              aria-pressed={activeCategory === 'support'}
               className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap ${
                 activeCategory === 'support'
                   ? 'bg-gradient-to-r from-[#00d2b4] to-[#10b981] text-[#140905] shadow-sm font-bold'

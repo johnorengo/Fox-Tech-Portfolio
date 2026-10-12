@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { X, ShieldCheck } from 'lucide-react';
 
 interface LegalModalProps {
@@ -7,6 +7,47 @@ interface LegalModalProps {
 }
 
 export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!type) return;
+
+    const previouslyFocused = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    closeButtonRef.current?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+
+      const focusableElements = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), a[href], input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusableElements?.length) return;
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      previouslyFocused?.focus();
+    };
+  }, [type, onClose]);
+
   if (!type) return null;
 
   const contentMap = {
@@ -81,8 +122,11 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
         className={`relative max-h-[calc(88vh-2px)] overflow-y-auto rounded-[15px] border ${documentTheme.border} bg-[#160c1a]/90 p-6 backdrop-blur-xl sm:p-8`}
         role="dialog"
         aria-modal="true"
+        aria-labelledby="legal-dialog-title"
+        ref={dialogRef}
       >
         <button
+          ref={closeButtonRef}
           onClick={onClose}
           className="absolute top-5 right-5 p-2 rounded-lg text-[#d6c7be] hover:text-white hover:bg-[#28150d] transition-colors"
           aria-label="Close modal"
@@ -95,7 +139,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
           <span>LEGAL & COMPLIANCE · REVISED {activeContent.updated} · NAIROBI</span>
         </div>
 
-        <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">
+        <h3 id="legal-dialog-title" className="text-xl sm:text-2xl font-bold text-white mb-6">
           {activeContent.title}
         </h3>
 

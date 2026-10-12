@@ -33,6 +33,11 @@
     min-height: 100vh;
   }
 
+  :where(a, button, input, textarea, select, [tabindex]):focus-visible {
+    outline: 2px solid #00d2b4;
+    outline-offset: 3px;
+  }
+
   /* Custom logo-inspired scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
@@ -52,5 +57,25 @@
   ::selection {
     background: rgba(255, 106, 0, 0.3);
     color: #ffffff;
+  }
+}
+
+@keyframes hero-image-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
