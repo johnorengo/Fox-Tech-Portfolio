@@ -15,36 +15,61 @@ export default function App() {
   const [activeLegalModal, setActiveLegalModal] = useState<'privacy' | 'terms' | 'security' | null>(null);
 
   useEffect(() => {
-    if (!('IntersectionObserver' in window)) return;
-
     const revealTargets = document.querySelectorAll<HTMLElement>('[data-reveal]');
     if (!revealTargets.length) return;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-revealed');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+    const revealIfVisible = (target: HTMLElement) => {
+      const bounds = target.getBoundingClientRect();
+      if (bounds.top < window.innerHeight * 0.92 && bounds.bottom > 0) {
+        target.classList.add('is-revealed');
+      }
+    };
+
+    const observer = 'IntersectionObserver' in window
+      ? new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.02, rootMargin: '0px 0px -8% 0px' })
+      : null;
 
     const observeNode = (node: Node) => {
       if (!(node instanceof HTMLElement)) return;
-      if (node.matches('[data-reveal]')) observer.observe(node);
-      node.querySelectorAll<HTMLElement>('[data-reveal]').forEach((target) => observer.observe(target));
+      const targets = [
+        ...(node.matches('[data-reveal]') ? [node] : []),
+        ...node.querySelectorAll<HTMLElement>('[data-reveal]'),
+      ];
+      targets.forEach((target) => {
+        if (observer) observer.observe(target);
+        else revealIfVisible(target);
+      });
+    };
+    const revealFallbackTargets = () => {
+      document.querySelectorAll<HTMLElement>('[data-reveal]:not(.is-revealed)').forEach(revealIfVisible);
     };
     const mutationObserver = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => mutation.addedNodes.forEach(observeNode));
     });
 
     document.documentElement.classList.add('scroll-reveals-ready');
-    revealTargets.forEach((target) => observer.observe(target));
+    revealTargets.forEach((target) => {
+      if (observer) observer.observe(target);
+    });
+    if (!observer) {
+      revealFallbackTargets();
+      window.addEventListener('scroll', revealFallbackTargets, { passive: true });
+      window.addEventListener('resize', revealFallbackTargets);
+    }
     mutationObserver.observe(document.getElementById('root') ?? document.body, { childList: true, subtree: true });
 
     return () => {
       mutationObserver.disconnect();
-      observer.disconnect();
+      observer?.disconnect();
+      window.removeEventListener('scroll', revealFallbackTargets);
+      window.removeEventListener('resize', revealFallbackTargets);
       document.documentElement.classList.remove('scroll-reveals-ready');
     };
   }, []);
