@@ -168,8 +168,8 @@ export const ContactScoping: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* Left Column: Starts directly with Estimated Engagement Pod */}
-          <div className="lg:col-span-5 space-y-6">
+          {/* Keep the form first on mobile; restore the two-column layout on desktop. */}
+          <div className="order-2 space-y-6 lg:order-1 lg:col-span-5">
             
             {/* Estimated Engagement Pod Card */}
             <div className="p-6 sm:p-7 rounded-xl border border-[#3d2216] bg-[#1e100a] shadow-xl space-y-5">
@@ -267,8 +267,8 @@ export const ContactScoping: React.FC = () => {
 
           </div>
 
-          {/* Right Column: Lead Capture Form */}
-          <div className="lg:col-span-7">
+          {/* Lead Capture Form */}
+          <div className="order-1 lg:order-2 lg:col-span-7">
             <div className="p-4 sm:p-6 lg:p-8 rounded-xl border border-[#3d2216] bg-[#1e100a] shadow-2xl">
               
               {!isSubmitted ? (

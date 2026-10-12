@@ -29,7 +29,7 @@ export const CaseStudies: React.FC = () => {
     },
     {
       id: 'citymart',
-      shortLabel: 'Citymart',
+      shortLabel: 'Citymart Electricals',
       client: 'Citymart Electricals',
       projectType: 'Commercial Project',
       industry: 'Electrical Supplies & E-Commerce',
