@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, LockKeyhole, Mail, MapPin, Phone, ShieldCheck } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 
 interface FooterProps {
   onOpenLegal: (type: 'privacy' | 'terms' | 'security') => void;
@@ -88,28 +88,22 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
           </div>
 
           {/* Governance & Legal */}
-          <div className="space-y-4">
-            <div>
-              <div className="text-white font-semibold text-xs tracking-wider uppercase">Trust & Legal</div>
-              <p className="mt-1 text-[11px] text-[#a89587]">How we protect and work with you</p>
-            </div>
+          <div className="space-y-3">
+            <div className="text-white font-semibold text-xs tracking-wider uppercase">Trust & Legal</div>
             <ul className="space-y-2">
               <li>
-                <button onClick={() => onOpenLegal('security')} className="group flex w-full items-center gap-2.5 rounded-lg border border-[#00d2b4]/20 bg-[#00d2b4]/[0.06] px-3 py-2.5 text-left transition hover:border-[#00d2b4]/55 hover:bg-[#00d2b4]/[0.12]">
-                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-md bg-[#00d2b4]/15 text-[#00d2b4]"><ShieldCheck className="h-4 w-4" /></span>
-                  <span className="text-[11px] font-medium text-[#e5d8cf] group-hover:text-white">Security Architecture</span>
+                <button onClick={() => onOpenLegal('security')} className="text-left transition-colors hover:text-[#00d2b4]">
+                  Security Architecture
                 </button>
               </li>
               <li>
-                <button onClick={() => onOpenLegal('privacy')} className="group flex w-full items-center gap-2.5 rounded-lg border border-[#a78bfa]/20 bg-[#a78bfa]/[0.06] px-3 py-2.5 text-left transition hover:border-[#a78bfa]/55 hover:bg-[#a78bfa]/[0.12]">
-                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-md bg-[#a78bfa]/15 text-[#c4b5fd]"><LockKeyhole className="h-4 w-4" /></span>
-                  <span className="text-[11px] font-medium text-[#e5d8cf] group-hover:text-white">Privacy Policy</span>
+                <button onClick={() => onOpenLegal('privacy')} className="text-left transition-colors hover:text-[#a78bfa]">
+                  Privacy Policy
                 </button>
               </li>
               <li>
-                <button onClick={() => onOpenLegal('terms')} className="group flex w-full items-center gap-2.5 rounded-lg border border-[#ff6a00]/20 bg-[#ff6a00]/[0.06] px-3 py-2.5 text-left transition hover:border-[#ff6a00]/55 hover:bg-[#ff6a00]/[0.12]">
-                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-md bg-[#ff6a00]/15 text-[#ff9a57]"><FileText className="h-4 w-4" /></span>
-                  <span className="text-[11px] font-medium text-[#e5d8cf] group-hover:text-white">Terms of Service</span>
+                <button onClick={() => onOpenLegal('terms')} className="text-left transition-colors hover:text-[#ff8a3d]">
+                  Terms of Service
                 </button>
               </li>
             </ul>
