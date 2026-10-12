@@ -43,11 +43,42 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
   };
 
   const activeContent = contentMap[type];
+  const documentTheme = {
+    privacy: {
+      gradient: 'from-fuchsia-600 via-rose-500 to-amber-400',
+      glow: 'bg-pink-300/35',
+      accent: 'text-pink-200',
+      border: 'border-pink-200/25',
+    },
+    terms: {
+      gradient: 'from-cyan-500 via-blue-600 to-violet-700',
+      glow: 'bg-cyan-300/35',
+      accent: 'text-cyan-200',
+      border: 'border-cyan-200/25',
+    },
+    security: {
+      gradient: 'from-lime-400 via-emerald-500 to-teal-600',
+      glow: 'bg-emerald-200/35',
+      accent: 'text-emerald-200',
+      border: 'border-emerald-200/25',
+    },
+  }[type];
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
-      <div 
-        className="w-full max-w-2xl bg-[#1a0d07] border border-[#3d2216] rounded-2xl p-6 sm:p-8 shadow-2xl relative max-h-[85vh] overflow-y-auto"
+      <div
+        className={`relative isolate w-full max-w-2xl overflow-hidden rounded-2xl bg-gradient-to-br ${documentTheme.gradient} p-[1px] shadow-[0_28px_100px_rgba(0,0,0,0.65)] max-h-[88vh]`}
+      >
+        <div
+          className="pointer-events-none absolute -right-14 -top-16 h-56 w-56 rounded-full bg-white/25 blur-3xl"
+          aria-hidden="true"
+        />
+        <div
+          className={`pointer-events-none absolute -bottom-20 -left-14 h-64 w-64 rounded-full ${documentTheme.glow} blur-3xl`}
+          aria-hidden="true"
+        />
+        <div
+        className={`relative max-h-[calc(88vh-2px)] overflow-y-auto rounded-[15px] border ${documentTheme.border} bg-[#160c1a]/90 p-6 backdrop-blur-xl sm:p-8`}
         role="dialog"
         aria-modal="true"
       >
@@ -59,7 +90,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
           <X className="w-5 h-5" />
         </button>
 
-        <div className="flex items-center gap-2.5 text-xs text-[#00d2b4] font-mono mb-2">
+        <div className={`mb-2 flex items-center gap-2.5 text-xs font-mono ${documentTheme.accent}`}>
           <ShieldCheck className="w-4 h-4" />
           <span>LEGAL & COMPLIANCE · REVISED {activeContent.updated} · NAIROBI</span>
         </div>
@@ -68,21 +99,22 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
           {activeContent.title}
         </h3>
 
-        <div className="space-y-4 text-xs sm:text-sm text-[#e5d8cf] leading-relaxed">
+        <div className="space-y-4 text-xs leading-relaxed text-white/95 sm:text-sm">
           {activeContent.body.map((p, idx) => (
-            <p key={idx} className="p-3.5 rounded-lg bg-[#140905] border border-[#3d2216]">
+            <p key={idx} className="rounded-xl border border-white/10 bg-[#100914]/65 p-4 shadow-lg shadow-black/10">
               {p}
             </p>
           ))}
         </div>
 
-        <div className="mt-8 pt-6 border-t border-[#3d2216] flex justify-end">
+        <div className={`mt-8 flex justify-end border-t ${documentTheme.border} pt-6`}>
           <button
             onClick={onClose}
             className="px-5 py-2 text-xs font-semibold text-white bg-gradient-to-r from-[#ff6a00] to-[#f25c05] hover:from-[#ff7a1a] hover:to-[#ff6a00] rounded-lg transition-colors"
           >
             Acknowledge & Close
           </button>
+        </div>
         </div>
       </div>
     </div>
