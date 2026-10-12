@@ -15,10 +15,9 @@ import slideImgInfra from '../assets/images/hero_tech_infrastructure_17916938432
 
 interface HeroProps {
   onBookScoping: () => void;
-  onExploreSolutions: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onBookScoping, onExploreSolutions }) => {
+export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -92,7 +91,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping, onExploreSolutions })
               From your first website to custom business software, we turn ideas and everyday business challenges into reliable digital solutions. We help businesses in Kenya, across Africa, and around the world work smarter, serve customers better, and grow with confidence.
             </p>
 
-            {/* CTAs (ONLY Start Your Project & Explore The System - NO WhatsApp button here) */}
+            {/* Primary call to action */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
               <button
                 onClick={onBookScoping}
@@ -100,13 +99,6 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping, onExploreSolutions })
               >
                 <span>Start Your Project</span>
                 <ArrowRight className="w-4 h-4 text-white" />
-              </button>
-
-              <button
-                onClick={onExploreSolutions}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-medium text-[#fdf8f5] hover:text-white bg-[#1e100a] hover:bg-[#28150d] border border-[#3d2216] transition-all rounded-lg whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff6a00]"
-              >
-                <span>Explore The System</span>
               </button>
             </div>
 

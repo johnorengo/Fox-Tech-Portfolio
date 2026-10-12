@@ -20,13 +20,6 @@ export default function App() {
     }
   };
 
-  const scrollToSystem = () => {
-    const sysElement = document.getElementById('system');
-    if (sysElement) {
-      sysElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const handleSelectService = () => {
     scrollToContact();
   };
@@ -39,10 +32,7 @@ export default function App() {
       {/* Main Page Flow */}
       <main>
         {/* 1. Hero Section with foxtechsolution.com authentic tagline */}
-        <Hero 
-          onBookScoping={scrollToContact} 
-          onExploreSolutions={scrollToSystem} 
-        />
+        <Hero onBookScoping={scrollToContact} />
 
         {/* 2. Core Services (Branding & UI/UX, Web Dev, Growth Marketing, Support) */}
         <Services onSelectService={handleSelectService} />
