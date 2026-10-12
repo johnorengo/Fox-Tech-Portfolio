@@ -2,7 +2,8 @@
 
 @layer base {
   :root {
-    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Space Grotesk', 'DM Sans', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     --brand-bg: #140905;
     --brand-surface: #1e100a;
@@ -31,6 +32,16 @@
     background-color: #140905;
     overflow-x: hidden;
     min-height: 100vh;
+  }
+
+  :where(h1, h2, h3, h4) {
+    font-family: var(--font-display);
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  :where(h1, h2) {
+    letter-spacing: -0.045em;
   }
 
   :where(a, button, input, textarea, select, [tabindex]):focus-visible {
