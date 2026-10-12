@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 
 interface FooterProps {
   onOpenLegal: (type: 'privacy' | 'terms' | 'security') => void;
@@ -30,7 +30,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
                 <span>Nairobi, Kenya</span>
               </div>
               <div className="flex items-center gap-2">
-                <Facebook className="w-3.5 h-3.5 text-[#ff6a00] shrink-0" />
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="w-3.5 h-3.5 shrink-0 fill-[#1877F2]"
+                >
+                  <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.019 4.388 11.006 10.125 11.854v-8.385H7.078v-3.469h3.047V9.429c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.49 0-1.956.931-1.956 1.886v2.249h3.328l-.532 3.469h-2.796v8.385C19.612 23.079 24 18.092 24 12.073Z" />
+                </svg>
                 <a
                   href="https://www.facebook.com/profile.php?id=61577433790128"
                   target="_blank"
