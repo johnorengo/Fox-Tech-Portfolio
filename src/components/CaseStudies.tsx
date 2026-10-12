@@ -98,7 +98,7 @@ export const CaseStudies: React.FC = () => {
   const current = cases[activeCase];
 
   return (
-    <section id="case-studies" className="py-24 bg-[#140905] border-t border-[#3d2216] relative">
+    <section id="case-studies" className="pt-8 pb-24 bg-[#140905] border-t border-[#3d2216] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
