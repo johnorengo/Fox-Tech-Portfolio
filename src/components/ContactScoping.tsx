@@ -165,13 +165,13 @@ export const ContactScoping: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
           
           {/* Keep the form first on mobile; restore the two-column layout on desktop. */}
-          <div className="order-2 space-y-6 lg:order-1 lg:col-span-5">
+          <div className="order-2 flex lg:order-1">
             
             {/* Estimated Engagement Pod Card */}
-            <div className="p-6 sm:p-7 rounded-xl border border-[#3d2216] bg-[#1e100a] shadow-xl space-y-5">
+            <div className="w-full space-y-5 rounded-xl border border-[#3d2216] bg-[#1e100a] p-6 shadow-xl sm:p-7">
               <div className="flex items-center justify-between pb-3 border-b border-[#3d2216]">
                 <div className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
                   <Users className="w-4 h-4 text-[#ff6a00]" />
@@ -236,8 +236,8 @@ export const ContactScoping: React.FC = () => {
           </div>
 
           {/* Lead Capture Form */}
-          <div className="order-1 lg:order-2 lg:col-span-7">
-            <div className="p-4 sm:p-6 lg:p-8 rounded-xl border border-[#3d2216] bg-[#1e100a] shadow-2xl">
+          <div className="order-1 flex lg:order-2">
+            <div className="w-full rounded-xl border border-[#3d2216] bg-[#1e100a] p-4 shadow-2xl sm:p-6 lg:p-8">
               
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="space-y-5">
