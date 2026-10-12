@@ -92,17 +92,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
             <div className="text-white font-semibold text-xs tracking-wider uppercase">Trust & Legal</div>
             <ul className="space-y-2">
               <li>
-                <button onClick={() => onOpenLegal('security')} className="text-left transition-colors hover:text-[#00d2b4]">
+                <button onClick={() => onOpenLegal('security')} className="text-left transition-colors hover:text-white">
                   Security Architecture
                 </button>
               </li>
               <li>
-                <button onClick={() => onOpenLegal('privacy')} className="text-left transition-colors hover:text-[#a78bfa]">
+                <button onClick={() => onOpenLegal('privacy')} className="text-left transition-colors hover:text-white">
                   Privacy Policy
                 </button>
               </li>
               <li>
-                <button onClick={() => onOpenLegal('terms')} className="text-left transition-colors hover:text-[#ff8a3d]">
+                <button onClick={() => onOpenLegal('terms')} className="text-left transition-colors hover:text-white">
                   Terms of Service
                 </button>
               </li>
