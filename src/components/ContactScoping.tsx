@@ -9,7 +9,6 @@ import {
   Building, 
   User, 
   Phone, 
-  MapPin, 
   ShieldCheck,
   Sparkles
 } from 'lucide-react';
@@ -224,37 +223,6 @@ export const ContactScoping: React.FC = () => {
                     <CheckCircle2 className="w-4 h-4 text-[#00d2b4] shrink-0 mt-0.5" />
                     <span>24/7 Managed Uptime, Security Shields & Post-Launch Support</span>
                   </div>
-                </div>
-              </div>
-
-              {/* Direct Communication Channels */}
-              <div className="pt-4 border-t border-[#3d2216] space-y-2 text-xs">
-                <div className="flex flex-col items-start gap-1 text-[#d6c7be] sm:flex-row sm:items-center sm:justify-between">
-                  <span className="flex items-center gap-1.5">
-                    <Phone className="w-3.5 h-3.5 text-[#00d2b4]" />
-                    <span>Direct Call / WhatsApp:</span>
-                  </span>
-                  <a href={`tel:${directPhone}`} className="font-mono text-white font-bold hover:text-[#00d2b4]">
-                    {directPhone}
-                  </a>
-                </div>
-
-                <div className="flex flex-col items-start gap-1 text-[#d6c7be] sm:flex-row sm:items-center sm:justify-between">
-                  <span className="flex items-center gap-1.5">
-                    <Mail className="w-3.5 h-3.5 text-[#ff6a00]" />
-                    <span>Direct Project Desk:</span>
-                  </span>
-                  <a href={`mailto:${directEmail}`} className="font-mono text-white hover:text-[#ff6a00]">
-                    {directEmail}
-                  </a>
-                </div>
-
-                <div className="flex flex-col items-start gap-1 text-[#d6c7be] sm:flex-row sm:items-center sm:justify-between">
-                  <span className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#00d2b4]" />
-                    <span>Office:</span>
-                  </span>
-                  <span className="text-[#fdf8f5]">Nairobi, Kenya</span>
                 </div>
               </div>
 
