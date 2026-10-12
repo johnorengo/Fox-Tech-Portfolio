@@ -15,8 +15,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
             <div className="flex flex-col gap-2.5 text-xs text-[#e5d8cf] pt-1 font-mono">
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-[#00d2b4] shrink-0" />
-                <a href="tel:0797697319" className="hover:text-white transition-colors">
-                  0797697319 / +254 797 697 319
+                <a href="tel:+254797697319" className="hover:text-white transition-colors">
+                  +254 797 697 319
                 </a>
               </div>
               <div className="flex items-center gap-2">
