@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Facebook, Mail, MapPin, Phone } from 'lucide-react';
 
 interface FooterProps {
   onOpenLegal: (type: 'privacy' | 'terms' | 'security') => void;
@@ -28,6 +28,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
               <div className="flex items-center gap-2 text-[11px] text-[#a89587]">
                 <MapPin className="w-3.5 h-3.5 text-[#00d2b4] shrink-0" />
                 <span>Nairobi, Kenya</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Facebook className="w-3.5 h-3.5 text-[#ff6a00] shrink-0" />
+                <a
+                  href="https://www.facebook.com/profile.php?id=61577433790128"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  Facebook
+                </a>
               </div>
             </div>
           </div>
