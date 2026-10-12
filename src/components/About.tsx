@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layers, Sparkles, LifeBuoy, Users, CheckCircle2, ShieldCheck, Phone, Mail, MapPin } from 'lucide-react';
+import { Layers, Sparkles, LifeBuoy, Users, CheckCircle2 } from 'lucide-react';
 
 export const About: React.FC = () => {
   const tenets = [
@@ -120,45 +120,6 @@ export const About: React.FC = () => {
           </div>
         </div>
 
-        {/* Official Contact & Nairobi Coordinates */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs text-[#d6c7be] border-t border-[#3d2216] pt-10">
-          <div>
-            <div className="text-white font-semibold mb-1 flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-[#ff6a00]" />
-              <span>Location & HQ</span>
-            </div>
-            <p className="text-[#fdf8f5] font-medium">Nairobi, Kenya</p>
-            <p className="text-[11px] text-[#a89587] mt-0.5">East Africa Tech Ecosystem</p>
-          </div>
-          <div>
-            <div className="text-white font-semibold mb-1 flex items-center gap-1.5">
-              <Phone className="w-3.5 h-3.5 text-[#00d2b4]" />
-              <span>Direct Phone Desk</span>
-            </div>
-            <a href="tel:0797697319" className="font-mono text-[#fdf8f5] hover:text-[#00d2b4] transition-colors font-medium">
-              0797697319
-            </a>
-            <p className="text-[11px] text-[#a89587] mt-0.5">Mon–Fri · 8:00 AM – 6:00 PM EAT</p>
-          </div>
-          <div>
-            <div className="text-white font-semibold mb-1 flex items-center gap-1.5">
-              <Mail className="w-3.5 h-3.5 text-[#ff6a00]" />
-              <span>Email Inquiries</span>
-            </div>
-            <a href="mailto:info@foxtechsolution.com" className="font-mono text-[#fdf8f5] hover:text-[#ff6a00] transition-colors font-medium">
-              info@foxtechsolution.com
-            </a>
-            <p className="text-[11px] text-[#a89587] mt-0.5">Response within 4 business hours</p>
-          </div>
-          <div>
-            <div className="text-white font-semibold mb-1 flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#00d2b4]" />
-              <span>Client Guarantees</span>
-            </div>
-            <p className="text-[#fdf8f5]">Milestone-based delivery</p>
-            <p className="text-[#a89587]">100% Code & IP Ownership</p>
-          </div>
-        </div>
 
       </div>
     </section>
