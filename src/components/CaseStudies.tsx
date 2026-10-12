@@ -121,13 +121,13 @@ export const CaseStudies: React.FC = () => {
               <button
                 key={c.id}
                 onClick={() => setActiveCase(idx)}
-                className={`px-4 py-2 text-xs font-medium rounded-md transition-colors whitespace-nowrap flex items-center gap-1.5 ${
+                className={`min-w-0 max-w-full px-3 py-2 text-left text-xs font-medium leading-tight rounded-md transition-colors flex flex-wrap items-center gap-1.5 sm:px-4 ${
                   activeCase === idx
                     ? 'bg-gradient-to-r from-[#ff6a00] to-[#f25c05] text-white shadow-sm font-semibold'
                     : 'text-[#d6c7be] hover:text-white hover:bg-[#28150d]'
                 }`}
               >
-                <span>{c.shortLabel}</span>
+                <span className="min-w-0 break-words">{c.shortLabel}</span>
                 {c.isLiveSite && (
                   <span className="w-1.5 h-1.5 rounded-full bg-[#00d2b4]" />
                 )}
@@ -140,18 +140,18 @@ export const CaseStudies: React.FC = () => {
         <div className="rounded-2xl border border-[#3d2216] bg-[#1a0d07] overflow-hidden shadow-2xl">
           
           {/* Top Metadata Header with Clean Unboxed Typography (NO PILLS) */}
-          <div className="px-6 sm:px-8 py-5 border-b border-[#3d2216] flex flex-wrap items-center justify-between gap-4 text-xs text-[#d6c7be]">
-            <div className="flex items-center gap-2">
-              <span className="text-white font-semibold">{current.client}</span>
+          <div className="flex flex-col items-start gap-3 border-b border-[#3d2216] px-4 py-4 text-xs text-[#d6c7be] sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-8 sm:py-5">
+            <div className="flex min-w-0 flex-col items-start gap-1.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-2">
+              <span className="max-w-full break-words text-white font-semibold">{current.client}</span>
               {current.projectType === 'Government Project' && (
-                <span className="rounded-full border border-[#00d2b4]/30 bg-[#00d2b4]/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#5eead4]">
+                <span className="inline-flex max-w-full whitespace-normal rounded-full border border-[#00d2b4]/40 bg-[#00d2b4]/15 px-2.5 py-1 text-[10px] font-semibold uppercase leading-tight tracking-wide text-[#7af5df]">
                   Government Project
                 </span>
               )}
-              <span aria-hidden="true">·</span>
-              <span>{current.industry}</span>
-              <span aria-hidden="true">·</span>
-              <span className="text-[#00d2b4] font-mono font-medium">{current.timeframe}</span>
+              <span aria-hidden="true" className="hidden sm:inline">·</span>
+              <span className="max-w-full break-words">{current.industry}</span>
+              <span aria-hidden="true" className="hidden sm:inline">·</span>
+              <span className="max-w-full break-words font-mono font-medium text-[#7af5df]">{current.timeframe}</span>
             </div>
 
             {/* Direct Project External Link */}
@@ -160,7 +160,7 @@ export const CaseStudies: React.FC = () => {
                 href={current.externalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#ff6a00] hover:text-[#00d2b4] transition-colors"
+                className="inline-flex max-w-full items-center gap-1.5 text-xs font-semibold text-[#ff6a00] transition-colors hover:text-[#00d2b4]"
               >
                 <span>{current.urlLabel}</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -168,7 +168,7 @@ export const CaseStudies: React.FC = () => {
             )}
           </div>
 
-          <div className="p-6 sm:p-8 lg:p-10">
+          <div className="p-4 sm:p-8 lg:p-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
               {/* Left Column: Story & Metrics */}
@@ -241,7 +241,7 @@ export const CaseStudies: React.FC = () => {
 
                     <div className="my-auto py-8">
                       {current.projectType === 'Government Project' && (
-                        <div className="mb-3 inline-flex rounded-md border border-[#00d2b4]/25 bg-[#00d2b4]/10 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.16em] text-[#5eead4]">
+                        <div className="mb-3 inline-flex max-w-full whitespace-normal rounded-md border border-[#00d2b4]/40 bg-[#00d2b4]/15 px-2.5 py-1 text-[10px] font-bold uppercase leading-tight tracking-wide text-[#7af5df] sm:text-[9px] sm:tracking-[0.16em]">
                           Government Project
                         </div>
                       )}
