@@ -55,7 +55,7 @@ export const ContactScoping: React.FC = () => {
 
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_i03dzta';
     const autoReplyTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_50d5kyj';
-    const notificationTemplateId = import.meta.env.VITE_EMAILJS_NOTIFICATION_TEMPLATE_ID;
+    const notificationTemplateId = import.meta.env.VITE_EMAILJS_NOTIFICATION_TEMPLATE_ID || 'template_jqbn3bb';
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'IhQ8zArOrsxO9Kpqw';
 
     if (!serviceId || !autoReplyTemplateId || !notificationTemplateId || !publicKey) {
