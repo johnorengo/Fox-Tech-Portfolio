@@ -61,7 +61,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
 
   return (
     <section 
-      className="relative pt-10 pb-20 md:pt-14 md:pb-24 overflow-hidden bg-[#140905]"
+      className="relative pt-4 pb-20 md:pt-6 md:pb-24 overflow-hidden bg-[#140905]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
