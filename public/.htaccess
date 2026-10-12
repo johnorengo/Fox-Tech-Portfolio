@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Send all alternate host and protocol variants to the canonical HTTPS host.
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.foxtechsolution\.com$ [NC]
+RewriteRule ^ https://foxtechsolution.com%{REQUEST_URI} [R=301,L,NE]
+
+# Keep the root page canonical if it is requested by its filename.
+RewriteRule ^index\.html$ https://foxtechsolution.com/ [R=301,L,NE]
