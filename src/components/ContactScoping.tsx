@@ -72,10 +72,16 @@ export const ContactScoping: React.FC = () => {
           template_id: templateId,
           user_id: publicKey,
           template_params: {
-            to_email: directEmail,
+            // Auto-reply goes to the visitor; BCC keeps the company inbox informed.
+            to_email: workEmail.trim(),
+            bcc_email: directEmail,
+            name: fullName.trim(),
+            title: `Project scoping request — ${company.trim()}`,
+            message: projectBrief.trim(),
+            email: workEmail.trim(),
             from_name: fullName.trim(),
             from_email: workEmail.trim(),
-            reply_to: workEmail.trim(),
+            reply_to: directEmail,
             company: company.trim(),
             phone: phoneNumber.trim() || 'Not provided',
             project_brief: projectBrief.trim(),
@@ -98,7 +104,7 @@ export const ContactScoping: React.FC = () => {
       setErrorMsg(isNetworkError
         ? `The form couldn't reach EmailJS. Check your connection and make sure this site's domain is allowed in EmailJS. You can also email ${directEmail}.`
         : missingRecipient
-          ? `The EmailJS template has no recipient. In EmailJS, set its “To Email” to ${directEmail} (or {{to_email}}), save it, then try again.`
+          ? `The EmailJS template has no recipient. In EmailJS, set “To Email” to {{to_email}} and “Bcc” to {{bcc_email}}, save it, then try again.`
           : `EmailJS rejected the request${details ? `: ${details}` : '.'} Please check the EmailJS service, template, and recipient settings, or email ${directEmail}.`
       );
     } finally {
