@@ -152,7 +152,7 @@ export const ContactScoping: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-12">
+        <div data-reveal="rise" className="max-w-3xl mb-12">
           <div className="text-xs font-semibold text-[#ff6a00] tracking-wide uppercase mb-2">
             Start Your Engagement
           </div>
@@ -168,7 +168,7 @@ export const ContactScoping: React.FC = () => {
         <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
           
           {/* Keep the form first on mobile; restore the two-column layout on desktop. */}
-          <div className="order-2 flex lg:order-1">
+          <div data-reveal="soft" className="order-2 flex lg:order-1">
             
             {/* Estimated Engagement Pod Card */}
             <div className="w-full space-y-5 rounded-xl border border-[#3d2216] bg-[#1e100a] p-6 shadow-xl sm:p-7">
@@ -236,7 +236,7 @@ export const ContactScoping: React.FC = () => {
           </div>
 
           {/* Lead Capture Form */}
-          <div className="order-1 flex lg:order-2">
+          <div data-reveal="soft" data-reveal-delay="2" className="order-1 flex lg:order-2">
             <div className="w-full rounded-xl border border-[#3d2216] bg-[#1e100a] p-4 shadow-2xl sm:p-6 lg:p-8">
               
               {!isSubmitted ? (

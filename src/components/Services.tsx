@@ -85,7 +85,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div>
+          <div data-reveal="rise">
             <div className="text-xs font-semibold text-[#ff6a00] tracking-wide uppercase mb-2">
               Capabilities & Offerings
             </div>
@@ -99,7 +99,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
           </div>
 
           {/* Interactive filter tabs styled in rich espresso & brand orange */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 bg-[#1e100a] rounded-lg border border-[#3d2216] self-start md:self-auto">
+          <div data-reveal="rise" data-reveal-delay="2" className="flex flex-wrap items-center gap-1.5 p-1 bg-[#1e100a] rounded-lg border border-[#3d2216] self-start md:self-auto">
             <button
               onClick={() => setActiveCategory('all')}
               aria-pressed={activeCategory === 'all'}
@@ -160,13 +160,15 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
 
         {/* Services Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {filteredServices.map((service) => {
+          {filteredServices.map((service, index) => {
             const IconComponent = service.icon;
             const isTealAccent = service.accentColor === '#00d2b4';
 
             return (
               <div
                 key={service.id}
+                data-reveal="soft"
+                data-reveal-delay={(index % 4) + 1}
                 className="rounded-xl border border-[#3d2216] bg-[#1e100a] p-6 sm:p-8 flex flex-col justify-between hover:border-[#ff6a00]/50 transition-all group shadow-xl hover:shadow-2xl hover:shadow-[#ff6a00]/10"
               >
                 <div>

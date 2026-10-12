@@ -80,7 +80,7 @@ export const LaunchSystemDemo: React.FC = () => {
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
-          <div>
+          <div data-reveal="rise">
             <div className="text-xs font-semibold text-[#00d2b4] tracking-wide uppercase mb-2">
               The Launch Methodology
             </div>
@@ -94,7 +94,7 @@ export const LaunchSystemDemo: React.FC = () => {
           </div>
 
           {/* Stage Selector Tabs */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 bg-[#1e100a] rounded-lg border border-[#3d2216]">
+          <div data-reveal="rise" data-reveal-delay="2" className="flex flex-wrap items-center gap-1.5 p-1 bg-[#1e100a] rounded-lg border border-[#3d2216]">
             <button
               onClick={() => setActiveStage('tokens')}
               aria-pressed={activeStage === 'tokens'}
@@ -135,7 +135,7 @@ export const LaunchSystemDemo: React.FC = () => {
         </div>
 
         {/* Interactive Comparison Console */}
-        <div className="rounded-xl border border-[#3d2216] bg-[#1a0d07] p-6 sm:p-8 shadow-2xl">
+        <div data-reveal="soft" className="rounded-xl border border-[#3d2216] bg-[#1a0d07] p-6 sm:p-8 shadow-2xl">
           
           {/* Top Bar with System Mode Switch */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-[#3d2216] gap-4">

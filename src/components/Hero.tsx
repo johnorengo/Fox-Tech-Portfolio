@@ -81,12 +81,12 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
       }}
     >
       {/* Subtle warm ambient lighting */}
-      <div 
-        className="absolute top-0 left-1/4 -translate-x-1/2 w-[500px] h-[320px] bg-[#ff6a00]/10 blur-[140px] pointer-events-none rounded-full"
+      <div
+        className="ambient-glow absolute top-0 left-1/4 -translate-x-1/2 w-[500px] h-[320px] bg-[#ff6a00]/10 blur-[140px] pointer-events-none rounded-full"
         aria-hidden="true"
       />
-      <div 
-        className="absolute top-10 right-1/4 translate-x-1/3 w-[450px] h-[300px] bg-[#00d2b4]/08 blur-[140px] pointer-events-none rounded-full"
+      <div
+        className="ambient-glow-slow absolute top-10 right-1/4 translate-x-1/3 w-[450px] h-[300px] bg-[#00d2b4]/08 blur-[140px] pointer-events-none rounded-full"
         aria-hidden="true"
       />
 
@@ -97,17 +97,17 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
           <div className="lg:col-span-7 flex flex-col justify-center">
             
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-white tracking-tight leading-[1.14] mb-6 [text-wrap:balance]">
+            <h1 data-reveal="left" className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-white tracking-tight leading-[1.14] mb-6 [text-wrap:balance]">
               Simple Systems That Help Creative & Tech Teams Launch Faster
             </h1>
 
             {/* Humanized Value Proposition */}
-            <p className="text-base sm:text-lg text-[#e5d8cf] leading-relaxed max-w-2xl mb-8">
+            <p data-reveal="rise" data-reveal-delay="1" className="text-base sm:text-lg text-[#e5d8cf] leading-relaxed max-w-2xl mb-8">
               From your first website to custom business software, we turn ideas and everyday business challenges into reliable digital solutions. We help businesses in Kenya, across Africa, and around the world work smarter, serve customers better, and grow with confidence.
             </p>
 
             {/* Primary call to action */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
+            <div data-reveal="rise" data-reveal-delay="2" className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
               <button
                 onClick={onBookScoping}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-gradient-to-r from-[#ff6a00] to-[#f25c05] hover:from-[#ff7a1a] hover:to-[#ff6a00] active:scale-[0.98] transition-all rounded-lg shadow-lg shadow-[#ff6a00]/25 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d2b4]"
@@ -118,7 +118,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
             </div>
 
             {/* Authentic Trust Markers */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#d6c7be] pt-3 border-t border-[#3d2216]">
+            <div data-reveal="rise" data-reveal-delay="3" className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#d6c7be] pt-3 border-t border-[#3d2216]">
               <div className="flex items-center gap-2">
                 <Code2 className="w-4 h-4 text-[#ff6a00]" />
                 <span>Pixel-Perfect Implementation</span>
@@ -136,7 +136,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
           </div>
 
           {/* Right Column: Carousel where ONLY the image changes */}
-          <div className="lg:col-span-5 relative">
+          <div data-reveal="soft" data-reveal-delay="2" className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden border border-[#3d2216] bg-[#1e100a] shadow-2xl group">
               
               {/* Carousel Image Container */}
@@ -207,7 +207,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
 
         {/* 4-Column Humanized Metric Strip */}
         <div className="mt-14 pt-10 border-t border-[#3d2216] grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-          <div className="p-4 rounded-xl bg-[#1e100a] border border-[#3d2216]">
+          <div data-reveal="rise" data-reveal-delay="1" className="p-4 rounded-xl bg-[#1e100a] border border-[#3d2216]">
             <div className="text-2xl sm:text-3xl font-bold text-[#ff6a00] font-mono tabular-nums tracking-tight">
               180+
             </div>
@@ -219,7 +219,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
             </div>
           </div>
 
-          <div className="p-4 rounded-xl bg-[#1e100a] border border-[#3d2216]">
+          <div data-reveal="rise" data-reveal-delay="2" className="p-4 rounded-xl bg-[#1e100a] border border-[#3d2216]">
             <div className="text-2xl sm:text-3xl font-bold text-white font-mono tabular-nums tracking-tight">
               3.4x
             </div>
@@ -231,7 +231,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
             </div>
           </div>
 
-          <div className="p-4 rounded-xl bg-[#1e100a] border border-[#3d2216]">
+          <div data-reveal="rise" data-reveal-delay="3" className="p-4 rounded-xl bg-[#1e100a] border border-[#3d2216]">
             <div className="text-2xl sm:text-3xl font-bold text-[#00d2b4] font-mono tabular-nums tracking-tight">
               99.98%
             </div>
@@ -243,7 +243,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
             </div>
           </div>
 
-          <div className="p-4 rounded-xl bg-[#1e100a] border border-[#3d2216]">
+          <div data-reveal="rise" data-reveal-delay="4" className="p-4 rounded-xl bg-[#1e100a] border border-[#3d2216]">
             <div className="text-2xl sm:text-3xl font-bold text-white font-mono tabular-nums tracking-tight">
               &lt; 4 Hours
             </div>

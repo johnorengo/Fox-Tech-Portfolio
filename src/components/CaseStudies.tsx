@@ -103,7 +103,7 @@ export const CaseStudies: React.FC = () => {
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div>
+          <div data-reveal="rise">
             <div className="text-xs font-semibold text-[#ff6a00] tracking-wide uppercase mb-2">
               Commercial & Government Case Studies
             </div>
@@ -116,7 +116,7 @@ export const CaseStudies: React.FC = () => {
           </div>
 
           {/* Interactive Case Selector Tabs */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 bg-[#1e100a] rounded-lg border border-[#3d2216]">
+          <div data-reveal="rise" data-reveal-delay="2" className="flex flex-wrap items-center gap-1.5 p-1 bg-[#1e100a] rounded-lg border border-[#3d2216]">
             {cases.map((c, idx) => (
               <button
                 key={c.id}
@@ -138,7 +138,7 @@ export const CaseStudies: React.FC = () => {
         </div>
 
         {/* Featured Case Study Card */}
-        <div className="rounded-2xl border border-[#3d2216] bg-[#1a0d07] overflow-hidden shadow-2xl">
+        <div data-reveal="soft" className="rounded-2xl border border-[#3d2216] bg-[#1a0d07] overflow-hidden shadow-2xl">
           
           {/* Top Metadata Header with Clean Unboxed Typography (NO PILLS) */}
           <div className="flex flex-col items-start gap-3 border-b border-[#3d2216] px-4 py-4 text-xs text-[#d6c7be] sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-8 sm:py-5">

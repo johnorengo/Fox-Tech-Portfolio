@@ -43,7 +43,7 @@ export const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <div data-reveal="rise" className="max-w-3xl mb-16">
           <div className="text-xs font-semibold text-[#ff6a00] tracking-wide uppercase mb-2">
             Our Philosophy & Approach
           </div>
@@ -59,13 +59,15 @@ export const About: React.FC = () => {
 
         {/* 3 Core Tenets */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-          {tenets.map((tenet, idx) => {
+            {tenets.map((tenet, idx) => {
             const Icon = tenet.icon;
             const isTeal = tenet.accent === '#00d2b4';
 
             return (
               <div 
                 key={idx}
+                data-reveal="soft"
+                data-reveal-delay={idx + 1}
                 className="p-6 sm:p-8 rounded-xl border border-[#3d2216] bg-[#1e100a] flex flex-col justify-between hover:border-[#ff6a00]/40 transition-colors shadow-xl"
               >
                 <div>
@@ -89,7 +91,7 @@ export const About: React.FC = () => {
         </div>
 
         {/* Principles / Team Pods Box */}
-        <div className="rounded-2xl border border-[#3d2216] bg-[#1a0d07] p-6 sm:p-10 mb-16 shadow-2xl">
+        <div data-reveal="rise" className="rounded-2xl border border-[#3d2216] bg-[#1a0d07] p-6 sm:p-10 mb-16 shadow-2xl">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-8 border-b border-[#3d2216] gap-4">
             <div>
               <h3 className="text-xl sm:text-2xl font-bold text-white">
@@ -107,7 +109,7 @@ export const About: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {teamPrinciples.map((item, idx) => (
-              <div key={idx} className="p-5 rounded-lg bg-[#140905] border border-[#3d2216]">
+              <div key={idx} data-reveal="soft" data-reveal-delay={idx + 1} className="p-5 rounded-lg bg-[#140905] border border-[#3d2216]">
                 <div className="text-base font-bold text-white mb-2 flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#ff6a00] shrink-0" />
                   <span>{item.title}</span>
