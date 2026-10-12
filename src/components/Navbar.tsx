@@ -15,7 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
 
   const navLinks = [
     { label: 'Services', href: '#services' },
-    { label: 'The System', href: '#system' },
+    { label: 'Our Process', href: '#system' },
     { label: 'Case Studies', href: '#case-studies' },
     { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
@@ -60,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
 
       {/* Main Navigation Bar */}
       <div className="bg-[#140905]/95 backdrop-blur-md border-b border-[#3d2216]/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-28 flex items-center justify-between gap-6">
           
           {/* Brand Wordmark with Tagline Underneath */}
           <a 
