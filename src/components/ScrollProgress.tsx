@@ -12,8 +12,10 @@ export const ScrollProgress: React.FC = () => {
         const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
         const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
         if (progressRef.current) {
-          progressRef.current.style.transform = `scaleX(${Math.min(progress, 1)})`;
+          progressRef.current.style.transform = `scaleX(${Math.max(0, Math.min(progress, 1))})`;
         }
+        const header = document.querySelector<HTMLElement>('.site-header');
+        if (header) header.dataset.scrolled = String(window.scrollY > 16);
       });
     };
 

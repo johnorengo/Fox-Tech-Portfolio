@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Menu, X, ArrowUpRight, Phone, Mail, MapPin } from 'lucide-react';
 import { FoxTechLogo } from './FoxTechLogo.tsx';
 
@@ -8,6 +8,28 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+
+  useEffect(() => {
+    if (!('IntersectionObserver' in window)) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActiveSection(entry.target.id);
+      });
+    }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+    ['services', 'system', 'case-studies', 'about', 'contact'].forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+    const clearAtTop = () => {
+      if (window.scrollY < 100) setActiveSection('');
+    };
+    window.addEventListener('scroll', clearAtTop, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', clearAtTop);
+    };
+  }, []);
 
   const directPhone = '+254797697319';
   const displayPhone = '+254 797 697 319';
@@ -77,6 +99,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               <a
                 key={link.label}
                 href={link.href}
+                aria-current={activeSection === link.href.slice(1) ? 'location' : undefined}
                 className="hover:text-white transition-colors relative py-1 hover:underline underline-offset-8 decoration-[#ff6a00] whitespace-nowrap"
               >
                 {link.label}
@@ -123,6 +146,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               <a
                 key={link.label}
                 href={link.href}
+                aria-current={activeSection === link.href.slice(1) ? 'location' : undefined}
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-[#d6c7be] hover:text-white px-3 py-2 text-base font-medium rounded-md hover:bg-[#28150d]"
               >

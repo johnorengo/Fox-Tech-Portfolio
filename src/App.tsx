@@ -15,26 +15,20 @@ export default function App() {
   const [activeLegalModal, setActiveLegalModal] = useState<'privacy' | 'terms' | 'security' | null>(null);
 
   useEffect(() => {
-    const revealTargets = document.querySelectorAll<HTMLElement>('[data-reveal]');
-    if (!revealTargets.length) return;
+    if (!('IntersectionObserver' in window)) return;
 
-    const revealIfVisible = (target: HTMLElement) => {
-      const bounds = target.getBoundingClientRect();
-      if (bounds.top < window.innerHeight * 0.92 && bounds.bottom > 0) {
-        target.classList.add('is-revealed');
-      }
-    };
-
-    const observer = 'IntersectionObserver' in window
-      ? new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-revealed');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.02, rootMargin: '0px 0px -8% 0px' })
-      : null;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const target = entry.target as HTMLElement;
+        if (entry.isIntersecting) {
+          target.classList.add('is-revealed');
+        } else if (!target.contains(document.activeElement)) {
+          // Reset only outside the screen, so reading and interacting never flickers.
+          target.style.setProperty('--reveal-offset', entry.boundingClientRect.bottom <= 0 ? '-16px' : '16px');
+          target.classList.remove('is-revealed');
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px' });
 
     const observeNode = (node: Node) => {
       if (!(node instanceof HTMLElement)) return;
@@ -43,37 +37,25 @@ export default function App() {
         ...node.querySelectorAll<HTMLElement>('[data-reveal]'),
       ];
       targets.forEach((target) => {
-        if (observer) observer.observe(target);
-        else revealIfVisible(target);
+        const bounds = target.getBoundingClientRect();
+        if (bounds.top < window.innerHeight && bounds.bottom > 0) target.classList.add('is-revealed');
+        observer.observe(target);
       });
     };
-    const revealFallbackTargets = () => {
-      document.querySelectorAll<HTMLElement>('[data-reveal]:not(.is-revealed)').forEach(revealIfVisible);
-    };
+
+    observeNode(document.getElementById('root') ?? document.body);
+    document.documentElement.classList.add('scroll-reveals-ready');
     const mutationObserver = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => mutation.addedNodes.forEach(observeNode));
     });
-
-    document.documentElement.classList.add('scroll-reveals-ready');
-    revealTargets.forEach((target) => {
-      if (observer) observer.observe(target);
-    });
-    if (!observer) {
-      revealFallbackTargets();
-      window.addEventListener('scroll', revealFallbackTargets, { passive: true });
-      window.addEventListener('resize', revealFallbackTargets);
-    }
     mutationObserver.observe(document.getElementById('root') ?? document.body, { childList: true, subtree: true });
 
     return () => {
       mutationObserver.disconnect();
-      observer?.disconnect();
-      window.removeEventListener('scroll', revealFallbackTargets);
-      window.removeEventListener('resize', revealFallbackTargets);
+      observer.disconnect();
       document.documentElement.classList.remove('scroll-reveals-ready');
     };
   }, []);
-
   const scrollToContact = () => {
     const contactElement = document.getElementById('contact');
     if (contactElement) {
