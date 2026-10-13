@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Zap, ShieldCheck, Headphones } from 'lucide-react';
 
 import engineeringTeam from '../assets/images/hero-engineering-team.png';
 import productDesigner from '../assets/images/hero-product-designer.png';
@@ -146,27 +146,32 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
 
       </div>
 
-      <div className="mx-auto mt-10 grid max-w-7xl grid-cols-2 gap-4 px-4 sm:gap-6 sm:px-6 lg:mt-5 lg:grid-cols-4 lg:gap-4 lg:px-8">
-        <div data-reveal="rise" data-reveal-delay="1" className="rounded-xl border border-[#3d2216] bg-[#1e100a] p-4">
-          <div className="font-mono text-2xl font-bold tracking-tight text-[#ff6a00] sm:text-3xl">180+</div>
-          <div className="mt-1 text-xs font-medium text-[#e5d8cf] sm:text-sm">Digital Projects Delivered</div>
-          <div className="mt-1 text-[11px] font-mono text-[#00d2b4]">Web platforms &amp; brand systems</div>
-        </div>
-        <div data-reveal="rise" data-reveal-delay="2" className="rounded-xl border border-[#3d2216] bg-[#1e100a] p-4">
-          <div className="font-mono text-2xl font-bold tracking-tight text-white sm:text-3xl">3.4x</div>
-          <div className="mt-1 text-xs font-medium text-[#e5d8cf] sm:text-sm">Faster Launch Velocity</div>
-          <div className="mt-1 text-[11px] font-mono text-[#ff6a00]">Via reusable components</div>
-        </div>
-        <div data-reveal="rise" data-reveal-delay="3" className="rounded-xl border border-[#3d2216] bg-[#1e100a] p-4">
-          <div className="font-mono text-2xl font-bold tracking-tight text-[#00d2b4] sm:text-3xl">99.98%</div>
-          <div className="mt-1 text-xs font-medium text-[#e5d8cf] sm:text-sm">Managed System Uptime</div>
-          <div className="mt-1 text-[11px] font-mono text-[#d6c7be]">Proactive monitoring &amp; care</div>
-        </div>
-        <div data-reveal="rise" data-reveal-delay="4" className="rounded-xl border border-[#3d2216] bg-[#1e100a] p-4">
-          <div className="font-mono text-2xl font-bold tracking-tight text-white sm:text-3xl">&lt; 4 Hours</div>
-          <div className="mt-1 text-xs font-medium text-[#e5d8cf] sm:text-sm">Average Support Response</div>
-          <div className="mt-1 text-[11px] font-mono text-[#ff6a00]">Direct engineering desk in Nairobi</div>
-        </div>
+      <div className="mx-auto mt-5 grid max-w-7xl grid-cols-1 gap-3 px-4 sm:grid-cols-3 sm:gap-4 sm:px-6 lg:px-8" aria-label="Our performance at a glance">
+        {[
+          { value: '3.4', unit: 'x', label: 'Faster Launch Velocity', detail: 'Built with reusable components', icon: Zap, accent: '#ff8a32', glow: 'rgba(255,106,0,0.09)' },
+          { value: '99.98', unit: '%', label: 'Managed System Uptime', detail: 'Proactive monitoring & care', icon: ShieldCheck, accent: '#00d2b4', glow: 'rgba(0,210,180,0.08)' },
+          { value: '< 4', unit: 'hrs', label: 'Average Support Response', detail: 'Your engineering desk in Nairobi', icon: Headphones, accent: '#ffc28a', glow: 'rgba(255,194,138,0.07)' },
+        ].map((stat, index) => (
+          <div
+            key={stat.label}
+            data-reveal="rise"
+            data-reveal-delay={String(index + 1)}
+            className="relative overflow-hidden rounded-2xl border border-[#4a2c1d] px-5 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-colors duration-300 hover:border-[#79503a]"
+            style={{ background: `radial-gradient(ellipse at top right, ${stat.glow}, transparent 75%), #1b0e08` }}
+          >
+            <div className="absolute bottom-4 left-0 top-4 w-[3px] rounded-r-full" style={{ backgroundColor: stat.accent }} aria-hidden="true" />
+            <div className="flex items-center justify-between gap-3">
+              <div className="font-display text-[2rem] font-bold leading-none tracking-tight tabular-nums lg:text-4xl" style={{ color: stat.accent }}>
+                {stat.value}<span className="ml-1 text-lg font-medium">{stat.unit}</span>
+              </div>
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/5" style={{ color: stat.accent, backgroundColor: stat.glow }}>
+                <stat.icon className="h-[18px] w-[18px]" aria-hidden="true" />
+              </div>
+            </div>
+            <div className="mt-3 text-sm font-semibold text-[#f5e9e1]">{stat.label}</div>
+            <div className="mt-1 text-xs leading-relaxed text-[#b9a69a]">{stat.detail}</div>
+          </div>
+        ))}
       </div>
     </section>
   );
