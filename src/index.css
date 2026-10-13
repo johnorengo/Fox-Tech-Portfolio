@@ -83,6 +83,34 @@
 }
 
 @media (min-width: 1024px) and (max-height: 760px) {
+  .hero-section {
+    padding-top: 12px;
+    padding-bottom: 16px;
+  }
+
+  .hero-desktop-content {
+    min-height: clamp(260px, calc(100svh - 326px), 434px);
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .hero-desktop-content > div {
+    gap: 12px;
+  }
+
+  .hero-desktop-content button {
+    margin-top: 16px;
+  }
+
+  .hero-stats {
+    margin-top: 12px;
+  }
+
+  .hero-stat-card {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
   .hero-desktop-title {
     font-size: 2.25rem;
   }

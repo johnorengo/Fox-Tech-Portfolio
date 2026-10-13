@@ -51,7 +51,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
 
   return (
     <section
-      className="relative overflow-hidden bg-[#140905] pt-3 pb-20 md:pt-5 md:pb-24 lg:pb-8"
+      className="hero-section relative overflow-hidden bg-[#140905] pt-3 pb-20 md:pt-5 md:pb-24 lg:pb-8"
       aria-label="Fox Tech Solutions introduction"
     >
       <div className="hero-desktop relative isolate hidden overflow-hidden border-y border-[#3d2216] sm:block">
@@ -146,7 +146,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
 
       </div>
 
-      <div className="mx-auto mt-5 grid max-w-7xl grid-cols-1 gap-3 px-4 sm:grid-cols-3 sm:gap-4 sm:px-6 lg:px-8" aria-label="Our performance at a glance">
+      <div className="hero-stats mx-auto mt-5 grid max-w-7xl grid-cols-1 gap-3 px-4 sm:grid-cols-3 sm:gap-4 sm:px-6 lg:px-8" aria-label="Our performance at a glance">
         {[
           { value: '3.4', unit: 'x', label: 'Faster Launch Velocity', detail: 'Built with reusable components', icon: Zap, accent: '#ff8a32', glow: 'rgba(255,106,0,0.09)' },
           { value: '99.98', unit: '%', label: 'Managed System Uptime', detail: 'Proactive monitoring & care', icon: ShieldCheck, accent: '#00d2b4', glow: 'rgba(0,210,180,0.08)' },
@@ -156,7 +156,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
             key={stat.label}
             data-reveal="rise"
             data-reveal-delay={String(index + 1)}
-            className="relative overflow-hidden rounded-2xl border border-[#4a2c1d] px-5 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-colors duration-300 hover:border-[#79503a]"
+            className="hero-stat-card relative overflow-hidden rounded-2xl border border-[#4a2c1d] px-5 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-colors duration-300 hover:border-[#79503a]"
             style={{ background: `radial-gradient(ellipse at top right, ${stat.glow}, transparent 75%), #1b0e08` }}
           >
             <div className="absolute bottom-4 left-0 top-4 w-[3px] rounded-r-full" style={{ backgroundColor: stat.accent }} aria-hidden="true" />
