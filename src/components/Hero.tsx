@@ -76,7 +76,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
         if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setIsPaused(false);
       }}
     >
-      <div className="relative isolate min-h-[650px] overflow-hidden border-y border-[#3d2216] sm:min-h-[700px] lg:min-h-[690px]">
+      <div className="relative isolate hidden min-h-[650px] overflow-hidden border-y border-[#3d2216] sm:block sm:min-h-[700px] lg:min-h-[690px]">
         {carouselImages.map((slide, index) => (
           <img
             key={slide.src}
@@ -142,6 +142,55 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
                 <ChevronRight className="h-5 w-5" />
               </button>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="sm:hidden">
+        <div className="relative aspect-[2/1] overflow-hidden border-y border-[#3d2216] bg-[#100805]">
+          {carouselImages.map((slide, index) => (
+            <img
+              key={slide.src}
+              src={slide.src}
+              alt={index === currentImageIndex ? slide.alt : ''}
+              aria-hidden={index !== currentImageIndex}
+              fetchPriority={index === 0 ? 'high' : 'auto'}
+              loading={index < 2 ? 'eager' : 'lazy'}
+              decoding="async"
+              className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 ${
+                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+          ))}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#100805]/90 via-[#100805]/15 to-transparent" aria-hidden="true" />
+          <h1 data-reveal="left" className="absolute bottom-3 left-4 right-24 text-[1.65rem] font-bold leading-[1.03] tracking-tight text-white [text-wrap:balance]">
+            Simple Systems That Help Creative &amp; Tech Teams Launch Faster
+          </h1>
+          <div className="absolute bottom-3 right-3 flex items-center gap-1.5">
+            <button onClick={showPrevious} aria-label="Previous hero image" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 bg-black/45 text-white backdrop-blur focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d2b4]">
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <button onClick={showNext} aria-label="Next hero image" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 bg-black/45 text-white backdrop-blur focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d2b4]">
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+
+        <div className="px-4 pt-5">
+          <p data-reveal="rise" className="text-sm leading-relaxed text-[#f0e5df]">
+            From your first website to custom business software, we turn ideas and everyday business challenges into reliable digital solutions. We help businesses in Kenya, across Africa, and around the world work smarter, serve customers better, and grow with confidence.
+          </p>
+          <button
+            onClick={onBookScoping}
+            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#ff6a00] to-[#f25c05] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#ff6a00]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d2b4]"
+          >
+            <span>Start Your Project</span>
+            <ArrowRight className="h-4 w-4" />
+          </button>
+          <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 border-t border-white/20 pt-4 text-[11px] text-[#f0e5df]">
+            <div className="flex items-center gap-1.5"><Code2 className="h-3.5 w-3.5 text-[#ff8a32]" /><span>Pixel-Perfect Implementation</span></div>
+            <div className="flex items-center gap-1.5"><Layers className="h-3.5 w-3.5 text-[#00d2b4]" /><span>Modular Design Systems</span></div>
+            <div className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-[#ff8a32]" /><span>Clear, Reliable Delivery</span></div>
           </div>
         </div>
       </div>
