@@ -57,7 +57,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
     if (isPaused || prefersReducedMotion) return;
     const interval = window.setInterval(() => {
       setCurrentImageIndex((index) => (index + 1) % carouselImages.length);
-    }, 6000);
+    }, 4000);
     return () => window.clearInterval(interval);
   }, [isPaused, prefersReducedMotion]);
 
@@ -90,7 +90,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
             fetchPriority={index === 0 ? 'high' : 'auto'}
             loading={index < 2 ? 'eager' : 'lazy'}
             decoding="async"
-            className={`absolute inset-0 h-full w-full object-cover object-[68%_center] transition-opacity duration-1000 md:object-center ${
+            className={`absolute inset-0 h-full w-full object-cover object-[68%_center] transition-opacity duration-500 md:object-center ${
               index === currentImageIndex ? 'opacity-100' : 'opacity-0'
             }`}
           />
@@ -101,11 +101,6 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
 
         <div className="relative mx-auto flex min-h-[650px] max-w-7xl flex-col justify-center px-4 pb-24 pt-16 sm:min-h-[700px] sm:px-6 sm:pb-28 lg:min-h-[690px] lg:px-8">
           <div className="max-w-3xl">
-            <div data-reveal="rise" className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#ff6a00]/40 bg-[#140905]/55 px-3.5 py-2 text-xs font-semibold tracking-wide text-[#ff9b52] backdrop-blur-sm">
-              <span className="h-2 w-2 rounded-full bg-[#00d2b4] shadow-[0_0_12px_#00d2b4]" />
-              DIGITAL SOLUTIONS, BUILT AROUND PEOPLE
-            </div>
-
             <h1 data-reveal="left" className="max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight text-white [text-wrap:balance] sm:text-5xl md:text-6xl lg:text-7xl">
               Simple Systems That Help Creative &amp; Tech Teams Launch Faster
             </h1>
