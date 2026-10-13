@@ -21,22 +21,18 @@ const carouselImages = [
   {
     src: engineeringTeam,
     alt: 'Kenyan technology team collaborating around a laptop in a Nairobi office',
-    caption: 'Digital products built by people who care about the details',
   },
   {
     src: productDesigner,
     alt: 'Kenyan product designer reviewing a digital interface at her workstation',
-    caption: 'Thoughtful design that makes technology easier to use',
   },
   {
     src: infrastructureEngineer,
     alt: 'Kenyan infrastructure engineer inspecting servers with a tablet',
-    caption: 'Reliable infrastructure for the systems your business depends on',
   },
   {
     src: clientReview,
     alt: 'Kenyan business owner and technology consultant reviewing a platform together',
-    caption: 'Technology shaped around the people and businesses it serves',
   },
 ];
 
@@ -117,7 +113,6 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
                 <span>Start Your Project</span>
                 <ArrowRight className="h-4 w-4" />
               </button>
-              <span className="text-sm font-medium text-white/90">Nairobi-based team · Clients everywhere</span>
             </div>
 
             <div data-reveal="rise" data-reveal-delay="3" className="mt-10 flex max-w-3xl flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/20 pt-5 text-xs text-[#f0e5df] sm:text-sm">
@@ -128,7 +123,6 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
           </div>
 
           <div className="absolute bottom-5 left-4 right-4 flex items-end justify-between gap-4 sm:bottom-7 sm:left-6 sm:right-6 lg:left-8 lg:right-8">
-            <p aria-live="polite" className="max-w-xl text-xs font-medium text-white/90 drop-shadow sm:text-sm">{carouselImages[currentImageIndex].caption}</p>
             <div className="flex shrink-0 items-center gap-2">
               <div className="mr-1 hidden items-center gap-1.5 sm:flex" aria-label={`Slide ${currentImageIndex + 1} of ${carouselImages.length}`}>
                 {carouselImages.map((slide, index) => (
