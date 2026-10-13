@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  ArrowRight,
-  ChevronLeft,
-  ChevronRight,
-  Code2,
-  Layers,
-  CheckCircle2,
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 import engineeringTeam from '../assets/images/hero-engineering-team.png';
 import productDesigner from '../assets/images/hero-product-designer.png';
@@ -38,7 +31,6 @@ const carouselImages = [
 
 export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -50,31 +42,17 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
   }, []);
 
   useEffect(() => {
-    if (isPaused || prefersReducedMotion) return;
+    if (prefersReducedMotion) return;
     const interval = window.setInterval(() => {
       setCurrentImageIndex((index) => (index + 1) % carouselImages.length);
     }, 4000);
     return () => window.clearInterval(interval);
-  }, [isPaused, prefersReducedMotion]);
-
-  const showPrevious = () => {
-    setCurrentImageIndex((index) => (index - 1 + carouselImages.length) % carouselImages.length);
-  };
-
-  const showNext = () => {
-    setCurrentImageIndex((index) => (index + 1) % carouselImages.length);
-  };
+  }, [prefersReducedMotion]);
 
   return (
     <section
       className="relative overflow-hidden bg-[#140905] pt-3 pb-20 md:pt-5 md:pb-24 lg:pb-8"
       aria-label="Fox Tech Solutions introduction"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onFocusCapture={() => setIsPaused(true)}
-      onBlurCapture={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setIsPaused(false);
-      }}
     >
       <div className="hero-desktop relative isolate hidden overflow-hidden border-y border-[#3d2216] sm:block">
         {carouselImages.map((slide, index) => (
@@ -95,7 +73,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#100805]/90 via-[#100805]/75 to-[#100805]/35" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#140905]/80 via-transparent to-transparent" aria-hidden="true" />
 
-        <div className="hero-desktop-content relative mx-auto flex max-w-7xl flex-col justify-center px-6 pb-20 pt-8 lg:px-8 lg:pt-6">
+        <div className="hero-desktop-content relative mx-auto flex max-w-7xl flex-col justify-center px-6 py-8 lg:px-8 lg:py-6">
           <div className="flex w-full flex-col items-start gap-4">
             <h1 className="hero-desktop-title max-w-[820px] text-3xl font-bold leading-[1.08] tracking-tight text-white [text-wrap:balance] lg:text-[2.65rem] xl:text-5xl">
               Simple Systems That Help Creative &amp; Tech Teams Launch Faster
@@ -114,34 +92,9 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
               </button>
             </div>
 
-            <div className="flex w-full flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/20 pt-3 text-xs text-[#f0e5df]">
-              <div className="flex items-center gap-2"><Code2 className="h-4 w-4 text-[#ff8a32]" /><span>Pixel-Perfect Implementation</span></div>
-              <div className="flex items-center gap-2"><Layers className="h-4 w-4 text-[#00d2b4]" /><span>Modular Design Systems</span></div>
-              <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#ff8a32]" /><span>Clear, Reliable Delivery</span></div>
-            </div>
+
           </div>
 
-          <div className="absolute bottom-5 left-6 flex items-end gap-4 lg:left-8">
-            <div className="flex shrink-0 items-center gap-2">
-              <div className="mr-1 hidden items-center gap-1.5 sm:flex" aria-label={`Slide ${currentImageIndex + 1} of ${carouselImages.length}`}>
-                {carouselImages.map((slide, index) => (
-                  <button
-                    key={slide.src}
-                    onClick={() => setCurrentImageIndex(index)}
-                    aria-label={`Show image ${index + 1}`}
-                    aria-current={currentImageIndex === index ? 'true' : undefined}
-                    className={`h-2 rounded-full transition-all ${currentImageIndex === index ? 'w-7 bg-[#ff6a00]' : 'w-2 bg-white/55 hover:bg-white'}`}
-                  />
-                ))}
-              </div>
-              <button onClick={showPrevious} aria-label="Previous hero image" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/35 bg-black/35 text-white backdrop-blur transition hover:bg-black/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d2b4]">
-                <ChevronLeft className="h-5 w-5" />
-              </button>
-              <button onClick={showNext} aria-label="Next hero image" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/35 bg-black/35 text-white backdrop-blur transition hover:bg-black/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d2b4]">
-                <ChevronRight className="h-5 w-5" />
-              </button>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -174,7 +127,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#100805]/90 via-[#100805]/70 to-[#100805]/55" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#100805]/85 via-transparent to-[#100805]/30" aria-hidden="true" />
 
-        <div className="relative z-10 px-4 pb-16 pt-7">
+        <div className="relative z-10 px-4 py-7">
           <h1 data-reveal="left" className="max-w-[22rem] text-[1.8rem] font-bold leading-[1.04] tracking-tight text-white [text-wrap:balance]">
             Simple Systems That Help Creative &amp; Tech Teams Launch Faster
           </h1>
@@ -188,21 +141,9 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
             <span>Start Your Project</span>
             <ArrowRight className="h-4 w-4" />
           </button>
-          <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 border-t border-white/25 pt-4 text-[11px] text-white">
-            <div className="flex items-center gap-1.5"><Code2 className="h-3.5 w-3.5 text-[#ff8a32]" /><span>Pixel-Perfect Implementation</span></div>
-            <div className="flex items-center gap-1.5"><Layers className="h-3.5 w-3.5 text-[#00d2b4]" /><span>Modular Design Systems</span></div>
-            <div className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-[#ff8a32]" /><span>Clear, Reliable Delivery</span></div>
-          </div>
+
         </div>
 
-        <div className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5">
-          <button onClick={showPrevious} aria-label="Previous hero image" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 bg-black/45 text-white backdrop-blur focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d2b4]">
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <button onClick={showNext} aria-label="Next hero image" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 bg-black/45 text-white backdrop-blur focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d2b4]">
-            <ChevronRight className="h-4 w-4" />
-          </button>
-        </div>
       </div>
 
       <div className="mx-auto mt-10 grid max-w-7xl grid-cols-2 gap-4 px-4 sm:gap-6 sm:px-6 lg:mt-5 lg:grid-cols-4 lg:gap-4 lg:px-8">
