@@ -67,7 +67,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
 
   return (
     <section
-      className="relative overflow-hidden bg-[#140905] pt-3 pb-20 md:pt-5 md:pb-24"
+      className="relative overflow-hidden bg-[#140905] pt-3 pb-20 md:pt-5 md:pb-24 lg:pb-8"
       aria-label="Fox Tech Solutions introduction"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -76,7 +76,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
         if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setIsPaused(false);
       }}
     >
-      <div className="relative isolate hidden min-h-[480px] overflow-hidden border-y border-[#3d2216] lg:block lg:min-h-[min(690px,calc(100svh-172px))]">
+      <div className="hero-desktop relative isolate hidden overflow-hidden border-y border-[#3d2216] sm:block">
         {carouselImages.map((slide, index) => (
           <img
             key={slide.src}
@@ -86,42 +86,42 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
             fetchPriority={index === 0 ? 'high' : 'auto'}
             loading={index < 2 ? 'eager' : 'lazy'}
             decoding="async"
-            className={`absolute inset-0 h-full w-full object-cover object-[68%_center] transition-opacity duration-500 md:object-center ${
+            className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-500 ${
               index === currentImageIndex ? 'opacity-100' : 'opacity-0'
             }`}
           />
         ))}
 
-        <div className="absolute inset-0 bg-gradient-to-r from-[#100805]/95 via-[#100805]/75 to-[#100805]/20" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#140905]/80 via-transparent to-[#140905]/15" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#100805]/90 via-[#100805]/75 to-[#100805]/35" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#140905]/80 via-transparent to-transparent" aria-hidden="true" />
 
-        <div className="relative mx-auto flex min-h-[480px] max-w-7xl flex-col justify-center px-6 pb-16 pt-8 lg:min-h-[min(690px,calc(100svh-172px))] lg:px-8 lg:pb-14 lg:pt-6">
-          <div className="grid w-full max-w-6xl grid-cols-12 items-center gap-x-10 gap-y-6">
-            <h1 data-reveal="left" className="col-span-7 max-w-[720px] text-4xl font-bold leading-[1.08] tracking-tight text-white [text-wrap:balance] lg:text-[3.5rem] xl:text-6xl">
+        <div className="hero-desktop-content relative mx-auto flex max-w-7xl flex-col justify-center px-6 pb-20 pt-8 lg:px-8 lg:pt-6">
+          <div className="flex w-full flex-col items-start gap-4">
+            <h1 className="hero-desktop-title max-w-[820px] text-3xl font-bold leading-[1.08] tracking-tight text-white [text-wrap:balance] lg:text-[2.65rem] xl:text-5xl">
               Simple Systems That Help Creative &amp; Tech Teams Launch Faster
             </h1>
 
-            <div className="col-span-5 flex flex-col items-start">
-              <p data-reveal="rise" data-reveal-delay="1" className="max-w-xl text-base leading-relaxed text-[#f0e5df] xl:text-lg">
+            <div className="flex flex-col items-start">
+              <p className="hero-desktop-description max-w-[820px] text-sm leading-relaxed text-[#f0e5df] lg:text-base">
                 From your first website to custom business software, we turn ideas and everyday business challenges into reliable digital solutions. We help businesses in Kenya, across Africa, and around the world work smarter, serve customers better, and grow with confidence.
               </p>
               <button
                 onClick={onBookScoping}
-                className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#ff6a00] to-[#f25c05] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#ff6a00]/25 transition-all hover:from-[#ff7a1a] hover:to-[#ff6a00] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d2b4]"
+                className="mt-5 inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#ff6a00] to-[#f25c05] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#ff6a00]/25 transition-all hover:from-[#ff7a1a] hover:to-[#ff6a00] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d2b4]"
               >
                 <span>Start Your Project</span>
                 <ArrowRight className="h-4 w-4" />
               </button>
             </div>
 
-            <div data-reveal="rise" data-reveal-delay="3" className="col-span-12 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/20 pt-4 text-xs text-[#f0e5df] xl:text-sm">
+            <div className="flex w-full flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/20 pt-3 text-xs text-[#f0e5df]">
               <div className="flex items-center gap-2"><Code2 className="h-4 w-4 text-[#ff8a32]" /><span>Pixel-Perfect Implementation</span></div>
               <div className="flex items-center gap-2"><Layers className="h-4 w-4 text-[#00d2b4]" /><span>Modular Design Systems</span></div>
               <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#ff8a32]" /><span>Clear, Reliable Delivery</span></div>
             </div>
           </div>
 
-          <div className="absolute bottom-5 left-4 right-4 flex items-end justify-between gap-4 sm:bottom-7 sm:left-6 sm:right-6 lg:left-8 lg:right-8">
+          <div className="absolute bottom-5 left-6 flex items-end gap-4 lg:left-8">
             <div className="flex shrink-0 items-center gap-2">
               <div className="mr-1 hidden items-center gap-1.5 sm:flex" aria-label={`Slide ${currentImageIndex + 1} of ${carouselImages.length}`}>
                 {carouselImages.map((slide, index) => (
@@ -205,7 +205,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
         </div>
       </div>
 
-      <div className="mx-auto mt-10 grid max-w-7xl grid-cols-2 gap-4 px-4 sm:gap-6 sm:px-6 lg:mt-14 lg:grid-cols-4 lg:px-8">
+      <div className="mx-auto mt-10 grid max-w-7xl grid-cols-2 gap-4 px-4 sm:gap-6 sm:px-6 lg:mt-5 lg:grid-cols-4 lg:gap-4 lg:px-8">
         <div data-reveal="rise" data-reveal-delay="1" className="rounded-xl border border-[#3d2216] bg-[#1e100a] p-4">
           <div className="font-mono text-2xl font-bold tracking-tight text-[#ff6a00] sm:text-3xl">180+</div>
           <div className="mt-1 text-xs font-medium text-[#e5d8cf] sm:text-sm">Digital Projects Delivered</div>
