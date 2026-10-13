@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowRight, Zap, ShieldCheck, Headphones } from 'lucide-react';
 
-import engineeringTeam from '../assets/images/hero-engineering-team.png';
-import productDesigner from '../assets/images/hero-product-designer.png';
-import infrastructureEngineer from '../assets/images/hero-infrastructure-engineer.png';
-import clientReview from '../assets/images/hero-client-review.png';
+import engineeringTeam from '../assets/images/hero-engineering-team.webp';
+import productDesigner from '../assets/images/hero-product-designer.webp';
+import infrastructureEngineer from '../assets/images/hero-infrastructure-engineer.webp';
+import clientReview from '../assets/images/hero-client-review.webp';
 
 interface HeroProps {
   onBookScoping: () => void;
@@ -66,10 +66,10 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
           />
           <img
             src={slide.src}
-            alt={index === currentImageIndex ? slide.alt : ''}
-            aria-hidden={index !== currentImageIndex}
+            alt=""
+            aria-hidden="true"
             fetchPriority={index === 0 ? 'high' : 'auto'}
-            loading={index < 2 ? 'eager' : 'lazy'}
+            loading="eager"
             decoding="async"
             className={`absolute inset-0 h-full w-full object-contain object-right transition-opacity duration-500 ${
               index === currentImageIndex ? 'opacity-100' : 'opacity-0'
@@ -114,26 +114,26 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
               alt=""
               aria-hidden="true"
               fetchPriority={index === 0 ? 'high' : 'auto'}
-              loading={index < 2 ? 'eager' : 'lazy'}
+              loading="eager"
               decoding="async"
               className={`absolute inset-0 h-full w-full scale-110 object-cover blur-sm transition-opacity duration-500 ${
-                index === currentImageIndex ? 'opacity-45' : 'opacity-0'
+                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
               }`}
             />
             <img
               src={slide.src}
-              alt={index === currentImageIndex ? slide.alt : ''}
-              aria-hidden={index !== currentImageIndex}
-              loading="lazy"
+              alt=""
+              aria-hidden="true"
+              loading="eager"
               decoding="async"
               className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 ${
-                index === currentImageIndex ? 'opacity-45' : 'opacity-0'
+                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
               }`}
             />
           </React.Fragment>
         ))}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#100805]/90 via-[#100805]/70 to-[#100805]/55" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#100805]/85 via-transparent to-[#100805]/30" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#100805]/75 via-[#100805]/55 to-[#100805]/30" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#100805]/70 via-transparent to-[#100805]/20" aria-hidden="true" />
 
         <div className="relative z-10 px-4 py-7">
           <h1 data-reveal="left" className="max-w-[22rem] text-[1.8rem] font-bold leading-[1.04] tracking-tight text-white [text-wrap:balance]">
