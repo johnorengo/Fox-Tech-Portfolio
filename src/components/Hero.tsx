@@ -51,23 +51,31 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
 
   return (
     <section
-      className="hero-section relative overflow-hidden bg-[#140905] pt-3 pb-20 md:pt-5 md:pb-24 lg:pb-8"
+      className="hero-section relative overflow-hidden bg-[#140905] pt-2 pb-6 lg:pb-4"
       aria-label="Fox Tech Solutions introduction"
     >
       <div className="hero-desktop relative isolate hidden overflow-hidden border-y border-[#3d2216] sm:block">
         {carouselImages.map((slide, index) => (
+          <React.Fragment key={slide.src}>
           <img
-            key={slide.src}
+            src={slide.src}
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+            className={`absolute inset-0 h-full w-full object-cover blur-xl transition-opacity duration-500 ${index === currentImageIndex ? 'opacity-30' : 'opacity-0'}`}
+          />
+          <img
             src={slide.src}
             alt={index === currentImageIndex ? slide.alt : ''}
             aria-hidden={index !== currentImageIndex}
             fetchPriority={index === 0 ? 'high' : 'auto'}
             loading={index < 2 ? 'eager' : 'lazy'}
             decoding="async"
-            className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-500 ${
+            className={`absolute inset-0 h-full w-full object-contain object-right transition-opacity duration-500 ${
               index === currentImageIndex ? 'opacity-100' : 'opacity-0'
             }`}
           />
+          </React.Fragment>
         ))}
 
         <div className="absolute inset-0 bg-gradient-to-r from-[#100805]/90 via-[#100805]/75 to-[#100805]/35" aria-hidden="true" />
