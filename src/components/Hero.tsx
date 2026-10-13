@@ -76,7 +76,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
         if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setIsPaused(false);
       }}
     >
-      <div className="relative isolate hidden min-h-[650px] overflow-hidden border-y border-[#3d2216] sm:block sm:min-h-[700px] lg:min-h-[690px]">
+      <div className="relative isolate hidden min-h-[480px] overflow-hidden border-y border-[#3d2216] lg:block lg:min-h-[min(690px,calc(100svh-172px))]">
         {carouselImages.map((slide, index) => (
           <img
             key={slide.src}
@@ -95,27 +95,26 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#100805]/95 via-[#100805]/75 to-[#100805]/20" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#140905]/80 via-transparent to-[#140905]/15" aria-hidden="true" />
 
-        <div className="relative mx-auto flex min-h-[650px] max-w-7xl flex-col justify-center px-4 pb-24 pt-16 sm:min-h-[700px] sm:px-6 sm:pb-28 lg:min-h-[690px] lg:px-8">
-          <div className="max-w-3xl">
-            <h1 data-reveal="left" className="max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight text-white [text-wrap:balance] sm:text-5xl md:text-6xl lg:text-7xl">
+        <div className="relative mx-auto flex min-h-[480px] max-w-7xl flex-col justify-center px-6 pb-16 pt-8 lg:min-h-[min(690px,calc(100svh-172px))] lg:px-8 lg:pb-14 lg:pt-6">
+          <div className="grid w-full max-w-6xl grid-cols-12 items-center gap-x-10 gap-y-6">
+            <h1 data-reveal="left" className="col-span-7 max-w-[720px] text-4xl font-bold leading-[1.08] tracking-tight text-white [text-wrap:balance] lg:text-[3.5rem] xl:text-6xl">
               Simple Systems That Help Creative &amp; Tech Teams Launch Faster
             </h1>
 
-            <p data-reveal="rise" data-reveal-delay="1" className="mt-6 max-w-2xl text-base leading-relaxed text-[#f0e5df] sm:text-lg md:text-xl">
-              From your first website to custom business software, we turn ideas and everyday business challenges into reliable digital solutions. We help businesses in Kenya, across Africa, and around the world work smarter, serve customers better, and grow with confidence.
-            </p>
-
-            <div data-reveal="rise" data-reveal-delay="2" className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+            <div className="col-span-5 flex flex-col items-start">
+              <p data-reveal="rise" data-reveal-delay="1" className="max-w-xl text-base leading-relaxed text-[#f0e5df] xl:text-lg">
+                From your first website to custom business software, we turn ideas and everyday business challenges into reliable digital solutions. We help businesses in Kenya, across Africa, and around the world work smarter, serve customers better, and grow with confidence.
+              </p>
               <button
                 onClick={onBookScoping}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#ff6a00] to-[#f25c05] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#ff6a00]/25 transition-all hover:from-[#ff7a1a] hover:to-[#ff6a00] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d2b4] sm:w-auto"
+                className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#ff6a00] to-[#f25c05] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#ff6a00]/25 transition-all hover:from-[#ff7a1a] hover:to-[#ff6a00] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d2b4]"
               >
                 <span>Start Your Project</span>
                 <ArrowRight className="h-4 w-4" />
               </button>
             </div>
 
-            <div data-reveal="rise" data-reveal-delay="3" className="mt-10 flex max-w-3xl flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/20 pt-5 text-xs text-[#f0e5df] sm:text-sm">
+            <div data-reveal="rise" data-reveal-delay="3" className="col-span-12 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/20 pt-4 text-xs text-[#f0e5df] xl:text-sm">
               <div className="flex items-center gap-2"><Code2 className="h-4 w-4 text-[#ff8a32]" /><span>Pixel-Perfect Implementation</span></div>
               <div className="flex items-center gap-2"><Layers className="h-4 w-4 text-[#00d2b4]" /><span>Modular Design Systems</span></div>
               <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#ff8a32]" /><span>Clear, Reliable Delivery</span></div>
