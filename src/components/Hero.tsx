@@ -51,107 +51,38 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
 
   return (
     <section
-      className="hero-section relative overflow-hidden bg-[#140905] pt-2 pb-6 lg:pb-4"
+      className="hero-section relative overflow-hidden bg-[#140905] pb-6 lg:pb-4"
       aria-label="Fox Tech Solutions introduction"
     >
-      <div className="hero-desktop relative isolate hidden overflow-hidden border-y border-[#3d2216] sm:block">
-        {carouselImages.map((slide, index) => (
-          <React.Fragment key={slide.src}>
-          <img
-            src={slide.src}
-            alt=""
-            aria-hidden="true"
-            decoding="async"
-            className={`absolute inset-0 h-full w-full object-cover blur-xl transition-opacity duration-500 ${index === currentImageIndex ? 'opacity-30' : 'opacity-0'}`}
-          />
-          <img
-            src={slide.src}
-            alt=""
-            aria-hidden="true"
-            fetchPriority={index === 0 ? 'high' : 'auto'}
-            loading="eager"
-            decoding="async"
-            className={`absolute inset-0 h-full w-full object-contain object-right transition-opacity duration-500 ${
-              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-            }`}
-          />
-          </React.Fragment>
-        ))}
-
-        <div className="absolute inset-0 bg-gradient-to-r from-[#100805]/90 via-[#100805]/75 to-[#100805]/35" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#140905]/80 via-transparent to-transparent" aria-hidden="true" />
-
-        <div className="hero-desktop-content relative mx-auto flex max-w-7xl flex-col justify-center px-6 py-8 lg:px-8 lg:py-6">
-          <div className="flex w-full flex-col items-start gap-4">
-            <h1 className="hero-desktop-title max-w-[820px] text-3xl font-bold leading-[1.08] tracking-tight text-white [text-wrap:balance] lg:text-[2.65rem] xl:text-5xl">
-              Simple Systems That Help Creative &amp; Tech Teams Launch Faster
-            </h1>
-
-            <div className="flex flex-col items-start">
-              <p className="hero-desktop-description max-w-[820px] text-sm leading-relaxed text-[#f0e5df] lg:text-base">
-                From your first website to custom business software, we turn ideas and everyday business challenges into reliable digital solutions. We help businesses in Kenya, across Africa, and around the world work smarter, serve customers better, and grow with confidence.
-              </p>
-              <button
-                onClick={onBookScoping}
-                className="mt-5 inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#ff6a00] to-[#f25c05] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#ff6a00]/25 transition-all hover:from-[#ff7a1a] hover:to-[#ff6a00] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d2b4]"
-              >
-                <span>Start Your Project</span>
-                <ArrowRight className="h-4 w-4" />
-              </button>
-            </div>
-
-
-          </div>
-
-        </div>
-      </div>
-
-      <div className="relative isolate overflow-hidden border-y border-[#3d2216] bg-[#100805] sm:hidden">
-        {carouselImages.map((slide, index) => (
-          <React.Fragment key={slide.src}>
+      <div className="hero-stage relative isolate overflow-hidden">
+        <div className="hero-photography absolute inset-x-0 top-0" aria-hidden="true">
+          {carouselImages.map((slide, index) => (
             <img
+              key={slide.src}
               src={slide.src}
               alt=""
-              aria-hidden="true"
               fetchPriority={index === 0 ? 'high' : 'auto'}
-              loading="eager"
               decoding="async"
-              className={`absolute inset-0 h-full w-full scale-110 object-cover blur-sm transition-opacity duration-500 ${
-                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-              }`}
+              className={`hero-photo w-full transition-opacity duration-700 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
             />
-            <img
-              src={slide.src}
-              alt=""
-              aria-hidden="true"
-              loading="eager"
-              decoding="async"
-              className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 ${
-                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-              }`}
-            />
-          </React.Fragment>
-        ))}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#100805]/75 via-[#100805]/55 to-[#100805]/30" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#100805]/70 via-transparent to-[#100805]/20" aria-hidden="true" />
-
-        <div className="relative z-10 px-4 py-7">
-          <h1 data-reveal="left" className="max-w-[22rem] text-[1.8rem] font-bold leading-[1.04] tracking-tight text-white [text-wrap:balance]">
+          ))}
+        </div>
+        <div className="hero-shade absolute inset-0" aria-hidden="true" />
+        <div className="hero-content relative mx-auto flex max-w-7xl flex-col justify-end px-4 pb-8 sm:px-6 lg:px-8 lg:pb-10">
+          <h1 className="max-w-4xl text-[1.9rem] font-bold leading-[1.1] tracking-tight text-white [text-wrap:balance] sm:text-4xl lg:text-[2.65rem]">
             Simple Systems That Help Creative &amp; Tech Teams Launch Faster
           </h1>
-          <p data-reveal="rise" className="mt-4 max-w-xl text-sm leading-relaxed text-[#f0e5df]">
+          <p className="mt-4 max-w-4xl text-sm leading-relaxed text-[#f0e5df] sm:text-base">
             From your first website to custom business software, we turn ideas and everyday business challenges into reliable digital solutions. We help businesses in Kenya, across Africa, and around the world work smarter, serve customers better, and grow with confidence.
           </p>
           <button
             onClick={onBookScoping}
-            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#ff6a00] to-[#f25c05] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#ff6a00]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00d2b4]"
+            className="mt-5 inline-flex w-full items-center justify-center gap-2 self-start rounded-lg bg-gradient-to-r from-[#ff6a00] to-[#f25c05] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#ff6a00]/25 transition hover:from-[#ff7a1a] hover:to-[#ff6a00] focus-visible:ring-2 focus-visible:ring-[#00d2b4] sm:w-auto"
           >
             <span>Start Your Project</span>
             <ArrowRight className="h-4 w-4" />
           </button>
-
         </div>
-
       </div>
 
       <div className="hero-stats mx-auto mt-5 grid max-w-7xl grid-cols-1 gap-3 px-4 sm:grid-cols-3 sm:gap-4 sm:px-6 lg:px-8" aria-label="Our performance at a glance">

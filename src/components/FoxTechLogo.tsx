@@ -5,14 +5,13 @@ interface FoxTechLogoProps {
 }
 
 export const FoxTechLogo: React.FC<FoxTechLogoProps> = ({ className = '' }) => (
-  <span className={`inline-flex flex-col items-center ${className}`}>
-    <img
-      src="/fox-tech-wordmark.png"
-      alt="Fox Tech Solutions"
-      className="h-[4.5rem] w-[6.75rem] object-contain sm:h-20 sm:w-[7.5rem]"
-    />
-    <span className="mt-1 whitespace-nowrap text-[10px] font-semibold leading-tight tracking-wide text-[#ff8a3d] sm:text-[11px]">
-      Smart Tech. Limitless Possibilities
+  <span className={`fox-brand inline-flex items-center gap-2 sm:gap-4 ${className}`}>
+    <img src="/fox-tech-symbol.png" alt="" className="fox-brand-symbol" />
+    <span className="flex flex-col items-start gap-1">
+      <span className="text-xs min-[380px]:text-sm font-bold tracking-[0.04em] text-white sm:text-xl">FOX TECH SOLUTIONS</span>
+      <span className="text-[8px] min-[380px]:text-[9px] font-medium leading-relaxed text-[#ff9a57] sm:text-xs">
+        Smart Tech. Limitless Possibilities
+      </span>
     </span>
   </span>
 );
