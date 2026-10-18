@@ -1,5 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { ArrowUpRight, CheckCircle2, ExternalLink, Globe } from 'lucide-react';
+import sebbyPreview from '../assets/images/case-study-sebby-logistics.webp';
+import citymartPreview from '../assets/images/case-study-citymart-electricals.webp';
+import verificationPreview from '../assets/images/case-study-school-data-verification.webp';
+import emergencyPreview from '../assets/images/case-study-education-emergency.webp';
 
 export const CaseStudies: React.FC = () => {
   const [activeCase, setActiveCase] = useState<number>(0);
@@ -9,6 +13,10 @@ export const CaseStudies: React.FC = () => {
   const cases = [
     {
       id: 'sebbylogistics',
+      previewImage: sebbyPreview,
+      previewWidth: 1273,
+      previewHeight: 580,
+      previewAlt: 'Sebby Logistics homepage showing Kenyan flower sourcing and worldwide cargo airfreight.',
       shortLabel: 'Sebby Logistics',
       client: 'Sebby Logistics Ltd',
       projectType: 'Commercial Project',
@@ -33,6 +41,10 @@ export const CaseStudies: React.FC = () => {
     },
     {
       id: 'citymart',
+      previewImage: citymartPreview,
+      previewWidth: 1263,
+      previewHeight: 589,
+      previewAlt: 'Citymart Electricals homepage showcasing lighting fixtures, electrical supplies and quotation options.',
       shortLabel: 'Citymart Electricals',
       client: 'Citymart Electricals',
       projectType: 'Commercial Project',
@@ -58,6 +70,10 @@ export const CaseStudies: React.FC = () => {
     },
     {
       id: 'learner-verification',
+      previewImage: verificationPreview,
+      previewWidth: 1279,
+      previewHeight: 585,
+      previewAlt: 'Ministry of Education School Data Verification portal with its user role selector and continue button.',
       shortLabel: 'School Data Verification System',
       client: 'School Data Verification System',
       projectType: 'Government Project',
@@ -83,6 +99,10 @@ export const CaseStudies: React.FC = () => {
     },
     {
       id: 'eems',
+      previewImage: emergencyPreview,
+      previewWidth: 1264,
+      previewHeight: 583,
+      previewAlt: 'Education Emergency Management System homepage introducing comprehensive school protection in Kenya.',
       shortLabel: 'Education Emergency Management System',
       client: 'Education Emergency Management System',
       projectType: 'Government Project',
@@ -259,18 +279,35 @@ export const CaseStudies: React.FC = () => {
               </div>
 
               <div className="lg:col-span-5">
-                <div className="group relative isolate flex min-h-[390px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#251329] via-[#101722] to-[#0a1717] p-6 shadow-xl sm:p-7">
-                  <div className="pointer-events-none absolute -right-14 -top-16 h-56 w-56 rounded-full bg-[#ff6a00]/20 blur-3xl transition duration-500 group-hover:scale-125" />
-                  <div className="pointer-events-none absolute -bottom-24 -left-12 h-64 w-64 rounded-full bg-[#00d2b4]/15 blur-3xl" />
-                  <div className="relative flex h-full flex-1 flex-col">
-                    <div className="flex items-center justify-between gap-3">
+                <div className="overflow-hidden rounded-2xl border border-[#ff6a00]/20 bg-[#160d08] shadow-xl">
+                    <div className="flex items-center justify-between gap-3 px-5 py-4">
                       <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#a89587]">Platform Overview</span>
                       <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300/20 bg-emerald-300/10 px-2.5 py-1 text-[10px] font-semibold text-emerald-200">
                         <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" /> Live
                       </span>
                     </div>
 
-                    <div className="my-auto py-8">
+                    <div className="border-y border-white/10 bg-[#0b0806]">
+                      <div className="flex items-center gap-3 border-b border-white/10 px-4 py-2.5">
+                        <span className="flex shrink-0 gap-1" aria-hidden="true">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#ff6a00]" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#ffb15c]" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#00d2b4]" />
+                        </span>
+                        <a href={current.externalUrl} target="_blank" rel="noopener noreferrer" className="flex min-w-0 flex-1 items-center justify-between gap-2 text-[10px] text-[#d6c7be] hover:text-[#ff9a57]">
+                          <span className="truncate font-mono">{new URL(current.externalUrl).hostname}</span>
+                          <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                        </a>
+                      </div>
+                      <a href={current.previewImage} target="_blank" rel="noopener noreferrer" aria-label={`View full-size screenshot of ${current.client}`} className="block focus-visible:ring-inset">
+                        <img key={current.id} src={current.previewImage} alt={current.previewAlt} width={current.previewWidth} height={current.previewHeight} loading="lazy" decoding="async" className="block h-auto w-full" />
+                      </a>
+                    </div>
+                    <a href={current.previewImage} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-3 px-5 py-3 text-[11px] font-medium text-[#ff9a57] transition-colors hover:text-white">
+                      View full-size preview <ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                    </a>
+
+                    <div className="border-t border-white/10 px-5 py-5 sm:px-6">
                       {current.projectType === 'Government Project' && (
                         <div className="mb-3 inline-flex max-w-full whitespace-normal rounded-md border border-[#00d2b4]/40 bg-[#00d2b4]/15 px-2.5 py-1 text-[10px] font-bold uppercase leading-tight tracking-wide text-[#7af5df] sm:text-[9px] sm:tracking-[0.16em]">
                           Government Project
@@ -289,11 +326,10 @@ export const CaseStudies: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2 border-t border-white/10 pt-4 text-[10px] text-white/55">
+                    <div className="flex items-center gap-2 border-t border-white/10 px-5 py-4 text-[10px] text-white/55 sm:px-6">
                       <Globe className="h-3.5 w-3.5 shrink-0 text-[#00d2b4]" />
                       <span className="truncate font-mono">{current.externalUrl?.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
                     </div>
-                  </div>
                 </div>
               </div>
 
