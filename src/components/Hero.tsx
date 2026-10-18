@@ -72,16 +72,18 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
           <h1 className="max-w-4xl text-[1.9rem] font-bold leading-[1.1] tracking-tight text-white [text-wrap:balance] sm:text-4xl lg:text-[2.65rem]">
             Simple Systems That Help Creative &amp; Tech Teams Launch Faster
           </h1>
-          <p className="mt-4 max-w-4xl text-sm leading-relaxed text-[#f0e5df] sm:text-base">
-            From your first website to custom business software, we turn ideas and everyday business challenges into reliable digital solutions. We help businesses in Kenya, across Africa, and around the world work smarter, serve customers better, and grow with confidence.
-          </p>
-          <button
-            onClick={onBookScoping}
-            className="mt-5 inline-flex w-full items-center justify-center gap-2 self-start rounded-lg bg-gradient-to-r from-[#ff6a00] to-[#f25c05] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#ff6a00]/25 transition hover:from-[#ff7a1a] hover:to-[#ff6a00] focus-visible:ring-2 focus-visible:ring-[#00d2b4] sm:w-auto"
-          >
-            <span>Start Your Project</span>
-            <ArrowRight className="h-4 w-4" />
-          </button>
+          <div className="hero-action-row mt-5 grid gap-5 border-t border-white/15 pt-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-10 lg:pr-20">
+            <p className="max-w-3xl text-sm leading-relaxed text-[#f0e5df] sm:text-base">
+              From your first website to custom business software, we turn ideas and everyday business challenges into reliable digital solutions. We help businesses in Kenya, across Africa, and around the world work smarter, serve customers better, and grow with confidence.
+            </p>
+            <button
+              onClick={onBookScoping}
+              className="inline-flex min-h-12 w-full items-center justify-center gap-3 justify-self-start whitespace-nowrap rounded-lg bg-gradient-to-r from-[#ff6a00] to-[#f25c05] px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-[#ff6a00]/25 transition hover:from-[#ff7a1a] hover:to-[#ff6a00] focus-visible:ring-2 focus-visible:ring-[#00d2b4] sm:w-auto"
+            >
+              <span>Start Your Project</span>
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
         </div>
       </div>
 

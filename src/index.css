@@ -98,8 +98,8 @@
 /* Reserve space for the CTA on compact phones without clipping the content. */
 @media (max-width: 639px) and (max-height: 700px) {
   .hero-content h1 { font-size: 1.625rem; }
-  .hero-content p { font-size: 13px; line-height: 1.5; margin-top: 12px; }
-  .hero-content button { margin-top: 16px; }
+  .hero-content p { font-size: 13px; line-height: 1.5; }
+  .hero-action-row { margin-top: 12px; padding-top: 12px; gap: 16px; }
 }
 
 @keyframes glow-breathe {
