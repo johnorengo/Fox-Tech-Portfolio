@@ -16,7 +16,7 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 7.5rem;
+    scroll-padding-top: 10rem;
     font-family: var(--font-sans);
     background-color: #140905;
     color: #fdf8f5;
@@ -24,7 +24,7 @@
 
   @media (max-width: 640px) {
     html {
-      scroll-padding-top: 9rem;
+      scroll-padding-top: 12rem;
     }
   }
 
@@ -151,11 +151,12 @@ html.scroll-reveals-ready [data-reveal-delay="4"] { transition-delay: 160ms; }
 }
 
 .site-header[data-scrolled="true"] {
+  background-color: #140905;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
 }
 
 .site-header {
-  transition: box-shadow 250ms ease;
+  transition: background-color 250ms ease, box-shadow 250ms ease;
 }
 
 .site-header nav a[aria-current="location"] {

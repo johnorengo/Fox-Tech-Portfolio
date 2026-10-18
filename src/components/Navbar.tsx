@@ -44,7 +44,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
   ];
 
   return (
-    <header className="site-header absolute top-0 z-50 w-full">
+    <header className="site-header fixed inset-x-0 top-0 z-50 w-full">
       {/* Top Utility Bar with Email in Full */}
       <div className="bg-black/35 border-b border-[#3d2216]/90 text-[11px] sm:text-xs text-[#d6c7be]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 flex flex-wrap items-center justify-between gap-x-6 gap-y-1.5">
