@@ -11,6 +11,9 @@ Source code stays in Git. Do not upload the repository, `.env`, `node_modules` o
 5. Confirm the domain has a valid SSL certificate. The supplied Apache configuration redirects HTTP and `www` to `https://foxtechsolution.com/`.
 6. Open the HTTPS homepage and check the mobile menu, tagline, favicon, project form, WhatsApp, case selector and back-to-top control.
 7. Purge any hosting/CDN cache. The homepage revalidates; hashed assets can stay cached. The favicon uses a new version URL.
+8. Remove the uploaded ZIP from the public directory after extraction. Check that HTTPS responses include `Content-Security-Policy`, `Strict-Transport-Security` and `X-Content-Type-Options`. See [security configuration](SECURITY.md) for the included protections and hosting requirements.
+
+Use the `.htaccess` inside the ZIP. The source version in `public/` is a build template; production script hashes are inserted during packaging.
 
 No Node.js or Python process is needed on the web server. These tools are used locally to produce static files.
 The public EmailJS settings are compiled during the build. Keep the site's domain allowed in EmailJS and retain the configured notification and acknowledgement templates.

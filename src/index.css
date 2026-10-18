@@ -72,17 +72,14 @@
   padding-top: max(calc(var(--header-height, 144px) + 120px), 38svh);
   padding-bottom: 32px;
 }
-.hero-ambient { filter: blur(20px); transform: scale(1.06); opacity: .6; }
 .hero-image-frame { top: var(--header-height, 144px); }
-.hero-photo { object-position: center center; }
 .hero-content :is(h1, p) { text-shadow: 0 2px 6px rgba(0, 0, 0, .95); }
 .hero-shade {
   background: linear-gradient(180deg, rgba(8, 5, 3, .08) 0%, transparent 55%, rgba(20, 9, 5, .25) 78%, rgba(20, 9, 5, .55) 100%);
 }
-/* Landscape photos fill the desktop width; portrait fitting stays mobile-only. */
-@media (min-width: 768px) {
-  .hero-ambient { filter: none; transform: none; opacity: 1; }
-  .hero-photo { object-fit: cover; object-position: center top; }
+.hero-photo { object-position: center top; }
+@media (min-width: 768px) and (orientation: portrait) {
+  .hero-photo { object-position: center 20%; }
 }
 .fox-brand-symbol { width: 96px; height: 52px; object-fit: contain; }
 @media (max-width: 767px) {
@@ -91,6 +88,7 @@
 }
 @media (max-width: 639px) {
   .fox-brand-symbol { width: 50px; height: 44px; }
+  .hero-action-row button { width: calc(100% - 76px); }
 }
 
 /* Reserve space for the CTA on compact phones without clipping the content. */

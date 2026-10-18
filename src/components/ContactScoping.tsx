@@ -32,14 +32,19 @@ export const ContactScoping: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (isSubmitting || new FormData(e.currentTarget).get('website')) return;
     setErrorMsg('');
+    if (fullName.length > 120 || workEmail.length > 254 || company.length > 160 || phoneNumber.length > 40 || projectBrief.length > 5000) {
+      setErrorMsg('Please shorten your details and try again.');
+      return;
+    }
 
     // Validation
     if (!fullName.trim()) {
       setErrorMsg('Please enter your full name.');
       return;
     }
-    if (!workEmail.trim() || !workEmail.includes('@') || !workEmail.includes('.')) {
+    if (! /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(workEmail.trim())) {
       setErrorMsg('Please enter a valid work email address.');
       return;
     }
@@ -58,7 +63,7 @@ export const ContactScoping: React.FC = () => {
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'IhQ8zArOrsxO9Kpqw';
 
     if (!serviceId || !autoReplyTemplateId || !notificationTemplateId || !publicKey) {
-      setErrorMsg(`Email delivery needs a separate EmailJS project-notification template ID. Set VITE_EMAILJS_NOTIFICATION_TEMPLATE_ID, then rebuild. You can email us directly at ${directEmail}.`);
+      setErrorMsg(`Please email your project request directly to ${directEmail}.`);
       return;
     }
 
@@ -88,7 +93,7 @@ export const ContactScoping: React.FC = () => {
         from_email: workEmail.trim(),
         email: workEmail.trim(),
         reply_to: workEmail.trim(),
-        title: `Project scoping request - ${company.trim()}`,
+        title: `Project scoping request: ${company.trim()}`,
         company: company.trim(),
         phone: phoneNumber.trim() || 'Not provided',
         message: projectBrief.trim(),
@@ -101,7 +106,7 @@ export const ContactScoping: React.FC = () => {
         from_email: directEmail,
         email: workEmail.trim(),
         reply_to: directEmail,
-        title: 'We received your project inquiry - Fox Tech Solutions',
+        title: 'We received your project inquiry to Fox Tech Solutions',
         company: company.trim(),
         phone: phoneNumber.trim() || 'Not provided',
         message: projectBrief.trim(),
@@ -114,7 +119,7 @@ export const ContactScoping: React.FC = () => {
       ]);
       const failedDeliveries = results.flatMap((result, index) =>
         result.status === 'rejected'
-          ? [`${index === 0 ? 'Company project notification' : 'Client auto-reply'}: ${result.reason instanceof Error ? result.reason.message : 'Email delivery failed'}`]
+          ? [`${index === 0 ? 'Company project notification' : 'Client auto reply'}: ${result.reason instanceof Error ? result.reason.message : 'Email delivery failed'}`]
           : []
       );
       if (failedDeliveries.length) throw new Error(failedDeliveries.join(' | '));
@@ -122,16 +127,8 @@ export const ContactScoping: React.FC = () => {
       const generatedRef = `FOX-${Math.floor(100000 + Math.random() * 900000)}`;
       setBookingRef(generatedRef);
       setIsSubmitted(true);
-    } catch (error) {
-      const details = error instanceof Error ? error.message : '';
-      const isNetworkError = error instanceof TypeError;
-      const missingRecipient = details.toLowerCase().includes('recipient') && details.toLowerCase().includes('empty');
-      setErrorMsg(isNetworkError
-        ? `The form couldn't reach EmailJS. Check your connection and make sure this site's domain is allowed in EmailJS. You can also email ${directEmail}.`
-        : missingRecipient
-          ? `An EmailJS template has no recipient. Set the company notification template's To Email to ${directEmail}, and the auto-reply template's To Email to {{to_email}}.`
-          : `EmailJS rejected the request${details ? `: ${details}` : '.'} Please check the EmailJS service, template, and recipient settings, or email ${directEmail}.`
-      );
+    } catch {
+      setErrorMsg(`We could not confirm delivery. Please try again or email ${directEmail}.`);
     } finally {
       setIsSubmitting(false);
     }
@@ -187,16 +184,16 @@ export const ContactScoping: React.FC = () => {
                     <Sparkles className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-white">Cross-Functional Dedicated Pod</div>
+                    <div className="text-sm font-bold text-white">Cross Functional Dedicated Pod</div>
                     <div className="text-xs text-[#d6c7be] mt-0.5">
-                      1 Lead Product Designer + 1 Full-Stack Engineer + 1 Technical Growth Specialist
+                      1 Lead Product Designer + 1 Full Stack Engineer + 1 Technical Growth Specialist
                     </div>
                   </div>
                 </div>
 
                 <div className="pt-2 border-t border-[#3d2216]/80 flex items-center justify-between text-xs font-mono">
                   <span className="text-[#a89587]">Typical Sprint:</span>
-                  <span className="text-[#00d2b4] font-semibold">2 – 4 Weeks Launchpad</span>
+                  <span className="text-[#00d2b4] font-semibold">2 to 4 Weeks Launchpad</span>
                 </div>
               </div>
 
@@ -217,18 +214,18 @@ export const ContactScoping: React.FC = () => {
                   </div>
                   <div className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#ff6a00] shrink-0 mt-0.5" />
-                    <span>High-Performance Core Web Vitals & Technical SEO</span>
+                    <span>High Performance Core Web Vitals & Technical SEO</span>
                   </div>
                   <div className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#00d2b4] shrink-0 mt-0.5" />
-                    <span>24/7 Managed Uptime, Security Shields & Post-Launch Support</span>
+                    <span>24/7 Managed Uptime, Security Shields & Post Launch Support</span>
                   </div>
                 </div>
               </div>
 
               {/* Trust Tag */}
               <div className="p-3 rounded-lg bg-[#140905] border border-[#3d2216] text-[11px] text-[#a89587] flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                <span>Mutual Non-Disclosure Signed Upfront</span>
+                <span>Mutual Non Disclosure Signed Upfront</span>
                 <span className="text-[#00d2b4] font-semibold">100% IP Ownership</span>
               </div>
             </div>
@@ -241,6 +238,7 @@ export const ContactScoping: React.FC = () => {
               
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  <div hidden aria-hidden="true"><label>Leave this empty<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
                   <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#3d2216]">
                     <h3 className="text-base sm:text-lg font-bold text-white">
                       Project & Contact Details
@@ -266,6 +264,7 @@ export const ContactScoping: React.FC = () => {
                         <input
                           type="text"
                           id="scoping-name"
+                          maxLength={120}
                           name="from_name"
                           autoComplete="name"
                           required
@@ -287,6 +286,7 @@ export const ContactScoping: React.FC = () => {
                         <input
                           type="email"
                           id="scoping-email"
+                          maxLength={254}
                           name="from_email"
                           autoComplete="email"
                           required
@@ -310,6 +310,7 @@ export const ContactScoping: React.FC = () => {
                         <input
                           type="text"
                           id="scoping-company"
+                          maxLength={160}
                           name="company"
                           autoComplete="organization"
                           required
@@ -331,6 +332,7 @@ export const ContactScoping: React.FC = () => {
                         <input
                           type="tel"
                           id="scoping-phone"
+                          maxLength={40}
                           name="phone"
                           autoComplete="tel"
                           value={phoneNumber}

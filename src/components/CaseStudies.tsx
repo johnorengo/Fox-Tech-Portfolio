@@ -26,14 +26,14 @@ export const CaseStudies: React.FC = () => {
       urlLabel: 'Visit Sebby Logistics',
       isLiveSite: true,
       headline: 'Premium Kenyan Flowers, Direct from Farms to the World',
-      summary: 'Fox Tech built the completed Sebby Logistics Ltd website to connect international flower buyers with Kenyan growers and its JKIA dispatch team. The responsive site presents farm-direct sourcing, quality assurance, procurement management and worldwide cold-chain airfreight in one clear journey. Wholesalers, distributors, florists, supermarket chains and importers can explore the service, understand the farm network and submit a detailed sourcing and freight enquiry.',
+      summary: 'Fox Tech built the completed Sebby Logistics Ltd website to connect international flower buyers with Kenyan growers and its JKIA dispatch team. The responsive site presents farm direct sourcing, quality assurance, procurement management and worldwide cold chain airfreight in one clear journey. Wholesalers, distributors, florists, supermarket chains and importers can explore the service, understand the farm network and submit a detailed sourcing and freight enquiry.',
       highlights: [
         { label: 'Complete service story', detail: 'Dedicated sections explain farm selection, purchasing, quality control, documentation and international airfreight from JKIA.' },
-        { label: 'Kenya-wide farm network', detail: 'A growing-region overview introduces 10 sourcing areas, including Naivasha, Nakuru, Nanyuki & Timau, Mount Elgon and Kajiado.' },
+        { label: 'Kenya wide farm network', detail: 'A growing region overview introduces 10 sourcing areas, including Naivasha, Nakuru, Nanyuki & Timau, Mount Elgon and Kajiado.' },
         { label: 'Detailed quotation journey', detail: 'Buyers specify destination country and airport, flower varieties, quantity, order frequency and target arrival date.' },
         { label: 'Direct contact routes', detail: 'WhatsApp, phone and dedicated sales, support and invoice email contacts connect buyers with the right team.' },
-        { label: 'Responsive brand experience', detail: 'Full-width flower photography, clear navigation and a mobile-friendly layout carry the brand across screen sizes.' },
-        { label: 'Search-ready business presence', detail: 'Service and organization structured data, social sharing metadata and location details describe the business for search engines.' },
+        { label: 'Responsive brand experience', detail: 'Full width flower photography, clear navigation and a mobile friendly layout carry the brand across screen sizes.' },
+        { label: 'Search ready business presence', detail: 'Service and organization structured data, social sharing metadata and location details describe the business for search engines.' },
       ],
       stack: ['Responsive website', 'Detailed quote enquiries', 'WhatsApp contact', 'Structured data & SEO'],
     },
@@ -46,18 +46,18 @@ export const CaseStudies: React.FC = () => {
       shortLabel: 'Citymart Electricals',
       client: 'Citymart Electricals',
       projectType: 'Commercial Project',
-      industry: 'Electrical Supplies & E-Commerce',
+      industry: 'Electrical Supplies & Online Commerce',
       timeframe: 'Live Commercial Storefront',
       externalUrl: 'https://citymartelectricals.com/',
       urlLabel: 'Visit Citymart Electricals',
       isLiveSite: true,
-      headline: "From Lighting Inspiration to a Project-Ready Quotation",
-      summary: "A digital showroom and product-discovery website for City Mart Electricals & General Hardware in Kisumu. Homeowners, electricians, contractors, architects, interior designers and institutions can explore lighting and power supplies, compare product information and see installation examples before contacting the team. The experience connects a broad catalog with practical service guidance, product-specific quotation requests and direct WhatsApp enquiries, helping customers move from an initial idea to a clearer discussion about fittings, quantities and project requirements.",
+      headline: "From Lighting Inspiration to a Project Ready Quotation",
+      summary: "A digital showroom and product discovery website for City Mart Electricals & General Hardware in Kisumu. Homeowners, electricians, contractors, architects, interior designers and institutions can explore lighting and power supplies, compare product information and see installation examples before contacting the team. The experience connects a broad catalog with practical service guidance, product specific quotation requests and direct WhatsApp enquiries, helping customers move from an initial idea to a clearer discussion about fittings, quantities and project requirements.",
       highlights: [
         {"label": "Lighting & electrical catalog", "detail": "Search and browse chandeliers, ceiling lights, LED bulbs, switches, sockets, outdoor fittings, solar products and electrical accessories."},
-        {"label": "Product-level discovery", "detail": "Individual product pages bring together product information, related items and a direct request-for-quotation action."},
+        {"label": "Product level discovery", "detail": "Individual product pages bring together product information, related items and a direct request for quotation action."},
         {"label": "Solutions for different projects", "detail": "Service pages explain residential, commercial and institutional lighting, electrical supply, design consultation and bulk project supply."},
-        {"label": "Installation inspiration", "detail": "A project gallery shows lighting applications across homes, commercial buildings and hospitality spaces, with category-based browsing."},
+        {"label": "Installation inspiration", "detail": "A project gallery shows lighting applications across homes, commercial buildings and hospitality spaces, with category based browsing."},
         {"label": "Enquiries with context", "detail": "Product quotation links, WhatsApp contact and an enquiry form give customers several ways to discuss pricing and project needs."},
         {"label": "Local business, wider reach", "detail": "Store location, contact details, customer feedback and nationwide supply information connect the online showroom to the Kisumu business."},
       ],
@@ -79,16 +79,16 @@ export const CaseStudies: React.FC = () => {
       urlLabel: 'Visit Verification Portal',
       isLiveSite: true,
       headline: "Reliable Learner Records, from Schools to Education Oversight",
-      summary: "A Ministry of Education platform supporting the verification of learners already held in school records. Its purpose is to help schools check that recorded enrolment reflects actual learners and address unverified or nonexistent entries that can distort education planning and funding. The public gateway separates Heads of Institution, Sub-County Directors and County Directors, giving school-level users and education oversight officers distinct entry points. Schools sign in with their UIC code, while director accounts use official email credentials.",
+      summary: "A Ministry of Education platform supporting the verification of learners already held in school records. Its purpose is to help schools check that recorded enrolment reflects actual learners and address unverified or nonexistent entries that can distort education planning and funding. The public gateway separates Heads of Institution, Sub County Directors and County Directors, giving school level users and education oversight officers distinct entry points. Schools sign in with their UIC code, while director accounts use official email credentials.",
       highlights: [
-        {"label": "School-level record verification", "detail": "Focuses on checking existing learner records against actual enrolment, supporting more dependable school data."},
-        {"label": "Three clear user pathways", "detail": "A role-selection gateway directs institution heads, sub-county directors and county directors to their respective sign-in pages."},
-        {"label": "Institution-linked access", "detail": "The school login requests a UIC code and password, linking the entry journey to the institution using the system."},
-        {"label": "Education oversight access", "detail": "Separate director sign-in pages use official email addresses, reflecting the sub-county and county oversight structure."},
+        {"label": "School level record verification", "detail": "Focuses on checking existing learner records against actual enrolment, supporting more dependable school data."},
+        {"label": "Three clear user pathways", "detail": "A role selection gateway directs institution heads, sub county directors and county directors to their respective sign in pages."},
+        {"label": "Institution linked access", "detail": "The school login requests a UIC code and password, linking the entry journey to the institution using the system."},
+        {"label": "Education oversight access", "detail": "Separate director sign in pages use official email addresses, reflecting the sub county and county oversight structure."},
         {"label": "Enrolment & funding integrity", "detail": "Verifying recorded learners helps address ghost entries and provides a stronger basis for education resource decisions."},
-        {"label": "Clear, responsive entry experience", "detail": "Ministry branding, role-selection validation and layouts for different screen sizes make the public access journey easier to follow."},
+        {"label": "Clear, responsive entry experience", "detail": "Ministry branding, role selection validation and layouts for different screen sizes make the public access journey easier to follow."},
       ],
-      stack: ["Learner record verification", "Institution & director roles", "UIC-based school login", "Enrolment data quality"],
+      stack: ["Learner record verification", "Institution & director roles", "UIC based school login", "Enrolment data quality"],
 
     },
     {
@@ -106,13 +106,13 @@ export const CaseStudies: React.FC = () => {
       urlLabel: 'Visit EEMS Platform',
       isLiveSite: true,
       headline: "School Safety from Early Warning to Coordinated Response",
-      summary: "The Education Emergency Management System brings school safety monitoring, preparedness and response into one platform for Kenya. It connects Heads of Institution, Sub-County Directors, County Directors and Ministry headquarters administrators around school risk, hazard alerts and incident follow-up. The platform presents nationwide protection across all 47 counties, combining hazard information and school profiles with reporting, child-protection workflows, preparedness assessments and official guidance. Its focus is practical coordination: helping education teams understand exposure, identify priorities and organize action when learning is disrupted.",
+      summary: "The Education Emergency Management System brings school safety monitoring, preparedness and response into one platform for Kenya. It connects Heads of Institution, Sub County Directors, County Directors and Ministry headquarters administrators around school risk, hazard alerts and incident follow up. The platform presents nationwide protection across all 47 counties, combining hazard information and school profiles with reporting, child protection workflows, preparedness assessments and official guidance. Its focus is practical coordination: helping education teams understand exposure, identify priorities and organize action when learning is disrupted.",
       highlights: [
         {"label": "Hazards & school exposure", "detail": "Monitoring covers flood, drought, storm and fire risks, with alerts and school exposure information to guide safety priorities."},
-        {"label": "Risk profiles & preparedness", "detail": "Color-coded school risk levels and preparedness surveys help teams review vulnerability and readiness before emergencies escalate."},
-        {"label": "Incident reporting & review", "detail": "School incident reports feed oversight workflows, including sub-county verification, rejection and follow-up views."},
-        {"label": "Multi-level coordination", "detail": "Role-specific workspaces support school leadership, sub-county and county directors, and Ministry headquarters administration."},
-        {"label": "Safeguarding & continuity", "detail": "Child-protection workflows and Education in Emergency checklists bring student welfare and learning-continuity reporting into the platform."},
+        {"label": "Risk profiles & preparedness", "detail": "Color coded school risk levels and preparedness surveys help teams review vulnerability and readiness before emergencies escalate."},
+        {"label": "Incident reporting & review", "detail": "School incident reports feed oversight workflows, including sub county verification, rejection and follow up views."},
+        {"label": "Multi level coordination", "detail": "Role specific workspaces support school leadership, sub county and county directors, and Ministry headquarters administration."},
+        {"label": "Safeguarding & continuity", "detail": "Child protection workflows and Education in Emergency checklists bring student welfare and learning continuity reporting into the platform."},
         {"label": "Guidance & operational insight", "detail": "Downloadable policies, preparedness and response resources sit alongside analytics for school risk and incident status."},
       ],
       stack: ["Hazard & school risk monitoring", "Incident review workflows", "Preparedness assessments", "Safeguarding & policy resources"],
@@ -278,12 +278,12 @@ export const CaseStudies: React.FC = () => {
                           <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                         </a>
                       </div>
-                      <a href={current.previewImage} target="_blank" rel="noopener noreferrer" aria-label={`View full-size screenshot of ${current.client}`} className="block focus-visible:ring-inset">
+                      <a href={current.previewImage} target="_blank" rel="noopener noreferrer" aria-label={`View full size screenshot of ${current.client}`} className="block focus-visible:ring-inset">
                         <img key={current.id} src={current.previewImage} alt={current.previewAlt} width={current.previewWidth} height={current.previewHeight} loading="lazy" decoding="async" className="block h-auto w-full" />
                       </a>
                     </div>
                     <a href={current.previewImage} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-3 px-5 py-3 text-[11px] font-medium text-[#ff9a57] transition-colors hover:text-white">
-                      View full-size preview <ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                      View full size preview <ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                     </a>
 
 

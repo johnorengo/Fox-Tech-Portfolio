@@ -6,6 +6,8 @@ import json
 import re
 import xml.etree.ElementTree as ET
 import zipfile
+import base64
+import hashlib
 
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / 'dist'
@@ -61,8 +63,21 @@ def main():
         assert (DIST / name).is_file(), f'Missing deployment file: {name}'
     for script in (DIST / 'assets').glob('*.js'):
         assert 'import.meta.env' not in script.read_text(encoding='utf-8'), 'Unprocessed environment settings.'
+    headers = (DIST / '.htaccess').read_text(encoding='utf-8')
+    assert '__INLINE_SCRIPT_HASHES__' not in headers, 'Unresolved security policy.'
+    for token in ['Options -Indexes', 'Require all denied', 'LimitExcept GET HEAD', 'Content-Security-Policy', "script-src-attr 'none'", "frame-ancestors 'none'", 'Strict-Transport-Security', 'X-Content-Type-Options', 'Permissions-Policy']:
+        assert token in headers, f'Missing security control: {token}'
+    assert "'unsafe-eval'" not in headers
+    assert "script-src 'self' https://www.googletagmanager.com 'sha256-" in headers
+    for attributes, body in re.findall(r'<script\b([^>]*)>(.*?)</script>', html, re.S | re.I):
+        if re.search(r'\bsrc\s*=', attributes, re.I):
+            continue
+        digest = base64.b64encode(hashlib.sha256(body.replace('\r\n', '\n').replace('\r', '\n').encode()).digest()).decode()
+        assert f"'sha256-{digest}'" in headers, 'Inline script blocked by security policy.'
     files = sorted(path for path in DIST.rglob('*') if path.is_file())
     assert not any(path.name.startswith('.env') or path.suffix == '.map' for path in files), 'Private/build-only files in upload.'
+    allowed = {'.html', '.js', '.css', '.webp', '.png', '.ico', '.svg', '.txt', '.xml', '.woff', '.woff2'}
+    assert all(not path.is_symlink() and (path.name == '.htaccess' or path.suffix in allowed) for path in files), 'Unexpected deployable file.'
     archive = ROOT / 'cpanel-upload.zip'
     with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED) as package:
         for path in files:

@@ -19,41 +19,41 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
       accentColor: '#ff6a00',
       tags: ['Design Systems & Tokens', 'Interactive Figma Prototypes', 'Brand Identity & Guidelines', 'User Research & Journey Mapping', 'UX Friction Elimination'],
       deliverables: [
-        'Comprehensive multi-brand design system with Figma token export',
-        'High-fidelity interactive prototypes tested with real target users',
+        'Comprehensive multi brand design system with Figma token export',
+        'High fidelity interactive prototypes tested with real target users',
         'Bespoke brand visual identity, typography system, and asset library'
       ],
-      clientImpact: 'Decreased user drop-off by 52% and increased product activation within 6 weeks.'
+      clientImpact: 'Decreased user drop off by 52% and increased product activation within 6 weeks.'
     },
     {
       id: 'development',
       number: '02',
       title: 'Custom Web Development & Engineering',
       category: 'development',
-      summary: 'Building fast, accessible, and scalable web platforms. Our designers and engineers collaborate closely to ensure pixel-perfect fidelity.',
+      summary: 'Building fast, accessible, and scalable web platforms. Our designers and engineers collaborate closely to ensure pixel perfect fidelity.',
       icon: Code2,
       accentColor: '#00d2b4',
       tags: ['React & Next.js Platforms', 'TypeScript & Tailwind', 'Node.js & Go API Engines', 'Headless CMS Architecture', 'Edge Performance & SEO'],
       deliverables: [
         'Modular, maintainable frontend architecture with automated test coverage',
-        'Sub-second page load times with Core Web Vitals optimization',
-        'Seamless third-party API, payment gateway, and CRM integrations'
+        'Sub second page load times with Core Web Vitals optimization',
+        'Seamless third party API, payment gateway, and CRM integrations'
       ],
-      clientImpact: 'Reduced deployment cycle from bi-weekly to continuous daily releases.'
+      clientImpact: 'Reduced deployment cycle from bi weekly to continuous daily releases.'
     },
     {
       id: 'marketing',
       number: '03',
       title: 'Digital Marketing & Growth Systems',
       category: 'marketing',
-      summary: 'Data-driven customer acquisition engines combining Conversion Rate Optimization (CRO), technical SEO, and paid performance funnels.',
+      summary: 'Data driven customer acquisition engines combining Conversion Rate Optimization (CRO), technical SEO, and paid performance funnels.',
       icon: TrendingUp,
       accentColor: '#ff6a00',
-      tags: ['Conversion Rate Optimization (CRO)', 'Technical SEO & Content Hubs', 'Paid Search & Social Funnels', 'Multi-Touch Attribution', 'A/B Testing Frameworks'],
+      tags: ['Conversion Rate Optimization (CRO)', 'Technical SEO & Content Hubs', 'Paid Search & Social Funnels', 'Multi Touch Attribution', 'A/B Testing Frameworks'],
       deliverables: [
-        'High-converting landing page variants with automated split testing',
+        'High converting landing page variants with automated split testing',
         'Comprehensive technical SEO architecture driving compounding organic traffic',
-        'Full-funnel analytics dashboards with real-time ROI and CAC visibility'
+        'Full funnel analytics dashboards with real time ROI and CAC visibility'
       ],
       clientImpact: 'Delivered +142% increase in qualified inbound demo requests within 90 days.'
     },
@@ -62,10 +62,10 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
       number: '04',
       title: 'Managed Technical Support & Operations',
       category: 'support',
-      summary: 'Proactive maintenance, round-the-clock reliability monitoring, security shielding, and ongoing technical evolution so you can focus on growth.',
+      summary: 'Proactive maintenance, round the clock reliability monitoring, security shielding, and ongoing technical evolution so you can focus on growth.',
       icon: LifeBuoy,
       accentColor: '#00d2b4',
-      tags: ['24/7 Uptime & Error Monitoring', 'Cloud Hosting Governance', 'Security Shields & Backups', 'Continuous Feature Refinements', 'SLA-Backed Response'],
+      tags: ['24/7 Uptime & Error Monitoring', 'Cloud Hosting Governance', 'Security Shields & Backups', 'Continuous Feature Refinements', 'SLA Backed Response'],
       deliverables: [
         'Guaranteed response times with dedicated technical escalation leads',
         'Automated daily encrypted backups and disaster recovery readiness',
@@ -90,7 +90,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
               Capabilities & Offerings
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight [text-wrap:balance]">
-              Comprehensive Services for Fast-Moving Teams
+              Comprehensive Services for Fast Moving Teams
             </h2>
             <p className="text-[#d6c7be] text-sm sm:text-base mt-2 max-w-xl">
               From Nairobi, we deliver website design, custom software development, UI/UX design,

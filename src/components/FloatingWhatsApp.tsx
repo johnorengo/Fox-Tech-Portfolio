@@ -7,7 +7,7 @@ export const FloatingWhatsApp: React.FC = () => {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
   return (
-    <aside aria-label="WhatsApp Contact" className="fixed bottom-6 right-6 z-40 flex items-center group">
+    <aside aria-label="WhatsApp Contact" className="fixed bottom-24 right-6 z-40 flex items-center group">
       {/* Tooltip badge on hover */}
       <div className="hidden sm:flex items-center gap-2 mr-3 px-3.5 py-1.5 rounded-full bg-[#1e100a] border border-[#3d2216] text-xs text-[#fdf8f5] shadow-xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200">
         <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />

@@ -9,6 +9,10 @@ import infrastructureEngineer from '../assets/images/hero-v2-infrastructure-engi
 import infrastructureEngineerMobile from '../assets/images/hero-v2-infrastructure-engineer-mobile.webp';
 import clientReview from '../assets/images/hero-v3-client-kicc-desktop.webp';
 import clientReviewMobile from '../assets/images/hero-v3-client-kicc-mobile.webp';
+import engineeringTeamTablet from '../assets/images/hero-tablet-team.webp';
+import productDesignerTablet from '../assets/images/hero-tablet-designer.webp';
+import infrastructureEngineerTablet from '../assets/images/hero-tablet-infrastructure.webp';
+import clientReviewTablet from '../assets/images/hero-tablet-kicc.webp';
 
 interface HeroProps {
   onBookScoping: () => void;
@@ -18,21 +22,25 @@ const carouselImages = [
   {
     src: clientReview,
     mobileSrc: clientReviewMobile,
+    tabletSrc: clientReviewTablet,
     alt: 'Kenyan business owner and technology consultant with the KICC tower clearly visible through the Nairobi office windows',
   },
   {
     src: engineeringTeam,
     mobileSrc: engineeringTeamMobile,
+    tabletSrc: engineeringTeamTablet,
     alt: 'Kenyan technology team collaborating around a laptop in a Nairobi office',
   },
   {
     src: productDesigner,
     mobileSrc: productDesignerMobile,
+    tabletSrc: productDesignerTablet,
     alt: 'Kenyan product designer reviewing a digital interface at her workstation',
   },
   {
     src: infrastructureEngineer,
     mobileSrc: infrastructureEngineerMobile,
+    tabletSrc: infrastructureEngineerTablet,
     alt: 'Kenyan infrastructure engineer inspecting servers with a tablet',
   },
 
@@ -71,12 +79,9 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
               key={slide.src}
               className={`absolute inset-0 transition-opacity duration-700 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
             >
-              <picture className="hero-ambient absolute inset-0">
-                <source media="(max-width: 767px)" srcSet={slide.mobileSrc} />
-                <img src={slide.src} alt="" fetchPriority="low" decoding="async" className="h-full w-full object-cover" />
-              </picture>
               <picture className="hero-image-frame absolute inset-x-0 bottom-0">
-              <source media="(max-width: 767px)" srcSet={slide.mobileSrc} />
+              <source media="(min-width: 768px) and (orientation: portrait)" srcSet={slide.tabletSrc} />
+              <source media="(orientation: portrait)" srcSet={slide.mobileSrc} />
               <img
                 src={slide.src}
                 alt=""
@@ -84,7 +89,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
                 height={941}
                 fetchPriority={index === 0 ? 'high' : 'low'}
                 decoding="async"
-                className="hero-photo h-full w-full object-contain"
+                className="hero-photo h-full w-full object-cover"
               />
               </picture>
             </div>

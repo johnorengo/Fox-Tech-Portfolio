@@ -10,13 +10,13 @@ export const About: React.FC = () => {
       accent: '#ff6a00'
     },
     {
-      title: 'Design-to-Code Continuity',
-      description: 'We eliminate the messy chasm between design and development. Designers and software engineers collaborate closely using shared tokens, ensuring what you approve in Figma is pixel-perfect in code.',
+      title: 'Design to Code Continuity',
+      description: 'We eliminate the messy chasm between design and development. Designers and software engineers collaborate closely using shared tokens, ensuring what you approve in Figma is pixel perfect in code.',
       icon: Sparkles,
       accent: '#00d2b4'
     },
     {
-      title: 'Reliable Long-Term Partnership',
+      title: 'Reliable Long Term Partnership',
       description: 'A launch is just day one. We stay embedded to provide 24/7 uptime monitoring, security shields, feature iterations, and proactive support so your business never misses a customer.',
       icon: LifeBuoy,
       accent: '#ff6a00'
@@ -26,7 +26,7 @@ export const About: React.FC = () => {
   const teamPrinciples = [
     {
       title: 'No Repetitive Setup Friction',
-      detail: 'Our modular systems allow creative teams to spend their time thinking and creating rather than re-building basic layouts from scratch.'
+      detail: 'Our modular systems allow creative teams to spend their time thinking and creating rather than re building basic layouts from scratch.'
     },
     {
       title: 'Empathetic Client Onboarding',
@@ -98,12 +98,12 @@ export const About: React.FC = () => {
                 How We Deliver Predictable Quality
               </h3>
               <p className="text-xs sm:text-sm text-[#d6c7be] mt-1">
-                Built-in guardrails and proven workflows for every single client engagement.
+                Built in guardrails and proven workflows for every single client engagement.
               </p>
             </div>
             <div className="flex items-center gap-2 text-xs font-mono text-[#00d2b4]">
               <Users className="w-4 h-4" />
-              <span>Cross-Functional Delivery Pods</span>
+              <span>Cross Functional Delivery Pods</span>
             </div>
           </div>
 

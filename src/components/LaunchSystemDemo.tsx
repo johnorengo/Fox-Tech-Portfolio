@@ -20,40 +20,40 @@ export const LaunchSystemDemo: React.FC = () => {
       description: 'Translating brand guidelines into mathematical design tokens (typography, spacing, color scales) that sync seamlessly between Figma and production code.',
       foxtech: {
         headline: 'Automated Token Architecture',
-        details: 'Design tokens are defined once in Figma and synced directly to Tailwind & CSS variables. Any brand refresh cascades in minutes with zero manual re-keying.',
+        details: 'Design tokens are defined once in Figma and synced directly to Tailwind & CSS variables. Any brand refresh cascades in minutes with zero manual re keying.',
         cycleTime: 'Minutes to update',
         handoffFriction: 'Zero manual redlining',
         consistencyScore: '100% Token Compliance'
       },
       traditional: {
         headline: 'Manual Redlining & Guesswork',
-        details: 'Developers guess padding values, copy hex codes by hand, and build disjointed one-off CSS rules that bloat stylesheets and break layout harmony.',
-        cycleTime: '3 - 5 days back-and-forth',
-        handoffFriction: 'Endless Slack ping-pong',
+        details: 'Developers guess padding values, copy hex codes by hand, and build disjointed one off CSS rules that bloat stylesheets and break layout harmony.',
+        cycleTime: '3 to 5 days back and forth',
+        handoffFriction: 'Endless Slack ping pong',
         consistencyScore: 'Visual drift across pages'
       }
     },
     code: {
       title: '02. Modular Web Development & Component Libraries',
-      description: 'Building accessible, reusable React and TypeScript components that combine into rich landing pages and dynamic digital platforms with pixel-perfect fidelity.',
+      description: 'Building accessible, reusable React and TypeScript components that combine into rich landing pages and dynamic digital platforms with pixel perfect fidelity.',
       foxtech: {
         headline: 'Structured Reusable Library',
-        details: 'Components are pre-tested, responsive by default, and engineered for sub-second Core Web Vitals. New marketing pages launch in hours instead of weeks.',
-        cycleTime: '48-hour page rollouts',
+        details: 'Components are pre tested, responsive by default, and engineered for sub second Core Web Vitals. New marketing pages launch in hours instead of weeks.',
+        cycleTime: '48 hour page rollouts',
         handoffFriction: 'Zero QA regression cycles',
         consistencyScore: 'Strict type safety & unit tests'
       },
       traditional: {
         headline: 'Hardcoded Custom Spaghetti Code',
         details: 'Every new landing page requires rebuilding navigation, footers, and cards from scratch, resulting in slow load times and brittle responsive breakpoints.',
-        cycleTime: '2 - 3 weeks per landing page',
+        cycleTime: '2 to 3 weeks per landing page',
         handoffFriction: 'Repeated visual bugs on mobile',
         consistencyScore: 'Inconsistent responsive behavior'
       }
     },
     growth: {
       title: '03. Frictionless Conversion & Managed Support',
-      description: 'Eliminating friction points in the checkout/lead funnel with data-backed CRO experiments, technical SEO architecture, and round-the-clock platform health.',
+      description: 'Eliminating friction points in the checkout/lead funnel with data backed CRO experiments, technical SEO architecture, and round the clock platform health.',
       foxtech: {
         headline: 'Compounding Inbound Engine',
         details: 'Clear information architecture and calm visual hierarchy lead visitors naturally toward conversion points, supported by 24/7 uptime monitoring.',

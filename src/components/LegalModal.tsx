@@ -55,10 +55,10 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
       title: 'Privacy Policy',
       updated: 'October 2026',
       body: [
-        'Fox Tech Solutions operates under strict privacy-by-design standards. We collect minimal telemetry strictly required for operational delivery, project scoping, and secure client communication.',
+        'Fox Tech Solutions operates under strict privacy by design standards. We collect minimal telemetry strictly required for operational delivery, project scoping, and secure client communication.',
         'We never sell, rent, or distribute client contact data, design assets, or proprietary business information to third parties.',
-        'All preliminary technical reviews and code audits are conducted under reciprocal non-disclosure protections. Project data is strictly confidential.',
-        'For clients in Kenya and international jurisdictions, data handling adheres to the Kenya Data Protection Act 2019 and international GDPR standards with high-security encrypted storage.'
+        'All preliminary technical reviews and code audits are conducted under reciprocal non disclosure protections. Project data is strictly confidential.',
+        'For clients in Kenya and international jurisdictions, data handling adheres to the Kenya Data Protection Act 2019 and international GDPR standards with high security encrypted storage.'
       ]
     },
     terms: {
@@ -67,17 +67,17 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
       body: [
         'All design systems, web development deliverables, and consulting services provided by Fox Tech Solutions are governed by executed Statement of Work (SOW) milestone agreements.',
         'Intellectual Property: Upon complete payment of milestone invoices, all custom code, design tokens, Figma component libraries, and digital assets become the exclusive intellectual property of the client.',
-        'Warranty & Support: Fox Tech Solutions provides a 60-day post-launch warranty covering any functional bugs or layout discrepancies, followed by ongoing managed SLA support options.',
+        'Warranty & Support: Fox Tech Solutions provides a 60 day post launch warranty covering any functional bugs or layout discrepancies, followed by ongoing managed SLA support options.',
         'Jurisdiction: Governing law is set according to the Republic of Kenya with international arbitration clauses available for global enterprise contracts.'
       ]
     },
     security: {
-      title: 'Security Architecture & Compliance Whitepaper',
+      title: 'Website Security',
       updated: 'October 2026',
       body: [
-        'Design-to-Code Integrity: Fox Tech Solutions enforces strict automated linting, type-checking, and dependency vulnerability scans across all client repositories.',
-        'Access Governance: We enforce multi-factor authentication (MFA) and least-privilege role-based access for all staging servers, databases, and third-party APIs.',
-        'Zero Data Persistence: Staging database seedings use anonymized synthetic data. No real production customer records are stored on local designer or engineer workstations.',
+        'Secure Browsing: The deployment configuration redirects visitors to HTTPS and includes browser security headers. These protections require the hosting server to apply the supplied configuration.',
+        'Controlled Resources: The content security policy limits scripts, fonts and network connections to the services used by this website. Inline scripts are verified with hashes generated during the production build.',
+        'Project Enquiries: Form entries are sent through EmailJS for delivery to our team and an acknowledgement to you. Please do not submit passwords, payment details or other sensitive records in a project brief.',
         'Direct Security Reporting: Security concerns can be reported directly to info@foxtechsolution.com with expedited response from our technical team in Nairobi.'
       ]
     }
@@ -106,20 +106,12 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
   }[type];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 animate-in fade-in duration-200">
       <div
         className={`relative isolate w-full max-w-2xl overflow-hidden rounded-2xl bg-gradient-to-br ${documentTheme.gradient} p-[1px] shadow-[0_28px_100px_rgba(0,0,0,0.65)] max-h-[88vh]`}
       >
         <div
-          className="pointer-events-none absolute -right-14 -top-16 h-56 w-56 rounded-full bg-white/25 blur-3xl"
-          aria-hidden="true"
-        />
-        <div
-          className={`pointer-events-none absolute -bottom-20 -left-14 h-64 w-64 rounded-full ${documentTheme.glow} blur-3xl`}
-          aria-hidden="true"
-        />
-        <div
-        className={`relative max-h-[calc(88vh-2px)] overflow-y-auto rounded-[15px] border ${documentTheme.border} bg-[#160c1a]/90 p-6 backdrop-blur-xl sm:p-8`}
+        className={`relative max-h-[calc(88vh-2px)] overflow-y-auto rounded-[15px] border ${documentTheme.border} bg-[#160c1a]/90 p-6 sm:p-8`}
         role="dialog"
         aria-modal="true"
         aria-labelledby="legal-dialog-title"
