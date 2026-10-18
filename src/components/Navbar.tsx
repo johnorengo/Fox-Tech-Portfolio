@@ -11,6 +11,7 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   const navigateToSection = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
@@ -24,6 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
     const updateActiveSection = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
+        setHasScrolled(window.scrollY > 16);
         const header = document.querySelector<HTMLElement>('.site-header');
         const headerHeight = header
           ? Array.from(header.children).slice(0, 2).reduce((height, row) => height + row.getBoundingClientRect().height, 0)
@@ -89,7 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="bg-[#140905]/60 border-b border-[#ff6a00]/15">
+      <div className={`border-b border-[#ff6a00]/15 transition-colors duration-200 motion-reduce:transition-none ${hasScrolled ? 'bg-[#100805] shadow-lg shadow-black/20' : 'bg-[#140905]/85'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-24 py-3 flex items-center justify-between gap-4">
           
           {/* Brand Wordmark with Tagline Underneath */}
