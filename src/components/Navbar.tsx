@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Menu, X, ArrowUpRight, Phone, Mail, MapPin } from 'lucide-react';
 import { FoxTechLogo } from './FoxTechLogo.tsx';
 import { scrollToSection } from '../scrollToSection';
+import { findActiveSection } from '../activeSection';
 
 interface NavbarProps {
   onOpenConsultation: () => void;
@@ -19,23 +20,36 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
   };
 
   useEffect(() => {
-    if (!('IntersectionObserver' in window)) return;
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) setActiveSection(entry.target.id);
+    let frame = 0;
+    const updateActiveSection = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const header = document.querySelector<HTMLElement>('.site-header');
+        const headerHeight = header
+          ? Array.from(header.children).slice(0, 2).reduce((height, row) => height + row.getBoundingClientRect().height, 0)
+          : 0;
+        const sections = ['services', 'system', 'case-studies', 'about', 'contact'].flatMap((id) => {
+          const section = document.getElementById(id);
+          return section ? [{ id, top: section.getBoundingClientRect().top }] : [];
+        });
+        setActiveSection(findActiveSection(sections, headerHeight + 32));
       });
-    }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
-    ['services', 'system', 'case-studies', 'about', 'contact'].forEach((id) => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
-    });
-    const clearAtTop = () => {
-      if (window.scrollY < 100) setActiveSection('');
     };
-    window.addEventListener('scroll', clearAtTop, { passive: true });
+    const observer = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(updateActiveSection) : null;
+    const main = document.getElementById('main-content');
+    const header = document.querySelector('.site-header');
+    if (main) observer?.observe(main);
+    if (header) observer?.observe(header);
+    updateActiveSection();
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    window.addEventListener('resize', updateActiveSection);
+    window.addEventListener('hashchange', updateActiveSection);
     return () => {
-      observer.disconnect();
-      window.removeEventListener('scroll', clearAtTop);
+      cancelAnimationFrame(frame);
+      observer?.disconnect();
+      window.removeEventListener('scroll', updateActiveSection);
+      window.removeEventListener('resize', updateActiveSection);
+      window.removeEventListener('hashchange', updateActiveSection);
     };
   }, []);
 
