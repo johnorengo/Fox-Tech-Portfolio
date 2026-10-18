@@ -105,7 +105,7 @@ export const CaseStudies: React.FC = () => {
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div data-reveal="rise">
+          <div data-reveal="rise" className="min-w-0 md:flex-1">
             <div className="text-xs font-semibold text-[#ff6a00] tracking-wide uppercase mb-2">
               Commercial & Government Case Studies
             </div>
@@ -118,13 +118,13 @@ export const CaseStudies: React.FC = () => {
           </div>
 
           {/* Interactive Case Selector Tabs */}
-          <div data-reveal="rise" data-reveal-delay="2" className="flex flex-wrap items-center gap-1.5 p-1 bg-[#1e100a] rounded-lg border border-[#3d2216]">
+          <div data-reveal="rise" data-reveal-delay="2" className="grid w-full min-w-0 grid-flow-col grid-cols-2 grid-rows-2 gap-1.5 p-1 bg-[#1e100a] rounded-lg border border-[#3d2216] md:flex-1">
             {cases.map((c, idx) => (
               <button
                 key={c.id}
                 onClick={() => setActiveCase(idx)}
                 aria-pressed={activeCase === idx}
-                className={`min-w-0 max-w-full px-3 py-2 text-left text-xs font-medium leading-tight rounded-md transition-colors flex flex-wrap items-center gap-1.5 sm:px-4 ${
+                className={`min-w-0 max-w-full px-3 py-2.5 text-left text-xs font-medium leading-snug rounded-md transition-colors flex items-center gap-1.5 sm:px-4 ${
                   activeCase === idx
                     ? 'bg-gradient-to-r from-[#ff6a00] to-[#f25c05] text-white shadow-sm font-semibold'
                     : 'text-[#d6c7be] hover:text-white hover:bg-[#28150d]'
@@ -132,7 +132,7 @@ export const CaseStudies: React.FC = () => {
               >
                 <span className="min-w-0 break-words">{c.shortLabel}</span>
                 {c.isLiveSite && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00d2b4]" />
+                  <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-[#00d2b4]" />
                 )}
               </button>
             ))}
