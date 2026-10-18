@@ -79,6 +79,11 @@
 .hero-shade {
   background: linear-gradient(180deg, rgba(8, 5, 3, .08) 0%, transparent 55%, rgba(20, 9, 5, .25) 78%, rgba(20, 9, 5, .55) 100%);
 }
+/* Landscape photos fill the desktop width; portrait fitting stays mobile-only. */
+@media (min-width: 768px) {
+  .hero-ambient { filter: none; transform: none; opacity: 1; }
+  .hero-photo { object-fit: cover; object-position: center top; }
+}
 .fox-brand-symbol { width: 96px; height: 52px; object-fit: contain; }
 @media (max-width: 767px) {
   .hero-content { padding-top: max(calc(var(--header-height, 170px) + 120px), 44svh); padding-bottom: 88px; }
@@ -101,7 +106,12 @@
   50% { opacity: 1; }
 }
 
-.fox-brand-tagline { font-family: var(--font-sans); text-shadow: 0 1px 2px #000, 0 2px 5px rgba(0, 0, 0, .8); }
+.fox-brand-name {
+  font-family: var(--font-display);
+  letter-spacing: -.035em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .7);
+}
+.fox-brand-tagline { font-family: var(--font-sans); text-shadow: 0 1px 3px rgba(0, 0, 0, .9); }
 .whatsapp-beacon::before {
   content: '';
   position: absolute;

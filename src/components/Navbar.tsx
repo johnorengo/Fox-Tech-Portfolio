@@ -103,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
           </a>
 
           {/* Clean Nav Links */}
-          <nav aria-label="Primary" className="hidden lg:flex items-center gap-7 text-sm font-medium text-[#d6c7be]">
+          <nav aria-label="Primary" className="hidden lg:flex items-center gap-4 xl:gap-7 text-sm font-medium text-[#d6c7be]">
             {navLinks.map((link) => (
               <a
                 key={link.label}
