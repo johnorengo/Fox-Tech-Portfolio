@@ -142,13 +142,6 @@ html.scroll-reveals-ready [data-reveal-delay="4"] { transition-delay: 160ms; }
   }
 }
 
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .hero-stat-card:hover {
-    translate: 0 -3px;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
-  }
-}
-
 .site-header[data-scrolled="true"] {
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
 }
@@ -164,9 +157,6 @@ html.scroll-reveals-ready [data-reveal-delay="4"] { transition-delay: 160ms; }
   text-decoration-color: #ff6a00;
 }
 
-.hero-stat-card {
-  transition: border-color 250ms ease, translate 250ms ease, box-shadow 250ms ease;
-}
 .ambient-glow {
   animation: glow-breathe 9s ease-in-out infinite;
 }
