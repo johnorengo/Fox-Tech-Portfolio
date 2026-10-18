@@ -11,10 +11,25 @@ import { LegalModal } from './components/LegalModal.tsx';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp.tsx';
 import { ScrollProgress } from './components/ScrollProgress.tsx';
 import { BackToTop } from './components/BackToTop';
-import { scrollToSection } from './scrollToSection';
+import { clearSectionHash, scrollToSection } from './scrollToSection';
 
 export default function App() {
   const [activeLegalModal, setActiveLegalModal] = useState<'privacy' | 'terms' | 'security' | null>(null);
+
+  useEffect(() => {
+    // Existing shared section links still reach their destination, then show a clean URL.
+    const handleSectionHash = () => {
+      const fragment = window.location.hash.slice(1);
+      if (!fragment) return;
+      let id = '';
+      try { id = decodeURIComponent(fragment); } catch { /* Ignore malformed fragments. */ }
+      clearSectionHash();
+      if (document.getElementById(id)) scrollToSection(id);
+    };
+    handleSectionHash();
+    window.addEventListener('hashchange', handleSectionHash);
+    return () => window.removeEventListener('hashchange', handleSectionHash);
+  }, []);
 
   useEffect(() => {
     if (!('IntersectionObserver' in window)) return;
@@ -71,6 +86,11 @@ export default function App() {
       <ScrollProgress />
       <a
         href="#main-content"
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById('main-content')?.focus({ preventScroll: true });
+          scrollToSection('hero');
+        }}
         className="sr-only z-[100] rounded-md bg-[#140905] px-4 py-3 font-semibold text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:ring-2 focus:ring-[#00d2b4]"
       >
         Skip to main content

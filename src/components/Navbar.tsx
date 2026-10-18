@@ -17,7 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
     setMobileMenuOpen(false);
-    scrollToSection(href.slice(1), true);
+    scrollToSection(href.slice(1));
   };
 
   useEffect(() => {

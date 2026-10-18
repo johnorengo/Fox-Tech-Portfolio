@@ -1,11 +1,17 @@
 import React from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import { scrollToSection } from '../scrollToSection';
 
 interface FooterProps {
   onOpenLegal: (type: 'privacy' | 'terms' | 'security') => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
+  const navigateToSection = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    scrollToSection(event.currentTarget.hash.slice(1));
+  };
   return (
     <footer className="bg-[#0e0603] border-t border-[#3d2216] text-[#d6c7be] text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -56,19 +62,19 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
             </div>
             <ul className="space-y-2">
               <li>
-                <a href="#services" className="hover:text-white transition-colors">Services</a>
+                <a href="#services" onClick={navigateToSection} className="hover:text-white transition-colors">Services</a>
               </li>
               <li>
-                <a href="#system" className="hover:text-white transition-colors">Our Process</a>
+                <a href="#system" onClick={navigateToSection} className="hover:text-white transition-colors">Our Process</a>
               </li>
               <li>
-                <a href="#case-studies" className="hover:text-white transition-colors">Case Studies</a>
+                <a href="#case-studies" onClick={navigateToSection} className="hover:text-white transition-colors">Case Studies</a>
               </li>
               <li>
-                <a href="#about" className="hover:text-white transition-colors">About Us</a>
+                <a href="#about" onClick={navigateToSection} className="hover:text-white transition-colors">About Us</a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-white transition-colors">Get in Touch</a>
+                <a href="#contact" onClick={navigateToSection} className="hover:text-white transition-colors">Get in Touch</a>
               </li>
             </ul>
           </div>
