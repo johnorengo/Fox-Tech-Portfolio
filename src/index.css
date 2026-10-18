@@ -65,11 +65,12 @@
   }
 }
 
-/* Keep the complete photograph visible, with copy anchored below its focal area. */
+/* Fill the opening viewport, while allowing content to grow in normal flow. */
 .hero-content {
-  min-height: min(88svh, 640px);
+  min-height: 100vh;
+  min-height: 100dvh;
   padding-top: clamp(200px, 32svh, 320px);
-  padding-bottom: 8px;
+  padding-bottom: 24px;
 }
 .hero-photo { position: absolute; inset: 0 0 auto; height: auto; }
 .hero-photography { aspect-ratio: 1983 / 793; }
@@ -79,12 +80,12 @@
 .fox-brand-symbol { width: 96px; height: 52px; object-fit: contain; }
 @media (max-width: 1023px) {
   .hero-photography { top: 150px; }
-  .hero-content { min-height: min(88svh, 640px); padding-top: clamp(230px, 36svh, 340px); }
+  .hero-content { padding-top: clamp(230px, 36svh, 340px); }
   .hero-shade { background: linear-gradient(180deg, rgba(20,9,5,.2) 0%, transparent 30%, rgba(20,9,5,.7) 60%, #140905 90%); }
 }
 @media (max-width: 639px) {
   .fox-brand-symbol { width: 50px; height: 44px; }
-  .hero-content { min-height: 0; padding-top: min(calc(170px + 100vw * .4), max(190px, calc(100svh - 390px))); }
+  .hero-content { padding-top: min(calc(170px + 100vw * .4), max(190px, calc(100svh - 390px))); padding-bottom: 88px; }
   .hero-photography { top: 170px; }
   .hero-shade { background: linear-gradient(180deg, transparent 0%, transparent 38%, rgba(20,9,5,.3) 48%, #140905 65%); }
 }
