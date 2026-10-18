@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { ArrowUpRight, CheckCircle2, ExternalLink, Globe } from 'lucide-react';
 
 export const CaseStudies: React.FC = () => {
   const [activeCase, setActiveCase] = useState<number>(0);
+  const selectorRef = useRef<HTMLDivElement>(null);
+  const detailsRef = useRef<HTMLDivElement>(null);
 
   const cases = [
     {
@@ -108,12 +110,29 @@ export const CaseStudies: React.FC = () => {
 
   const current = cases[activeCase];
 
+  const selectCase = (index: number) => {
+    if (index === activeCase) return;
+    setActiveCase(index);
+    requestAnimationFrame(() => {
+      const details = detailsRef.current;
+      const selector = selectorRef.current;
+      if (!details || !selector) return;
+      const headerHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 144;
+      const top = window.scrollY + details.getBoundingClientRect().top
+        - headerHeight - selector.getBoundingClientRect().height - 24;
+      window.scrollTo({
+        top: Math.max(0, top),
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      });
+    });
+  };
+
   return (
     <section id="case-studies" className="pt-4 pb-6 bg-[#140905] border-t border-[#3d2216] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div className="mb-6">
           <div data-reveal="rise" className="min-w-0 md:flex-1">
             <div className="text-xs font-semibold text-[#ff6a00] tracking-wide uppercase mb-2">
               Commercial & Government Case Studies
@@ -125,13 +144,14 @@ export const CaseStudies: React.FC = () => {
               Explore four live platforms across flower logistics, commerce, learner verification, and school protection.
             </p>
           </div>
+        </div>
 
           {/* Interactive Case Selector Tabs */}
-          <div data-reveal="rise" data-reveal-delay="2" className="grid w-full min-w-0 grid-flow-col grid-cols-2 grid-rows-2 gap-1.5 p-1 bg-[#1e100a] rounded-lg border border-[#3d2216] md:flex-1">
+          <div ref={selectorRef} role="group" aria-label="Choose a case study" className="sticky top-[calc(var(--header-height,144px)+8px)] z-30 mb-4 grid w-full min-w-0 grid-flow-col grid-cols-2 grid-rows-2 gap-1.5 p-1 bg-[#1e100a] rounded-lg border border-[#3d2216] shadow-lg">
             {cases.map((c, idx) => (
               <button
                 key={c.id}
-                onClick={() => setActiveCase(idx)}
+                onClick={() => selectCase(idx)}
                 aria-pressed={activeCase === idx}
                 className={`min-w-0 max-w-full px-3 py-2.5 text-left text-xs font-medium leading-snug rounded-md transition-colors flex items-center gap-1.5 sm:px-4 ${
                   activeCase === idx
@@ -146,10 +166,9 @@ export const CaseStudies: React.FC = () => {
               </button>
             ))}
           </div>
-        </div>
 
         {/* Featured Case Study Card */}
-        <div data-reveal="soft" className="rounded-2xl border border-[#3d2216] bg-[#1a0d07] overflow-hidden shadow-2xl">
+        <div ref={detailsRef} className="rounded-2xl border border-[#3d2216] bg-[#1a0d07] overflow-hidden shadow-2xl">
           
           {/* Top Metadata Header with Clean Unboxed Typography (NO PILLS) */}
           <div className="flex flex-col items-start gap-3 border-b border-[#3d2216] px-4 py-4 text-xs text-[#d6c7be] sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-8 sm:py-5">
