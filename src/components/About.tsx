@@ -39,7 +39,7 @@ export const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="pt-6 pb-10 sm:pt-8 sm:pb-12 bg-[#140905] border-t border-[#3d2216] relative">
+    <section id="about" className="pt-4 pb-6 bg-[#140905] border-t border-[#3d2216] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

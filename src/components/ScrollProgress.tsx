@@ -19,11 +19,23 @@ export const ScrollProgress: React.FC = () => {
       });
     };
 
+    const header = document.querySelector<HTMLElement>('.site-header');
+    const updateHeaderHeight = () => {
+      if (!header) return;
+      const navigationHeight = Array.from(header.children).slice(0, 2)
+        .reduce((height, row) => height + row.getBoundingClientRect().height, 0);
+      document.documentElement.style.setProperty('--header-height', `${navigationHeight}px`);
+    };
+    const headerObserver = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(updateHeaderHeight) : null;
+    if (header) headerObserver?.observe(header);
+    updateHeaderHeight();
     updateProgress();
     window.addEventListener('scroll', updateProgress, { passive: true });
     window.addEventListener('resize', updateProgress);
     return () => {
       cancelAnimationFrame(frame);
+      headerObserver?.disconnect();
+      document.documentElement.style.removeProperty('--header-height');
       window.removeEventListener('scroll', updateProgress);
       window.removeEventListener('resize', updateProgress);
     };
