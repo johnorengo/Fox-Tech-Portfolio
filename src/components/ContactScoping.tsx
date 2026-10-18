@@ -27,7 +27,7 @@ export const ContactScoping: React.FC = () => {
   const [errorMsg, setErrorMsg] = useState('');
   const [bookingRef, setBookingRef] = useState('');
 
-  const directPhone = '0797697319';
+  const directPhone = '+254 797 697 319';
   const directEmail = 'info@foxtechsolution.com';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -335,7 +335,7 @@ export const ContactScoping: React.FC = () => {
                           autoComplete="tel"
                           value={phoneNumber}
                           onChange={(e) => setPhoneNumber(e.target.value)}
-                          placeholder="e.g. 0797697319"
+                          placeholder="e.g. +254 797 697 319"
                           className="w-full pl-9 pr-3.5 py-2.5 rounded-lg bg-[#140905] border border-[#3d2216] text-sm text-white placeholder-[#785b4d] focus:outline-none focus:border-[#00d2b4] focus:ring-1 focus:ring-[#00d2b4]"
                         />
                       </div>
@@ -380,7 +380,7 @@ export const ContactScoping: React.FC = () => {
                   <div className="text-center text-[11px] text-[#a89587] flex flex-wrap justify-center items-center gap-x-4 gap-y-1 break-all">
                     <span>Direct: {directEmail}</span>
                     <span>·</span>
-                    <span>Call: {directPhone}</span>
+                    <a href="tel:+254797697319" className="hover:text-[#ff8a32] transition-colors">Call: {directPhone}</a>
                     <span>·</span>
                     <span>Nairobi, Kenya</span>
                   </div>
