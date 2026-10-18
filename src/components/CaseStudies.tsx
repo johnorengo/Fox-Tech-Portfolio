@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { ArrowUpRight, CheckCircle2, ExternalLink, Globe } from 'lucide-react';
+import { ArrowUpRight, ExternalLink } from 'lucide-react';
 import sebbyPreview from '../assets/images/case-study-sebby-logistics.webp';
 import citymartPreview from '../assets/images/case-study-citymart-electricals.webp';
 import verificationPreview from '../assets/images/case-study-school-data-verification.webp';
@@ -36,8 +36,6 @@ export const CaseStudies: React.FC = () => {
         { label: 'Search-ready business presence', detail: 'Service and organization structured data, social sharing metadata and location details describe the business for search engines.' },
       ],
       stack: ['Responsive website', 'Detailed quote enquiries', 'WhatsApp contact', 'Structured data & SEO'],
-      previewTitle: 'From Kenyan growers to a worldwide buyer enquiry',
-      previewPoints: ['Explore sourcing & airfreight services', 'Discover 10 Kenyan growing areas', 'Specify flowers, destination & arrival', 'Contact the JKIA dispatch team'],
     },
     {
       id: 'citymart',
@@ -64,8 +62,6 @@ export const CaseStudies: React.FC = () => {
         {"label": "Local business, wider reach", "detail": "Store location, contact details, customer feedback and nationwide supply information connect the online showroom to the Kisumu business."},
       ],
       stack: ["Searchable product catalog", "Product quotation journeys", "Installation gallery", "Service & contact pages"],
-      previewTitle: "Explore the fitting. See the possibilities. Start the enquiry.",
-      previewPoints: ["Browse lighting & power categories", "Review products & related fittings", "Explore installation examples", "Request pricing or project advice"],
 
     },
     {
@@ -93,8 +89,6 @@ export const CaseStudies: React.FC = () => {
         {"label": "Clear, responsive entry experience", "detail": "Ministry branding, role-selection validation and layouts for different screen sizes make the public access journey easier to follow."},
       ],
       stack: ["Learner record verification", "Institution & director roles", "UIC-based school login", "Enrolment data quality"],
-      previewTitle: "A clearer path from school records to accountable oversight",
-      previewPoints: ["Choose institution or director access", "Sign in with role-specific credentials", "Verify learners already on record", "Support dependable enrolment figures"],
 
     },
     {
@@ -122,8 +116,6 @@ export const CaseStudies: React.FC = () => {
         {"label": "Guidance & operational insight", "detail": "Downloadable policies, preparedness and response resources sit alongside analytics for school risk and incident status."},
       ],
       stack: ["Hazard & school risk monitoring", "Incident review workflows", "Preparedness assessments", "Safeguarding & policy resources"],
-      previewTitle: "Understand the risk. Prepare schools. Coordinate the response.",
-      previewPoints: ["Monitor hazards & school exposure", "Assess readiness & risk levels", "Report incidents for review", "Coordinate protection across education levels"],
 
     },
   ];
@@ -220,7 +212,7 @@ export const CaseStudies: React.FC = () => {
           </div>
 
           <div className="p-4 sm:p-8 lg:p-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
               
               {/* Left Column: Story & Metrics */}
               <div className="lg:col-span-7">
@@ -231,19 +223,6 @@ export const CaseStudies: React.FC = () => {
                 <p className="text-[#e5d8cf] text-sm sm:text-base leading-relaxed mb-8">
                   {current.summary}
                 </p>
-
-                <div className="mb-8 grid grid-cols-1 gap-3 rounded-xl border border-[#3d2216] bg-[#140905] p-4 sm:grid-cols-2 sm:p-5">
-                  <div className="col-span-full mb-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#a89587]">Project Highlights</div>
-                  {current.highlights.map((item, index) => (
-                    <div key={item.label} className="flex items-start gap-2.5 rounded-lg border border-white/[0.04] bg-white/[0.02] p-3">
-                      <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${index % 2 === 0 ? 'bg-[#ff6a00]' : 'bg-[#00d2b4]'}`} />
-                      <div>
-                        <div className="text-xs font-semibold text-white">{item.label}</div>
-                        <div className="mt-1 text-[11px] leading-relaxed text-[#a89587]">{item.detail}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
 
                 {/* Tech Stack Unboxed Tags */}
                 <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[#d6c7be] mb-8">
@@ -307,29 +286,18 @@ export const CaseStudies: React.FC = () => {
                       View full-size preview <ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                     </a>
 
-                    <div className="border-t border-white/10 px-5 py-5 sm:px-6">
-                      {current.projectType === 'Government Project' && (
-                        <div className="mb-3 inline-flex max-w-full whitespace-normal rounded-md border border-[#00d2b4]/40 bg-[#00d2b4]/15 px-2.5 py-1 text-[10px] font-bold uppercase leading-tight tracking-wide text-[#7af5df] sm:text-[9px] sm:tracking-[0.16em]">
-                          Government Project
-                        </div>
-                      )}
-                      <h4 className="max-w-sm text-2xl font-bold leading-tight text-white sm:text-3xl">{current.previewTitle}</h4>
-                      <div className="mt-6 space-y-3">
-                        {current.previewPoints.map((point, index) => (
-                          <div key={point} className="flex items-center gap-3 rounded-lg border border-white/[0.07] bg-black/20 px-3.5 py-3">
-                            <span className={`grid h-7 w-7 shrink-0 place-items-center rounded-md ${index % 2 === 0 ? 'bg-[#ff6a00]/15 text-[#ff9a57]' : 'bg-[#00d2b4]/15 text-[#5eead4]'}`}>
-                              <CheckCircle2 className="h-4 w-4" />
-                            </span>
-                            <span className="text-xs font-medium leading-snug text-white/85">{point}</span>
-                          </div>
-                        ))}
+                <div className="grid grid-cols-1 gap-3 border-t border-white/10 px-5 py-5 sm:grid-cols-2 sm:px-6">
+                  <div className="col-span-full mb-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#a89587]">Project Highlights</div>
+                  {current.highlights.map((item, index) => (
+                    <div key={item.label} className="flex items-start gap-2.5 rounded-lg border border-white/[0.04] bg-white/[0.02] p-3">
+                      <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${index % 2 === 0 ? 'bg-[#ff6a00]' : 'bg-[#00d2b4]'}`} />
+                      <div>
+                        <div className="text-xs font-semibold text-white">{item.label}</div>
+                        <div className="mt-1 text-[11px] leading-relaxed text-[#a89587]">{item.detail}</div>
                       </div>
                     </div>
-
-                    <div className="flex items-center gap-2 border-t border-white/10 px-5 py-4 text-[10px] text-white/55 sm:px-6">
-                      <Globe className="h-3.5 w-3.5 shrink-0 text-[#00d2b4]" />
-                      <span className="truncate font-mono">{current.externalUrl?.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
-                    </div>
+                  ))}
+                </div>
                 </div>
               </div>
 

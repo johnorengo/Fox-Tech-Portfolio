@@ -93,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="bg-black/15 border-b border-white/10">
+      <div className="bg-[#140905]/95 backdrop-blur-md border-b border-[#ff6a00]/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-24 py-3 flex items-center justify-between gap-4">
           
           {/* Brand Wordmark with Tagline Underneath */}

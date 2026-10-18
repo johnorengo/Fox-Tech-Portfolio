@@ -9,8 +9,8 @@ export const FoxTechLogo: React.FC<FoxTechLogoProps> = ({ className = '' }) => (
     <img src="/fox-tech-symbol.png?v=transparent" alt="" className="fox-brand-symbol" />
     <span className="flex flex-col items-start gap-1">
       <span className="text-xs min-[380px]:text-sm font-bold tracking-[0.04em] text-[#ff6a00] sm:text-xl">FOX TECH SOLUTIONS</span>
-      <span className="fox-brand-tagline inline-flex max-w-[10rem] flex-wrap gap-x-1 text-[11px] font-bold leading-snug tracking-wide text-[#ff9a57] min-[380px]:text-xs sm:max-w-none sm:text-sm">
-        <span>Smart Tech.</span><span className="whitespace-nowrap">Limitless Possibilities</span>
+      <span className="fox-brand-tagline whitespace-nowrap text-[10px] font-bold leading-snug tracking-wide text-[#ff9a57] min-[380px]:text-[11px] sm:text-sm">
+        Smart Tech. Limitless Possibilities
       </span>
     </span>
   </span>
