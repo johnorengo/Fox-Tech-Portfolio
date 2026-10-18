@@ -65,7 +65,8 @@ def main():
         assert 'import.meta.env' not in script.read_text(encoding='utf-8'), 'Unprocessed environment settings.'
     headers = (DIST / '.htaccess').read_text(encoding='utf-8')
     assert '__INLINE_SCRIPT_HASHES__' not in headers, 'Unresolved security policy.'
-    for token in ['Options -Indexes', 'Require all denied', 'LimitExcept GET HEAD', 'Content-Security-Policy', "script-src-attr 'none'", "frame-ancestors 'none'", 'Strict-Transport-Security', 'X-Content-Type-Options', 'Permissions-Policy']:
+    assert '<LimitExcept' not in headers and 'Require all denied' not in headers, 'Do not introduce broad authorization blocks on shared LiteSpeed hosting.'
+    for token in ['Options -Indexes', 'RewriteCond %{REQUEST_METHOD} !^(GET|HEAD)$', 'Content-Security-Policy', "script-src-attr 'none'", "frame-ancestors 'none'", 'Strict-Transport-Security', 'X-Content-Type-Options', 'Permissions-Policy']:
         assert token in headers, f'Missing security control: {token}'
     assert "'unsafe-eval'" not in headers
     assert "script-src 'self' https://www.googletagmanager.com 'sha256-" in headers
@@ -78,13 +79,31 @@ def main():
     assert not any(path.name.startswith('.env') or path.suffix == '.map' for path in files), 'Private/build-only files in upload.'
     allowed = {'.html', '.js', '.css', '.webp', '.png', '.ico', '.svg', '.txt', '.xml', '.woff', '.woff2'}
     assert all(not path.is_symlink() and (path.name == '.htaccess' or path.suffix in allowed) for path in files), 'Unexpected deployable file.'
+    # Regression: security path filters must never match the homepage or public assets.
+    deny_patterns = [re.compile(pattern, re.I if 'NC' in flags else 0)
+                     for pattern, flags in re.findall(r'^\s*RewriteRule (\S+) - \[([^\]]*\bF\b[^\]]*)\]', headers, re.M)
+                     if pattern != '^']
+    assert len(deny_patterns) == 2, 'Expected scoped private path filters.'
+    for name in ['', 'index.html', '404.html', 'robots.txt', 'sitemap.xml', '.well-known/acme-challenge/token'] + [path.relative_to(DIST).as_posix() for path in files if path.name != '.htaccess']:
+        assert not any(pattern.search(name) for pattern in deny_patterns), f'Public path would return 403: {name}'
+    for name in ['.env', '.git/config', '.htaccess', 'package.json', 'package-lock.json', 'assets/app.js.map', 'cpanel-upload.zip', 'backup.sql']:
+        assert any(pattern.search(name) for pattern in deny_patterns), f'Private path is not protected: {name}'
+    methods = re.search(r'RewriteCond %\{REQUEST_METHOD\} !(\S+) \[NC\]\s+RewriteRule \^ - \[F,L\]', headers)
+    assert methods, 'Method restriction must be a conditional rewrite, not an authorization block.'
+    assert all(re.fullmatch(methods[1], method) for method in ['GET', 'HEAD'])
+    assert not any(re.fullmatch(methods[1], method) for method in ['POST', 'PUT', 'DELETE', 'PATCH'])
     archive = ROOT / 'cpanel-upload.zip'
     with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED) as package:
         for path in files:
-            package.write(path, path.relative_to(DIST).as_posix())
+            entry = zipfile.ZipInfo.from_file(path, path.relative_to(DIST).as_posix())
+            entry.create_system = 3
+            entry.external_attr = 0o100644 << 16
+            entry.compress_type = zipfile.ZIP_DEFLATED
+            package.writestr(entry, path.read_bytes())
     with zipfile.ZipFile(archive) as package:
         assert package.testzip() is None, 'Corrupt ZIP entry.'
         assert 'index.html' in package.namelist() and '.htaccess' in package.namelist()
+        assert all(info.external_attr >> 16 == 0o100644 for info in package.infolist()), 'Incorrect deployment file permissions.'
     print(f'Validated pre-rendered SEO content, metadata, local assets and archive integrity.\nCreated {archive.name}: {len(files)} files, {archive.stat().st_size / 1024 / 1024:.2f} MB. Extract directly into the domain document root.')
 
 

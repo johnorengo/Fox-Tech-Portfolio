@@ -4,18 +4,13 @@ Options -Indexes
 ServerSignature Off
 LimitRequestBody 524288
 
-<IfModule mod_authz_core.c>
-  <FilesMatch "(?i)^(\.(?!well-known)|package(?:-lock)?\.json$)|\.(?:map|log|sql|bak|zip|tsx?|py|mjs)$">
-    Require all denied
-  </FilesMatch>
-  <LimitExcept GET HEAD>
-    Require all denied
-  </LimitExcept>
-</IfModule>
-
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  # Keep restrictions in mod_rewrite: avoid authorization-section merging on LiteSpeed.
+  RewriteCond %{REQUEST_METHOD} !^(GET|HEAD)$ [NC]
+  RewriteRule ^ - [F,L]
   RewriteRule (^|/)\.(?!well-known(?:/|$)) - [F,L]
+  RewriteRule (^|/)(package(?:-lock)?\.json|[^/]+\.(map|log|sql|bak|zip|tsx?|py|mjs))$ - [F,L,NC]
   RewriteCond %{HTTPS} !=on [OR]
   RewriteCond %{HTTP_HOST} ^www\.foxtechsolution\.com$ [NC]
   RewriteRule ^ https://foxtechsolution.com%{REQUEST_URI} [R=301,L,NE]

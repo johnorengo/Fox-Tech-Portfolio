@@ -15,6 +15,8 @@ Source code stays in Git. Do not upload the repository, `.env`, `node_modules` o
 
 Use the `.htaccess` inside the ZIP. The source version in `public/` is a build template; production script hashes are inserted during packaging.
 
+If replacing the earlier upload after a 403, overwrite the old `.htaccess` and site files with the corrected archive. Confirm regular files (including `.htaccess` and `index.html`) have permissions `0644` and directories have `0755`. The rebuilt archive explicitly stores file permissions as `0644`; do not use `0666` or `0777`. The homepage and assets must be directly in the domain document root.
+
 No Node.js or Python process is needed on the web server. These tools are used locally to produce static files.
 The public EmailJS settings are compiled during the build. Keep the site's domain allowed in EmailJS and retain the configured notification and acknowledgement templates.
 Email delivery still depends on the external EmailJS account and templates; the packaging step does not send test messages.
