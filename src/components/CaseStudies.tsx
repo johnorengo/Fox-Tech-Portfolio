@@ -286,8 +286,12 @@ export const CaseStudies: React.FC = () => {
                       View full-size preview <ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                     </a>
 
-                <div className="grid grid-cols-1 gap-3 border-t border-white/10 px-5 py-5 sm:grid-cols-2 sm:px-6">
-                  <div className="col-span-full mb-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#a89587]">Project Highlights</div>
+
+                </div>
+              </div>
+
+                <div className="lg:col-span-12 grid grid-cols-1 gap-4 rounded-2xl border border-[#3d2216] bg-[#140905] p-5 sm:grid-cols-2 sm:p-6 xl:grid-cols-3">
+                  <h4 className="col-span-full mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#ff9a57]">Project Highlights</h4>
                   {current.highlights.map((item, index) => (
                     <div key={item.label} className="flex items-start gap-2.5 rounded-lg border border-white/[0.04] bg-white/[0.02] p-3">
                       <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${index % 2 === 0 ? 'bg-[#ff6a00]' : 'bg-[#00d2b4]'}`} />
@@ -298,8 +302,6 @@ export const CaseStudies: React.FC = () => {
                     </div>
                   ))}
                 </div>
-                </div>
-              </div>
 
             </div>
           </div>
