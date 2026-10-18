@@ -10,6 +10,7 @@ import { Footer } from './components/Footer.tsx';
 import { LegalModal } from './components/LegalModal.tsx';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp.tsx';
 import { ScrollProgress } from './components/ScrollProgress.tsx';
+import { scrollToSection } from './scrollToSection';
 
 export default function App() {
   const [activeLegalModal, setActiveLegalModal] = useState<'privacy' | 'terms' | 'security' | null>(null);
@@ -57,10 +58,7 @@ export default function App() {
     };
   }, []);
   const scrollToContact = () => {
-    const contactElement = document.getElementById('contact');
-    if (contactElement) {
-      contactElement.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToSection('contact');
   };
 
   const handleSelectService = () => {

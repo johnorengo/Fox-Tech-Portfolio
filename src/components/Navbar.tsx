@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Menu, X, ArrowUpRight, Phone, Mail, MapPin } from 'lucide-react';
 import { FoxTechLogo } from './FoxTechLogo.tsx';
+import { scrollToSection } from '../scrollToSection';
 
 interface NavbarProps {
   onOpenConsultation: () => void;
@@ -9,6 +10,13 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+
+  const navigateToSection = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    setMobileMenuOpen(false);
+    scrollToSection(href.slice(1), true);
+  };
 
   useEffect(() => {
     if (!('IntersectionObserver' in window)) return;
@@ -99,6 +107,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               <a
                 key={link.label}
                 href={link.href}
+                onClick={(event) => navigateToSection(event, link.href)}
                 aria-current={activeSection === link.href.slice(1) ? 'location' : undefined}
                 className="hover:text-white transition-colors relative py-1 hover:underline underline-offset-8 decoration-[#ff6a00] whitespace-nowrap"
               >
@@ -147,7 +156,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                 key={link.label}
                 href={link.href}
                 aria-current={activeSection === link.href.slice(1) ? 'location' : undefined}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(event) => navigateToSection(event, link.href)}
                 className="text-[#d6c7be] hover:text-white px-3 py-2 text-base font-medium rounded-md hover:bg-[#28150d]"
               >
                 {link.label}
