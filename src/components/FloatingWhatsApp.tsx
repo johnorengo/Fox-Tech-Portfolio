@@ -21,7 +21,7 @@ export const FloatingWhatsApp: React.FC = () => {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Chat with Fox Tech Solutions on WhatsApp at ${displayPhone}`}
-        className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba5a] active:scale-95 text-white flex items-center justify-center shadow-2xl shadow-[#25D366]/40 transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/50"
+        className="whatsapp-beacon relative isolate w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba5a] active:scale-95 text-white flex items-center justify-center shadow-2xl shadow-[#25D366]/40 transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/50"
       >
         {/* Official WhatsApp SVG Vector Icon */}
         <svg 

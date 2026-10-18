@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite --configLoader runner build",
+    "postbuild": "vite --configLoader runner build --ssr src/entry-server.tsx --outDir .codex-temp/ssr && node scripts/prerender.mjs",
+    "package:cpanel": "npm run build && python scripts/package_cpanel.py",
     "preview": "vite preview"
   },
   "dependencies": {

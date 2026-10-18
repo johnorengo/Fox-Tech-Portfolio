@@ -36,3 +36,14 @@ npm run preview
 ```
 
 The production files are written to `dist/`.
+
+The build also pre-renders the homepage for static hosting and search discovery. React hydrates that content in the browser.
+
+## Prepare a cPanel upload
+
+```bash
+npm run package:cpanel
+```
+
+This rebuilds the site, checks the production HTML and asset references, and updates `cpanel-upload.zip`.
+Extract the ZIP directly into the domain document root. See [the cPanel upload guide](docs/CPANEL-UPLOAD.md).

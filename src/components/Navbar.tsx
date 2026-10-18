@@ -86,7 +86,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               <Mail className="w-3.5 h-3.5 text-[#00d2b4] shrink-0" />
               <span className="font-medium">{directEmail}</span>
             </a>
-            <span className="whitespace-nowrap font-medium text-[#00d2b4]">East Africa Tech Hub</span>
+            <span className="hidden whitespace-nowrap font-medium text-[#00d2b4] md:inline">East Africa Tech Hub</span>
           </div>
 
         </div>

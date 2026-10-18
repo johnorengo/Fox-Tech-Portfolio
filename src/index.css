@@ -99,6 +99,26 @@
   50% { opacity: 1; }
 }
 
+.fox-brand-tagline { font-family: var(--font-display); text-shadow: 0 1px 3px #000; }
+.whatsapp-beacon::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  z-index: -1;
+  border: 2px solid #25d366;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: whatsapp-beacon 2.8s ease-out infinite;
+}
+@keyframes whatsapp-beacon {
+  0%, 20% { transform: scale(.95); opacity: .85; }
+  75%, 100% { transform: scale(1.4); opacity: 0; }
+}
+.whatsapp-beacon:hover::before, .whatsapp-beacon:focus-visible::before { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-beacon::before { animation: none; opacity: 0; }
+}
+
 /* Small, reversible reveals leave fonts and document layout stable. */
 html.scroll-reveals-ready [data-reveal] {
   opacity: 0;
