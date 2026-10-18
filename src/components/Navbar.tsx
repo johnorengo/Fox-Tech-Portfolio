@@ -69,26 +69,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
     <header className="site-header fixed inset-x-0 top-0 z-50 w-full">
       {/* Top Utility Bar with Email in Full */}
       <div className="bg-[#100805] border-b border-[#3d2216] text-[11px] sm:text-xs text-[#f5e9e1]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 flex flex-wrap items-center justify-between gap-x-6 gap-y-1.5">
-          
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
-            <div className="flex items-center gap-1.5 font-medium">
-              <MapPin className="w-3.5 h-3.5 text-[#ff6a00] shrink-0" />
-              <span>Nairobi, Kenya</span>
-            </div>
-            <a href={`tel:${directPhone}`} className="flex items-center gap-1.5 hover:text-[#00d2b4] transition-colors font-mono">
-              <Phone className="w-3.5 h-3.5 text-[#ff6a00] shrink-0" />
-              <span className="font-medium">{displayPhone}</span>
-            </a>
+        <div className="max-w-7xl mx-auto grid grid-cols-[1fr_auto] items-center gap-x-3 gap-y-1 px-4 py-2 sm:px-6 sm:py-2.5 md:grid-cols-[auto_auto_1fr_auto] md:gap-x-6 lg:px-8">
+          <div className="col-start-2 row-start-1 flex items-center gap-1.5 justify-self-end font-medium md:col-start-1 md:justify-self-start">
+            <MapPin className="w-3.5 h-3.5 text-[#ff6a00] shrink-0" />
+            <span className="whitespace-nowrap">Nairobi, Kenya</span>
           </div>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <a href={`mailto:${directEmail}`} className="flex items-center gap-1.5 hover:text-[#ff6a00] transition-colors font-mono">
+          <a href={`tel:${directPhone}`} className="col-start-1 row-start-1 flex items-center gap-1.5 font-mono transition-colors hover:text-[#00d2b4] md:col-start-2">
+            <Phone className="w-3.5 h-3.5 text-[#ff6a00] shrink-0" />
+            <span className="whitespace-nowrap font-medium">{displayPhone}</span>
+          </a>
+          <div className="col-span-2 col-start-1 row-start-2 flex flex-wrap items-center gap-x-3 gap-y-1 md:col-start-3 md:row-start-1 md:justify-self-end">
+            <a href={`mailto:${directEmail}`} className="flex items-center gap-1.5 font-mono transition-colors hover:text-[#ff6a00]">
               <Mail className="w-3.5 h-3.5 text-[#00d2b4] shrink-0" />
               <span className="font-medium">{directEmail}</span>
             </a>
             <span className="hidden whitespace-nowrap font-medium text-[#00d2b4] md:inline">East Africa Tech Hub</span>
           </div>
-
         </div>
       </div>
 
