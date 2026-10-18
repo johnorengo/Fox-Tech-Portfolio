@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 
-import engineeringTeam from '../assets/images/hero-engineering-team.webp';
-import productDesigner from '../assets/images/hero-product-designer.webp';
-import infrastructureEngineer from '../assets/images/hero-infrastructure-engineer.webp';
-import clientReview from '../assets/images/hero-client-review.webp';
+import engineeringTeam from '../assets/images/hero-v2-engineering-team-desktop.webp';
+import engineeringTeamMobile from '../assets/images/hero-v2-engineering-team-mobile.webp';
+import productDesigner from '../assets/images/hero-v2-product-designer-desktop.webp';
+import productDesignerMobile from '../assets/images/hero-v2-product-designer-mobile.webp';
+import infrastructureEngineer from '../assets/images/hero-v2-infrastructure-engineer-desktop.webp';
+import infrastructureEngineerMobile from '../assets/images/hero-v2-infrastructure-engineer-mobile.webp';
+import clientReview from '../assets/images/hero-v2-client-consultation-desktop.webp';
+import clientReviewMobile from '../assets/images/hero-v2-client-consultation-mobile.webp';
 
 interface HeroProps {
   onBookScoping: () => void;
@@ -13,18 +17,22 @@ interface HeroProps {
 const carouselImages = [
   {
     src: engineeringTeam,
+    mobileSrc: engineeringTeamMobile,
     alt: 'Kenyan technology team collaborating around a laptop in a Nairobi office',
   },
   {
     src: productDesigner,
+    mobileSrc: productDesignerMobile,
     alt: 'Kenyan product designer reviewing a digital interface at her workstation',
   },
   {
     src: infrastructureEngineer,
+    mobileSrc: infrastructureEngineerMobile,
     alt: 'Kenyan infrastructure engineer inspecting servers with a tablet',
   },
   {
     src: clientReview,
+    mobileSrc: clientReviewMobile,
     alt: 'Kenyan business owner and technology consultant reviewing a platform together',
   },
 ];
@@ -55,20 +63,27 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
       aria-label="Fox Tech Solutions introduction"
     >
       <div className="hero-stage relative isolate overflow-hidden">
-        <div className="hero-photography absolute inset-x-0 top-0" aria-hidden="true">
+        <div className="hero-photography absolute inset-0" aria-hidden="true">
           {carouselImages.map((slide, index) => (
-            <img
+            <picture
               key={slide.src}
-              src={slide.src}
-              alt=""
-              fetchPriority={index === 0 ? 'high' : 'auto'}
-              decoding="async"
-              className={`hero-photo w-full transition-opacity duration-700 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
-            />
+              className={`absolute inset-0 transition-opacity duration-700 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
+            >
+              <source media="(max-width: 767px)" srcSet={slide.mobileSrc} />
+              <img
+                src={slide.src}
+                alt=""
+                width={1672}
+                height={941}
+                fetchPriority={index === 0 ? 'high' : 'low'}
+                decoding="async"
+                className="hero-photo h-full w-full object-cover"
+              />
+            </picture>
           ))}
         </div>
         <div className="hero-shade absolute inset-0" aria-hidden="true" />
-        <div className="hero-content relative mx-auto flex max-w-7xl flex-col justify-end px-4 pb-8 sm:px-6 lg:px-8 lg:pb-10">
+        <div className="hero-content relative mx-auto flex max-w-7xl flex-col justify-end px-4 sm:px-6 lg:px-8">
           <h1 className="max-w-4xl text-[1.9rem] font-bold leading-[1.1] tracking-tight text-white [text-wrap:balance] sm:text-4xl lg:text-[2.65rem]">
             Simple Systems That Help Creative &amp; Tech Teams Launch Faster
           </h1>
