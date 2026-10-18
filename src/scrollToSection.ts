@@ -16,7 +16,7 @@ export function scrollToSection(id: string, updateHash = false) {
     }
     window.scrollTo({
       top: id === 'hero' ? 0 : Math.max(0, top),
-      behavior: 'instant',
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
     });
   });
 }

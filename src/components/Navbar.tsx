@@ -75,17 +75,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
             <div className="flex items-center gap-1.5 text-[#d6c7be]">
               <MapPin className="w-3.5 h-3.5 text-[#ff6a00] shrink-0" />
               <span>Nairobi, Kenya</span>
-              <span className="hidden lg:inline text-[#00d2b4]">· East Africa Tech Hub</span>
             </div>
             <a href={`tel:${directPhone}`} className="flex items-center gap-1.5 hover:text-[#00d2b4] transition-colors font-mono">
               <Phone className="w-3.5 h-3.5 text-[#ff6a00] shrink-0" />
               <span className="font-medium">{displayPhone}</span>
             </a>
           </div>
-          <a href={`mailto:${directEmail}`} className="flex items-center gap-1.5 hover:text-[#ff6a00] transition-colors font-mono">
-            <Mail className="w-3.5 h-3.5 text-[#00d2b4] shrink-0" />
-            <span className="font-medium">{directEmail}</span>
-          </a>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <a href={`mailto:${directEmail}`} className="flex items-center gap-1.5 hover:text-[#ff6a00] transition-colors font-mono">
+              <Mail className="w-3.5 h-3.5 text-[#00d2b4] shrink-0" />
+              <span className="font-medium">{directEmail}</span>
+            </a>
+            <span className="whitespace-nowrap font-medium text-[#00d2b4]">East Africa Tech Hub</span>
+          </div>
 
         </div>
       </div>

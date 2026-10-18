@@ -122,7 +122,7 @@ export const CaseStudies: React.FC = () => {
         - headerHeight - selector.getBoundingClientRect().height - 24;
       window.scrollTo({
         top: Math.max(0, top),
-        behavior: 'instant',
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
       });
     });
   };
