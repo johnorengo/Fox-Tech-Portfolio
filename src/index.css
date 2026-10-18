@@ -75,7 +75,7 @@
 .hero-content {
   min-height: min(100svh, 760px);
   padding-top: clamp(180px, calc(100svh - 300px), 380px);
-  padding-bottom: 24px;
+  padding-bottom: 16px;
 }
 .hero-photo { position: absolute; inset: 0 0 auto; height: auto; }
 .hero-photography { aspect-ratio: 1983 / 793; }
