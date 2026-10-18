@@ -71,33 +71,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
       <div className="bg-black/35 border-b border-[#3d2216]/90 text-[11px] sm:text-xs text-[#d6c7be]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 flex flex-wrap items-center justify-between gap-x-6 gap-y-1.5">
           
-          {/* Left: Phone & Email written in full */}
           <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
-            <a 
-              href={`tel:${directPhone}`}
-              className="flex items-center gap-1.5 hover:text-[#00d2b4] transition-colors font-mono"
-            >
+            <div className="flex items-center gap-1.5 text-[#d6c7be]">
+              <MapPin className="w-3.5 h-3.5 text-[#ff6a00] shrink-0" />
+              <span>Nairobi, Kenya</span>
+              <span className="hidden lg:inline text-[#00d2b4]">· East Africa Tech Hub</span>
+            </div>
+            <a href={`tel:${directPhone}`} className="flex items-center gap-1.5 hover:text-[#00d2b4] transition-colors font-mono">
               <Phone className="w-3.5 h-3.5 text-[#ff6a00] shrink-0" />
               <span className="font-medium">{displayPhone}</span>
             </a>
-
-            <a 
-              href={`mailto:${directEmail}`}
-              className="flex items-center gap-1.5 hover:text-[#ff6a00] transition-colors font-mono"
-            >
-              <Mail className="w-3.5 h-3.5 text-[#00d2b4] shrink-0" />
-              {/* Email written in full across all devices */}
-              <span className="font-medium">{directEmail}</span>
-            </a>
           </div>
-
-          {/* Right: Location & Hub */}
-          <div className="flex items-center gap-2.5 text-[#a89587]">
-            <MapPin className="w-3.5 h-3.5 text-[#ff6a00] shrink-0" />
-            <span>Nairobi, Kenya</span>
-            <span className="hidden sm:inline select-none text-[#4a281a]">·</span>
-            <span className="hidden sm:inline text-[#00d2b4] font-medium">East Africa Tech Hub</span>
-          </div>
+          <a href={`mailto:${directEmail}`} className="flex items-center gap-1.5 hover:text-[#ff6a00] transition-colors font-mono">
+            <Mail className="w-3.5 h-3.5 text-[#00d2b4] shrink-0" />
+            <span className="font-medium">{directEmail}</span>
+          </a>
 
         </div>
       </div>
@@ -108,7 +96,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
           
           {/* Brand Wordmark with Tagline Underneath */}
           <a 
-            href="/"
+            href="#hero"
+            onClick={(event) => navigateToSection(event, '#hero')}
             className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff6a00] rounded-lg shrink-0"
             aria-label="Fox Tech Solutions Home"
           >

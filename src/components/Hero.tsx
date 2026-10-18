@@ -59,6 +59,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
 
   return (
     <section
+      id="hero"
       className="hero-section relative overflow-hidden bg-[#140905]"
       aria-label="Fox Tech Solutions introduction"
     >

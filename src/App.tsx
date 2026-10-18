@@ -10,6 +10,7 @@ import { Footer } from './components/Footer.tsx';
 import { LegalModal } from './components/LegalModal.tsx';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp.tsx';
 import { ScrollProgress } from './components/ScrollProgress.tsx';
+import { BackToTop } from './components/BackToTop';
 import { scrollToSection } from './scrollToSection';
 
 export default function App() {
@@ -109,6 +110,7 @@ export default function App() {
 
       {/* Floating WhatsApp Action Button */}
       <FloatingWhatsApp />
+      <BackToTop />
     </div>
   );
 }

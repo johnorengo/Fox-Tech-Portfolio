@@ -15,8 +15,8 @@ export function scrollToSection(id: string, updateHash = false) {
       window.history.pushState(null, '', `#${id}`);
     }
     window.scrollTo({
-      top: Math.max(0, top),
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      top: id === 'hero' ? 0 : Math.max(0, top),
+      behavior: 'instant',
     });
   });
 }
