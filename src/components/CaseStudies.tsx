@@ -4,6 +4,7 @@ import sebbyPreview from '../assets/images/case-study-sebby-logistics.webp';
 import citymartPreview from '../assets/images/case-study-citymart-electricals.webp';
 import verificationPreview from '../assets/images/case-study-school-data-verification.webp';
 import emergencyPreview from '../assets/images/case-study-education-emergency.webp';
+import johnPortfolioPreview from '../assets/images/case-study-john-orengo.webp';
 
 export const CaseStudies: React.FC = () => {
   const [activeCase, setActiveCase] = useState<number>(0);
@@ -63,6 +64,32 @@ export const CaseStudies: React.FC = () => {
       ],
       stack: ["Searchable product catalog", "Product quotation journeys", "Installation gallery", "Service & contact pages"],
 
+    },
+    {
+      id: 'john-orengo-portfolio',
+      previewImage: johnPortfolioPreview,
+      previewWidth: 1273,
+      previewHeight: 580,
+      previewAlt: 'John Orengo portfolio homepage highlighting software engineering, cybersecurity and scalable platforms.',
+      shortLabel: 'John Orengo Portfolio',
+      client: 'John Orengo',
+      projectType: 'Personal Portfolio',
+      industry: 'Software Engineering & Cybersecurity',
+      timeframe: 'Live Personal Website',
+      externalUrl: 'https://john4tech.vercel.app/',
+      urlLabel: 'Visit John Orengo Portfolio',
+      isLiveSite: true,
+      headline: 'Secure Software, Scalable Platforms, and a Personal Brand',
+      summary: 'A polished portfolio for Nairobi based full stack software engineer and cybersecurity specialist John Orengo. The site brings his engineering practice, security expertise, business systems work and career experience together in one clear story. Visitors can explore selected client platforms and open source security tools, review his technical strengths and credentials, then start a conversation about software development, cloud security or digital transformation.',
+      highlights: [
+        { label: 'Clear engineering identity', detail: 'A confident introduction positions John across software engineering, cybersecurity and scalable digital platforms.' },
+        { label: 'Selected work in context', detail: 'Commercial websites, government education platforms and open source security tools are presented with project descriptions and direct links.' },
+        { label: 'Security practice', detail: 'Cloud and network security, identity controls, secure application development and security tools have a dedicated place alongside software work.' },
+        { label: 'Broad technical capability', detail: 'Focused expertise areas cover full stack development, AI and machine learning, mobile applications, business systems, cloud and DevOps.' },
+        { label: 'Experience and credentials', detail: 'A career timeline, education and professional certifications give visitors context for his work across technology companies and the public sector.' },
+        { label: 'Direct path to connect', detail: 'LinkedIn, GitHub, Credly and email links make it easy for prospective clients and collaborators to explore credentials or begin a conversation.' },
+      ],
+      stack: ['Engineering portfolio', 'Software & cybersecurity', 'Selected client work', 'Credentials & contact'],
     },
     {
       id: 'learner-verification',
@@ -153,13 +180,13 @@ export const CaseStudies: React.FC = () => {
               Proven Systems in Action
             </h2>
             <p className="text-[#d6c7be] text-sm sm:text-base mt-2 max-w-xl">
-              Explore four live platforms across flower logistics, commerce, learner verification, and school protection.
+              Explore five live projects across flower logistics, commerce, software engineering, learner verification, and school protection.
             </p>
           </div>
         </div>
 
           {/* Interactive Case Selector Tabs */}
-          <div ref={selectorRef} role="group" aria-label="Choose a case study" className="sticky top-[calc(var(--header-height,144px)+8px)] z-30 mb-4 grid w-full min-w-0 grid-flow-col grid-cols-2 grid-rows-2 gap-1.5 p-1 bg-[#1e100a] rounded-lg border border-[#3d2216] shadow-lg">
+          <div ref={selectorRef} role="group" aria-label="Choose a case study" className="sticky top-[calc(var(--header-height,144px)+8px)] z-30 mb-4 grid w-full min-w-0 grid-flow-col grid-cols-2 grid-rows-3 gap-1.5 p-1 bg-[#1e100a] rounded-lg border border-[#3d2216] shadow-lg">
             {cases.map((c, idx) => (
               <button
                 key={c.id}
