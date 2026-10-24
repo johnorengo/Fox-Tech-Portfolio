@@ -242,7 +242,7 @@ export const CaseStudies: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
               
               {/* Left Column: Story & Metrics */}
-              <div className="lg:col-span-7">
+              <div className="order-2 lg:order-1 lg:col-span-7">
                 <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug mb-4 [text-wrap:balance]">
                   {current.headline}
                 </h3>
@@ -284,7 +284,7 @@ export const CaseStudies: React.FC = () => {
 
               </div>
 
-              <div className="lg:col-span-5">
+              <div className="order-1 lg:order-2 lg:col-span-5">
                 <div className="overflow-hidden rounded-2xl border border-[#ff6a00]/20 bg-[#160d08] shadow-xl">
                     <div className="flex items-center justify-between gap-3 px-5 py-4">
                       <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#a89587]">Platform Overview</span>
@@ -317,7 +317,7 @@ export const CaseStudies: React.FC = () => {
                 </div>
               </div>
 
-                <div className="lg:col-span-12 grid grid-cols-1 gap-4 rounded-2xl border border-[#3d2216] bg-[#140905] p-5 sm:grid-cols-2 sm:p-6 xl:grid-cols-3">
+                <div className="order-3 lg:col-span-12 grid grid-cols-1 gap-4 rounded-2xl border border-[#3d2216] bg-[#140905] p-5 sm:grid-cols-2 sm:p-6 xl:grid-cols-3">
                   <h4 className="col-span-full mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#ff9a57]">Project Highlights</h4>
                   {current.highlights.map((item, index) => (
                     <div key={item.label} className="flex items-start gap-2.5 rounded-lg border border-white/[0.04] bg-white/[0.02] p-3">
