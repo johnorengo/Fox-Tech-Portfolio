@@ -33,7 +33,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
               </div>
               <div className="flex items-center gap-2 text-[11px] text-[#a89587]">
                 <MapPin className="w-3.5 h-3.5 text-[#00d2b4] shrink-0" />
-                <span>Nairobi, Kenya</span>
+                <span>Keiyo Road, Parklands, Nairobi, Kenya</span>
               </div>
               <div className="flex items-center gap-2">
                 <svg

@@ -74,7 +74,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
         <div className="max-w-7xl mx-auto grid grid-cols-[1fr_auto] items-center gap-x-3 gap-y-1 px-4 py-2 sm:px-6 sm:py-2.5 md:grid-cols-[auto_auto_1fr_auto] md:gap-x-6 lg:px-8">
           <div className="col-start-2 row-start-1 flex items-center gap-1.5 justify-self-end font-medium md:col-start-1 md:justify-self-start">
             <MapPin className="w-3.5 h-3.5 text-[#ff6a00] shrink-0" />
-            <span className="whitespace-nowrap">Nairobi, Kenya</span>
+            <span className="max-w-[145px] text-right leading-tight sm:max-w-none sm:whitespace-nowrap">Keiyo Road, Parklands, Nairobi, Kenya</span>
           </div>
           <a href={`tel:${directPhone}`} className="col-start-1 row-start-1 flex items-center gap-1.5 font-mono transition-colors hover:text-[#00d2b4] md:col-start-2">
             <Phone className="w-3.5 h-3.5 text-[#ff6a00] shrink-0" />
