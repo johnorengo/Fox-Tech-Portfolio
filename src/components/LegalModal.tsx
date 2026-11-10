@@ -78,7 +78,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
         'Secure Browsing: The deployment configuration redirects visitors to HTTPS and includes browser security headers. These protections require the hosting server to apply the supplied configuration.',
         'Controlled Resources: The content security policy limits scripts, fonts and network connections to the services used by this website. Inline scripts are verified with hashes generated during the production build.',
         'Project Enquiries: Form entries are sent through EmailJS for delivery to our team and an acknowledgement to you. Please do not submit passwords, payment details or other sensitive records in a project brief.',
-        'Direct Security Reporting: Security concerns can be reported directly to info@foxtechsolution.com with expedited response from our technical team at Keiyo Road, Parklands, Nairobi.'
+        'Direct Security Reporting: Security concerns can be reported directly to info@foxtechsolution.com with expedited response from our technical team at Keiyo Road, Nairobi.'
       ]
     }
   };
@@ -128,7 +128,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
 
         <div className={`mb-2 flex items-center gap-2.5 text-xs font-mono ${documentTheme.accent}`}>
           <ShieldCheck className="w-4 h-4" />
-          <span>LEGAL & COMPLIANCE · REVISED {activeContent.updated} · KEIYO ROAD, PARKLANDS, NAIROBI</span>
+          <span>LEGAL & COMPLIANCE · REVISED {activeContent.updated} · KEIYO ROAD, NAIROBI</span>
         </div>
 
         <h3 id="legal-dialog-title" className="text-xl sm:text-2xl font-bold text-white mb-6">

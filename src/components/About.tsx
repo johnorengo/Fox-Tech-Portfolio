@@ -51,7 +51,7 @@ export const About: React.FC = () => {
             Empowering Teams with Structure, Clarity, and Speed
           </h2>
           <p className="text-[#e5d8cf] text-base sm:text-lg mt-4 leading-relaxed">
-            Based on Keiyo Road in Parklands, Nairobi, Fox Tech Solutions was founded to solve a pervasive problem: 
+            Based on Keiyo Road in Nairobi, Fox Tech Solutions was founded to solve a pervasive problem:
             creative and technical teams burning out from context switching, broken developer handoffs, 
             and chaotic launch weeks. We built a calmer, faster way forward with simple, modular systems.
           </p>

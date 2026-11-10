@@ -158,7 +158,7 @@ export const ContactScoping: React.FC = () => {
           </h2>
           <p className="text-[#e5d8cf] text-sm sm:text-base mt-2">
             Tell us about your brand vision, web platform requirements, or digital marketing goals. 
-            Our technical team at Keiyo Road, Parklands, Nairobi reviews every brief and responds within 4 hours.
+            Our technical team at Keiyo Road, Nairobi reviews every brief and responds within 4 hours.
           </p>
         </div>
 
@@ -384,7 +384,7 @@ export const ContactScoping: React.FC = () => {
                     <span>·</span>
                     <a href="tel:+254797697319" className="hover:text-[#ff8a32] transition-colors">Call: {directPhone}</a>
                     <span>·</span>
-                    <span>Keiyo Road, Parklands, Nairobi, Kenya</span>
+                    <span>Keiyo Road, Nairobi, Kenya</span>
                   </div>
                 </form>
               ) : (
@@ -400,7 +400,7 @@ export const ContactScoping: React.FC = () => {
 
                   <p className="text-[#e5d8cf] text-sm max-w-md mx-auto leading-relaxed">
                     Thank you, <span className="text-white font-semibold">{fullName}</span>! 
-                    Our technical and design team at Keiyo Road, Parklands, Nairobi is reviewing your project requirements for <span className="text-white font-medium">{company}</span>.
+                    Our technical and design team at Keiyo Road, Nairobi is reviewing your project requirements for <span className="text-white font-medium">{company}</span>.
                   </p>
 
                   <div className="p-4 rounded-lg bg-[#140905] border border-[#3d2216] max-w-md mx-auto text-left text-xs space-y-2">

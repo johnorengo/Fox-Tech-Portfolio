@@ -93,7 +93,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
               Comprehensive Services for Fast Moving Teams
             </h2>
             <p className="text-[#d6c7be] text-sm sm:text-base mt-2 max-w-xl">
-              From our office on Keiyo Road in Parklands, Nairobi, we deliver website design, custom software development, UI/UX design,
+              From our office on Keiyo Road in Nairobi, we deliver website design, custom software development, UI/UX design,
               digital marketing and managed IT support for businesses in Kenya and beyond.
             </p>
           </div>
