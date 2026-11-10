@@ -129,7 +129,7 @@ export const CaseStudies: React.FC = () => {
       projectType: 'Government Project',
       industry: 'School Safety & Emergency Management',
       timeframe: 'Government Project in Kenya',
-      externalUrl: 'https://kplp.education.go.ke/',
+      externalUrl: 'https://eears.education.go.ke/',
       urlLabel: 'Visit EEMS Platform',
       isLiveSite: true,
       headline: "School Safety from Early Warning to Coordinated Response",
