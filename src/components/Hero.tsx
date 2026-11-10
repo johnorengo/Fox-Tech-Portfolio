@@ -96,12 +96,6 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
           ))}
         </div>
         <div className="hero-shade absolute inset-0" aria-hidden="true" />
-        {currentImageIndex === 0 && (
-          <div className="hero-landmark-label" aria-label="KICC, Kenyatta International Convention Centre, Nairobi">
-            <span className="hero-landmark-acronym">KICC</span>
-            <span className="hero-landmark-name">Kenyatta International Convention Centre · Nairobi</span>
-          </div>
-        )}
         <div className="hero-content relative mx-auto flex max-w-7xl flex-col justify-end px-4 sm:px-6 lg:px-8">
           <h1 className="max-w-4xl text-[1.9rem] font-bold leading-[1.1] tracking-tight text-white [text-wrap:balance] sm:text-4xl lg:text-[2.65rem]">
             Simple Systems That Help Creative &amp; Tech Teams Launch Faster

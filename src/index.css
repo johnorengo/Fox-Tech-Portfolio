@@ -78,25 +78,6 @@
   background: linear-gradient(180deg, rgba(8, 5, 3, .08) 0%, transparent 55%, rgba(20, 9, 5, .25) 78%, rgba(20, 9, 5, .55) 100%);
 }
 .hero-photo { object-position: center top; }
-.hero-landmark-label {
-  position: absolute;
-  z-index: 2;
-  top: calc(var(--header-height, 144px) + 16px);
-  left: max(1rem, calc((100vw - 80rem) / 2 + 2rem));
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  max-width: min(25rem, calc(100vw - 2rem));
-  padding: 9px 13px;
-  border: 1px solid rgba(255, 255, 255, .24);
-  border-radius: 10px;
-  background: rgba(20, 9, 5, .72);
-  color: #fff8f2;
-  box-shadow: 0 6px 22px rgba(0, 0, 0, .24);
-  backdrop-filter: blur(8px);
-}
-.hero-landmark-acronym { color: #ff8b35; font-size: .74rem; font-weight: 800; letter-spacing: .14em; }
-.hero-landmark-name { font-size: .72rem; font-weight: 600; line-height: 1.35; }
 @media (min-width: 768px) and (orientation: portrait) {
   .hero-photo { object-position: center 20%; }
 }
@@ -104,8 +85,6 @@
 @media (max-width: 767px) {
   .hero-content { padding-top: max(calc(var(--header-height, 170px) + 120px), 44svh); padding-bottom: 52px; }
   .hero-shade { background: linear-gradient(180deg, rgba(8,5,3,.05) 0%, transparent 50%, rgba(20,9,5,.3) 76%, rgba(20,9,5,.6) 100%); }
-  .hero-landmark-label { top: calc(var(--header-height, 170px) + 10px); left: 1rem; padding: 7px 10px; }
-  .hero-landmark-name { font-size: .65rem; }
 }
 @media (max-width: 639px) {
   .fox-brand-symbol { width: 50px; height: 44px; }
