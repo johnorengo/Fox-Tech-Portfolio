@@ -3,14 +3,14 @@ import { ArrowRight } from 'lucide-react';
 
 import engineeringTeam from '../assets/images/hero-v2-engineering-team-desktop.webp';
 import engineeringTeamMobile from '../assets/images/hero-v2-engineering-team-mobile.webp';
-import productDesigner from '../assets/images/hero-v2-product-designer-desktop.webp';
-import productDesignerMobile from '../assets/images/hero-v2-product-designer-mobile.webp';
+import productDesigner from '../assets/images/hero-v4-product-designer-desktop.webp';
+import productDesignerMobile from '../assets/images/hero-v4-product-designer-mobile.webp';
 import infrastructureEngineer from '../assets/images/hero-v2-infrastructure-engineer-desktop.webp';
 import infrastructureEngineerMobile from '../assets/images/hero-v2-infrastructure-engineer-mobile.webp';
 import clientReview from '../assets/images/hero-v3-client-kicc-desktop.webp';
 import clientReviewMobile from '../assets/images/hero-v3-client-kicc-mobile.webp';
 import engineeringTeamTablet from '../assets/images/hero-tablet-team.webp';
-import productDesignerTablet from '../assets/images/hero-tablet-designer.webp';
+import productDesignerTablet from '../assets/images/hero-v4-product-designer-tablet.webp';
 import infrastructureEngineerTablet from '../assets/images/hero-tablet-infrastructure.webp';
 import clientReviewTablet from '../assets/images/hero-tablet-kicc.webp';
 
@@ -96,6 +96,12 @@ export const Hero: React.FC<HeroProps> = ({ onBookScoping }) => {
           ))}
         </div>
         <div className="hero-shade absolute inset-0" aria-hidden="true" />
+        {currentImageIndex === 0 && (
+          <div className="hero-landmark-label" aria-label="KICC, Kenyatta International Convention Centre, Nairobi">
+            <span className="hero-landmark-acronym">KICC</span>
+            <span className="hero-landmark-name">Kenyatta International Convention Centre · Nairobi</span>
+          </div>
+        )}
         <div className="hero-content relative mx-auto flex max-w-7xl flex-col justify-end px-4 sm:px-6 lg:px-8">
           <h1 className="max-w-4xl text-[1.9rem] font-bold leading-[1.1] tracking-tight text-white [text-wrap:balance] sm:text-4xl lg:text-[2.65rem]">
             Simple Systems That Help Creative &amp; Tech Teams Launch Faster
